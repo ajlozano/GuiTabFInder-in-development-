@@ -7,13 +7,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainTableViewController: UITableViewController {
 
+    let mainViewModel = MainViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        mainViewModel.scrapeDataFromUrl(titleName: "Insomnium") { songsList in
+            
+        }
+        
     }
 
-
+    
 }
 
