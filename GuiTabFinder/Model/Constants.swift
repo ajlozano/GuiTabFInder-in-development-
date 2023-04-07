@@ -8,7 +8,8 @@
 import Foundation
 
 struct leftSide {
-    static let tabId = ",{&quot;id&quot;:"
+    static let results = "results&quot;:["
+    static let tabId = "{&quot;id&quot;:"
     static let song = ",&quot;song_name&quot;:&quot;"
     static let artist = "artist_name&quot;:&quot;"
     static let type = ",&quot;type&quot;:&quot;"
@@ -20,7 +21,8 @@ struct leftSide {
 }
 
 struct rightSide {
-    static let tabId = ",&quot;song_id&quot;"
+    static let result = "&quot;}]"
+    static let tabId = ",&quot;song_id&quot;:"
     static let artist = "&quot;,&quot;type&quot;"
     static let song = "&quot;,&quot;artist_id&quot;"
     static let type = "&quot;,&quot;part&quot;"

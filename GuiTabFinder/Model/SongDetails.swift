@@ -10,7 +10,9 @@ import Foundation
 struct SongDetails {
     let artist: String
     let song: String
-    let songId: String
+    let tabId: String
     let rating: String
-    var tab: String?
+    let votes: String
+    let tabUrl: String
+    let tab: String?
 }
