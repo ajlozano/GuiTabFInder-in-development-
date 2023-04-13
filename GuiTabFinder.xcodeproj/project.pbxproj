@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD19F76929E5501100AD1837 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD19F76829E5501100AD1837 /* TabViewController.swift */; };
+		AD19F76B29E564B800AD1837 /* TabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD19F76A29E564B800AD1837 /* TabViewModel.swift */; };
 		AD23A24E29DD59E4000255C9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23A24D29DD59E4000255C9 /* Constants.swift */; };
 		AD23A25029DD5B30000255C9 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23A24F29DD5B30000255C9 /* MainViewModel.swift */; };
 		AD23A25229DD603F000255C9 /* ObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23A25129DD603F000255C9 /* ObservableObject.swift */; };
@@ -21,9 +23,13 @@
 		AD68ABD029DC99E0002B510F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AD68ABCF29DC99E0002B510F /* README.md */; };
 		AD7AB45D29DED17F004D84AD /* WebScrapingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7AB45C29DED17F004D84AD /* WebScrapingManager.swift */; };
 		AD97EF4529E0323100F68397 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD97EF4429E0323100F68397 /* MainTableViewCell.swift */; };
+		ADD7AD8F29E6C60100E2ECC8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD7AD8E29E6C60100E2ECC8 /* Extensions.swift */; };
+		ADDEB30A29E85796008092B5 /* SFMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADB877AE29E7E53400BE3B39 /* SFMono-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD19F76829E5501100AD1837 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		AD19F76A29E564B800AD1837 /* TabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewModel.swift; sourceTree = "<group>"; };
 		AD23A24D29DD59E4000255C9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AD23A24F29DD5B30000255C9 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		AD23A25129DD603F000255C9 /* ObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObject.swift; sourceTree = "<group>"; };
@@ -40,6 +46,8 @@
 		AD68ABCF29DC99E0002B510F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		AD7AB45C29DED17F004D84AD /* WebScrapingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebScrapingManager.swift; sourceTree = "<group>"; };
 		AD97EF4429E0323100F68397 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		ADB877AE29E7E53400BE3B39 /* SFMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFMono-Regular.ttf"; path = "../../../_res/SFMono-Regular.ttf"; sourceTree = "<group>"; };
+		ADD7AD8E29E6C60100E2ECC8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +76,7 @@
 			children = (
 				AD68ABBC29DC98CD002B510F /* MainTableViewController.swift */,
 				AD97EF4429E0323100F68397 /* MainTableViewCell.swift */,
+				AD19F76829E5501100AD1837 /* TabViewController.swift */,
 				AD68ABBE29DC98CD002B510F /* Main.storyboard */,
 				AD68ABC629DC98CE002B510F /* LaunchScreen.storyboard */,
 			);
@@ -78,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				AD23A24F29DD5B30000255C9 /* MainViewModel.swift */,
+				AD19F76A29E564B800AD1837 /* TabViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -108,11 +118,29 @@
 				AD23A24A29DD5869000255C9 /* Model */,
 				AD23A24B29DD586E000255C9 /* View */,
 				AD23A24C29DD5873000255C9 /* ViewModel */,
+				ADD7AD8D29E6C59400E2ECC8 /* Extensions */,
+				ADB877AD29E7DD7200BE3B39 /* Fonts */,
 				AD68ABC429DC98CE002B510F /* Assets.xcassets */,
 				AD68ABC929DC98CE002B510F /* Info.plist */,
 				AD68ABC129DC98CD002B510F /* GuiTabFinder.xcdatamodeld */,
 			);
 			path = GuiTabFinder;
+			sourceTree = "<group>";
+		};
+		ADB877AD29E7DD7200BE3B39 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				ADB877AE29E7E53400BE3B39 /* SFMono-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		ADD7AD8D29E6C59400E2ECC8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				ADD7AD8E29E6C60100E2ECC8 /* Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,6 +201,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADDEB30A29E85796008092B5 /* SFMono-Regular.ttf in Resources */,
 				AD68ABC829DC98CE002B510F /* LaunchScreen.storyboard in Resources */,
 				AD68ABC529DC98CE002B510F /* Assets.xcassets in Resources */,
 				AD68ABD029DC99E0002B510F /* README.md in Resources */,
@@ -191,8 +220,11 @@
 				AD23A24E29DD59E4000255C9 /* Constants.swift in Sources */,
 				AD68ABBD29DC98CD002B510F /* MainTableViewController.swift in Sources */,
 				AD68ABC329DC98CD002B510F /* GuiTabFinder.xcdatamodeld in Sources */,
+				ADD7AD8F29E6C60100E2ECC8 /* Extensions.swift in Sources */,
+				AD19F76B29E564B800AD1837 /* TabViewModel.swift in Sources */,
 				AD97EF4529E0323100F68397 /* MainTableViewCell.swift in Sources */,
 				AD68ABB929DC98CD002B510F /* AppDelegate.swift in Sources */,
+				AD19F76929E5501100AD1837 /* TabViewController.swift in Sources */,
 				AD23A25229DD603F000255C9 /* ObservableObject.swift in Sources */,
 				AD68ABBB29DC98CD002B510F /* SceneDelegate.swift in Sources */,
 				AD7AB45D29DED17F004D84AD /* WebScrapingManager.swift in Sources */,
@@ -350,8 +382,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -380,8 +411,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

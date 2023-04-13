@@ -11,25 +11,29 @@ class MainTableViewController: UITableViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
-    let mainViewModel = MainViewModel()
+    var mainViewModel = MainViewModel()
     var songs = [SongDetails]()
+    var selectedSong: SongDetails?
     
-    let loadingView = UIView()
+    var loadingView = UIView()
     let spinner = UIActivityIndicatorView()
     let loadingLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //mainViewModel.fetchData(titleName: "In Flames")
+        
+        setupActivityIndicator()
         setupBinders()
     }
     
     private func setupBinders() {
         mainViewModel.songs.bind { songs in
             if let songList = songs {
-                for song in songList {
-                    self.songs.append(song)
-                }
+//                for song in songList {
+//                    self.songs.append(song)
+//                }
+                self.songs = songList
+                self.turnActivityIndicator(state: false)
                 self.reloadTableViewData()
             }
         }
@@ -48,7 +52,7 @@ class MainTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! MainTableViewCell
         
-        cell.setup(song: self.songs[indexPath.row].song,
+        cell.setup(song: self.songs[indexPath.row].songName,
                    artist: self.songs[indexPath.row].artist,
                    rating: self.songs[indexPath.row].rating,
                    votes: self.songs[indexPath.row].votes)
@@ -57,12 +61,18 @@ class MainTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedSong = songs[indexPath.row]
         
+        performSegue(withIdentifier: "goToTabFromMain", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! TabViewController
+        vc.song = selectedSong
     }
 }
 
 // MARK: - Search Bar delegate methods
-
 extension MainTableViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if (searchBar.text?.count == 0) {
@@ -81,7 +91,6 @@ extension MainTableViewController: UISearchBarDelegate {
 }
 
 // MARK: - Activity indicator methods
-
 extension MainTableViewController {
     func setupActivityIndicator() {
         // Sets the view which contains the loading text and the spinner
@@ -91,7 +100,7 @@ extension MainTableViewController {
         let y = (tableView.frame.height / 2) - (height / 2) - (navigationController?.navigationBar.frame.height)!
         loadingView.frame = CGRect(x: x, y: y, width: width, height: height)
         loadingView.isHidden = true
-        
+
         // Sets loading text
         loadingLabel.textColor = .gray
         loadingLabel.textAlignment = .center
@@ -101,11 +110,11 @@ extension MainTableViewController {
         // Sets spinner
         spinner.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         spinner.style = .large
-        spinner.color = .white
+        spinner.color = .black
 
         loadingView.addSubview(spinner)
         loadingView.addSubview(loadingLabel)
-        
+
         self.tableView.addSubview(loadingView)
     }
     

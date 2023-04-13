@@ -18,6 +18,8 @@ struct leftSide {
     static let votes = "&quot;votes&quot;:"
     static let rating = ",&quot;rating&quot;:"
     static let tabUrl = "tab_url&quot;:&quot;"
+    static let tabBlock = "{&quot;wiki_tab&quot;:{&quot;content&quot;:&quot;"
+    static let tabTuningBlockEnding = "&quot;,&quot;value&quot;:&quot;"
 }
 
 struct rightSide {
@@ -31,6 +33,8 @@ struct rightSide {
     static let votes = ",&quot;rating&quot;"
     static let rating = ",&quot;date&quot;:&quot;"
     static let blockEnding = "&quot;}"
+    static let tabBlockEnding = "&quot;,&quot;revision_id&quot;:"
+    static let tabTuningBlockEnding = "&quot;,&quot;index&quot;:"
 }
 
 struct HeaderURL {
@@ -41,9 +45,6 @@ struct HeaderURL {
 
 struct Endpoints {
     static let urlTabTypeUg = "&page=1&type=200"
-    let searchItem = "Metallica"
-    //let UgBaseUrl = "https://tabs.ultimate-guitar.com/tab/metallica/nothing-else-matters-tabs-8519"
-    //let UgTabTypeUrl = "https://www.ultimate-guitar.com/search.php?title=\(searchItem)&page=1&type=200"
 }
 
 

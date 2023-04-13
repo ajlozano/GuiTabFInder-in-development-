@@ -9,10 +9,11 @@ import Foundation
 
 struct SongDetails {
     let artist: String
-    let song: String
+    let songName: String
     let tabId: String
     let rating: String
     let votes: String
     let tabUrl: String
-    let tab: String?
+    var tab: String?
+    var tabTuning: String?
 }

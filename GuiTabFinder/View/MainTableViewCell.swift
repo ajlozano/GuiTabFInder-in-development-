@@ -19,7 +19,7 @@ class MainTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         cellView.layer.cornerRadius = 10
-        cellView.layer.borderColor = UIColor.green.cgColor
+        cellView.layer.borderColor = UIColor.black.cgColor
         cellView.layer.borderWidth = 1
     }
     
