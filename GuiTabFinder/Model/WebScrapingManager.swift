@@ -29,7 +29,7 @@ struct WebScrapingManager {
             
             let stringHtmlToScrape = stringHtml
             
-            print(stringHtmlToScrape)
+            //print(stringHtmlToScrape)
             
             //Scrape all the information from the HTML
             let tuningString = self.getStringFromHtml(stringHtmlToScrape, leftSide.tabTuningBlockEnding, rightSide.tabTuningBlockEnding)

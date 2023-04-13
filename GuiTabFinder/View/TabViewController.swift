@@ -9,6 +9,7 @@ import UIKit
 
 class TabViewController: UIViewController {
     
+    @IBOutlet weak var tabScrollView: UIScrollView!
     @IBOutlet weak var tuningTitleLabel: UILabel!
     @IBOutlet weak var tabTextView: UITextView!
     @IBOutlet weak var songLabel: UILabel!
@@ -17,17 +18,18 @@ class TabViewController: UIViewController {
     
     let tabViewModel = TabViewModel()
     
-    var song: SongDetails? {
-        didSet {
-            print("Song did Set: \(song?.songName)")
-        }
-    }
+    var song: SongDetails? 
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tabTextView.font = UIFont.monospacedSystemFont(ofSize: 7, weight: .semibold)
         tabTextView.adjustsFontForContentSizeCategory = true
+        
+        tabScrollView.minimumZoomScale = 1.0
+        tabScrollView.maximumZoomScale = 3.0
+        
+        tabScrollView.delegate = self
  
         setupBinders()
         
@@ -35,7 +37,7 @@ class TabViewController: UIViewController {
             tabViewModel.getTabFromUrl(song: songDetails)
         }
     }
-    
+
     private func setupBinders() {
         self.tabViewModel.selectedSong.bind { song in
             // song instance updated with tab details
@@ -57,5 +59,22 @@ class TabViewController: UIViewController {
             self.tabTextView.text = self.song!.tab
         }
     }
+}
 
+// MARK: UIScrollViewDelegate methods
+
+extension TabViewController: UIScrollViewDelegate {
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return self.tabTextView
+    }
+    
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {
+        let textViewSize = tabTextView.frame.size
+        let scrollViewSize = scrollView.bounds.size
+
+        let verticalPadding = textViewSize.height < scrollViewSize.height ? (scrollViewSize.height - textViewSize.height) / 2 : 0
+        let horizontalPadding = textViewSize.width < scrollViewSize.width ? (scrollViewSize.width - textViewSize.width) / 2 : 0
+
+        scrollView.contentInset = UIEdgeInsets(top: verticalPadding, left: horizontalPadding, bottom: verticalPadding, right: horizontalPadding)
+    }
 }

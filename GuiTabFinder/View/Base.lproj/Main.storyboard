@@ -198,13 +198,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AjG-nY-zfz" userLabel="Tab Scroll View">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AjG-nY-zfz" userLabel="Tab Scroll View">
                                 <rect key="frame" x="16" y="169" width="361" height="649"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DB9-Wa-aMp">
                                         <rect key="frame" x="0.0" y="0.0" width="31.666666666666668" height="33"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="tab" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="szD-Hb-kax">
+                                            <textView clipsSubviews="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="tab" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="szD-Hb-kax">
                                                 <rect key="frame" x="0.0" y="0.0" width="31.666666666666668" height="33"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
@@ -253,6 +253,7 @@
                     <connections>
                         <outlet property="artistLabel" destination="37x-kO-CCw" id="xLt-Se-pZl"/>
                         <outlet property="songLabel" destination="Y78-jO-1iB" id="d9C-rn-wmY"/>
+                        <outlet property="tabScrollView" destination="AjG-nY-zfz" id="Qxj-Rn-WSn"/>
                         <outlet property="tabTextView" destination="szD-Hb-kax" id="KzG-sd-EhD"/>
                         <outlet property="tuningLabel" destination="UgG-6e-nib" id="qBv-fu-oMO"/>
                         <outlet property="tuningTitleLabel" destination="AIi-gC-aAU" id="uLK-Ga-TBQ"/>
