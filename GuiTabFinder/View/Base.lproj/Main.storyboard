@@ -201,11 +201,11 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AjG-nY-zfz" userLabel="Tab Scroll View">
                                 <rect key="frame" x="16" y="169" width="361" height="649"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DB9-Wa-aMp">
-                                        <rect key="frame" x="0.0" y="0.0" width="31.666666666666668" height="33"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DB9-Wa-aMp">
+                                        <rect key="frame" x="0.0" y="0.0" width="336.66666666666669" height="641"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="tab" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="szD-Hb-kax">
-                                                <rect key="frame" x="0.0" y="0.0" width="31.666666666666668" height="33"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="31.666666666666668" height="33.333333333333336"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

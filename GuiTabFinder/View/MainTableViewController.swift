@@ -35,6 +35,8 @@ class MainTableViewController: UITableViewController {
                 self.songs = songList
                 self.turnActivityIndicator(state: false)
                 self.reloadTableViewData()
+            } else {
+                
             }
         }
     }

@@ -12,7 +12,7 @@ final class TabViewModel {
 
     func getTabFromUrl(song: SongDetails) {
         print(song.artist)
-        WebScrapingManager.shared.getTabFromUrl(url: song.tabUrl) { [weak self] tabString, tuningString in
+        WebScrapingManager.shared.getTabFromHtml(url: song.tabUrl) { [weak self] tabString, tuningString in
             var scrapingSong = song
             scrapingSong.tab = tabString
             scrapingSong.tabTuning = tuningString

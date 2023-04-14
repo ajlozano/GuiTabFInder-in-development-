@@ -10,32 +10,15 @@ import Foundation
 struct WebScrapingManager {
     
     static let shared = WebScrapingManager()
+    private init() { }
     
-    func getTabFromUrl(url: String, completion: @escaping (String, String?) -> ()) {
-        guard let urlString = URL(string: url) else {
-            print("Error constructing URL resource")
-            return
-        }
-        let task = URLSession.shared.dataTask(with: urlString) { (data, resp, error) in
-            guard let data = data else {
-                print("data task was nil")
-                return
-            }
-
-            guard let stringHtml = String(data: data, encoding: .utf8) else {
-                print("error casting data into string")
-                return
-            }
-            
-            let stringHtmlToScrape = stringHtml
-            
-            //print(stringHtmlToScrape)
-            
+    func getTabFromHtml(url: String, completion: @escaping (String?, String?) -> ()) {
+        fetchDataFromUrl(url: url) { stringHtml in
             //Scrape all the information from the HTML
-            let tuningString = self.getStringFromHtml(stringHtmlToScrape, leftSide.tabTuningBlockEnding, rightSide.tabTuningBlockEnding)
+            let tuningString = self.getStringFromHtml(stringHtml, leftSide.tabTuningBlockEnding, rightSide.tabTuningBlockEnding)
           
             //Scrape all the information from the HTML
-            if let resultBlockString = self.getStringFromHtml(stringHtmlToScrape, leftSide.tabBlock, rightSide.tabBlockEnding) {
+            if let resultBlockString = self.getStringFromHtml(stringHtml, leftSide.tabBlock, rightSide.tabBlockEnding) {
                 var tabBlock = resultBlockString
                 tabBlock = tabBlock.replacingOccurrences(of: "\\n", with: "\n")
                 tabBlock = tabBlock.replacingOccurrences(of: "\\r", with: "")
@@ -45,30 +28,16 @@ struct WebScrapingManager {
                 completion(tabBlock, tuningString)
             }
         }
-        task.resume()
     }
     
-    func getResultsFromTitleSearch(titleName: String, completion: @escaping ([SongDetails]) -> ()) {
+    func getSearchResultsFromHtml(titleName: String, completion: @escaping ([SongDetails]) -> ()) {
+
         let fixedTitleName = titleName.replacingOccurrences(of: " ", with: "%20")
         
-        let urlString = HeaderURL.titleSearchUg + fixedTitleName + Endpoints.urlTabTypeUg
+        let url = HeaderURL.titleSearchUg + fixedTitleName + Endpoints.urlTabTypeUg
 
-        guard let url = URL(string: urlString) else {
-            print("Error constructing URL resource")
-            return
-        }
-        let task = URLSession.shared.dataTask(with: url) { (data, resp, error) in
-            guard let data = data else {
-                print("data task was nil")
-                return
-            }
-
-            guard let stringHtml = String(data: data, encoding: .utf8) else {
-                print("Error casting data into string")
-                return
-            }
-            
-            var stringHtmlToScrape = stringHtml
+        fetchDataFromUrl(url: url) { stringHtml in
+            let stringHtmlToScrape = stringHtml
             var resultBlockToScrape = ""
             var idRow: String?
             
@@ -89,21 +58,18 @@ struct WebScrapingManager {
                         }
                         if let artistName = self.getStringFromHtml(blockString, leftSide.artist, rightSide.artist),
                            let songName = self.getStringFromHtml(blockString, leftSide.song, rightSide.song),
-                           let songType = self.getStringFromHtml(blockString, leftSide.type, rightSide.type),
                            let songPartRaw = self.getStringFromHtml(blockString, leftSide.part, rightSide.part),
                            let songVersionRaw = self.getStringFromHtml(blockString, leftSide.version, rightSide.version),
                            let votes = self.getStringFromHtml(blockString, leftSide.votes, rightSide.votes),
                            let ratingRaw = self.getStringFromHtml(blockString, leftSide.rating, rightSide.rating),
                            let tabUrl = self.getStringFromHtml(blockString+idBlockString+rightSide.blockEnding, leftSide.tabUrl, idBlockString+rightSide.blockEnding){
-                            
-                            var songPart = songPartRaw == "" ? "" : " \(songPartRaw)"
-                            var songVersion = songVersionRaw == "1" ? "" : " (ver \(songVersionRaw))"
-                            var rating = ratingRaw == "0" ? "0" : ratingRaw.dropLast(ratingRaw.count - 3)
 
-//                            print("ID Row: \(idRow!) | Artist: \(artistName) | Song: \(songName) \(songPart) \(songVersion) | Type: \(songType) | Votes: \(votes) | Rating: \(rating)")
-//                            print("tab URL: \(tabUrl+idBlockString)\n")
+                            let rating = ratingRaw == "0" ? "0" : ratingRaw.dropLast(ratingRaw.count - 3)
+                            var songNameComplete = songName
+                            songNameComplete += songPartRaw == "" ? "" : " \(songPartRaw)"
+                            songNameComplete += songVersionRaw == "1" ? "" : " (ver \(songVersionRaw))"
                             
-                            songs.append(SongDetails(artist: artistName, songName: songName+songPart+songVersion , tabId: idBlockString, rating: String(rating), votes: votes, tabUrl: tabUrl+idBlockString, tab: ""))
+                            songs.append(SongDetails(artist: artistName, songName: songNameComplete , tabId: idBlockString, rating: String(rating), votes: votes, tabUrl: tabUrl+idBlockString, tab: ""))
                         }
                         // Delete HTML scraped part
                         resultBlockToScrape = resultBlockToScrape.replacingOccurrences(
@@ -118,6 +84,25 @@ struct WebScrapingManager {
                 completion(songs)
             }
         }
+    }
+    
+    private func fetchDataFromUrl(url: String, completion: @escaping (String) -> ()) {
+        guard let urlString = URL(string: url) else {
+            print("Error constructing URL resource")
+            return
+        }
+        let task = URLSession.shared.dataTask(with: urlString) { (data, resp, error) in
+            guard let data = data else {
+                print("data task was nil")
+                return
+            }
+            guard let stringHtml = String(data: data, encoding: .utf8) else {
+                print("error casting data into string")
+                return
+            }
+            
+            completion(stringHtml)
+        }
         task.resume()
     }
     
@@ -130,11 +115,7 @@ struct WebScrapingManager {
             print("cannot find right range")
             return nil
         }
-        
-        let rangeOfValueBlock = leftRangeIdBlock.upperBound..<rightRangeIdBlock.lowerBound
-        
-        var valueBlock = htmlString[rangeOfValueBlock]
-           
-        return String(valueBlock)
+        let rangeOfStringBlock = leftRangeIdBlock.upperBound..<rightRangeIdBlock.lowerBound
+        return String(htmlString[rangeOfStringBlock])
     }
 }
