@@ -29,9 +29,6 @@ class MainTableViewController: UITableViewController {
     private func setupBinders() {
         mainViewModel.songs.bind { songs in
             if let songList = songs {
-//                for song in songList {
-//                    self.songs.append(song)
-//                }
                 self.songs = songList
                 self.turnActivityIndicator(state: false)
                 self.reloadTableViewData()

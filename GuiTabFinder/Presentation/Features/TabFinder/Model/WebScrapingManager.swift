@@ -15,10 +15,10 @@ struct WebScrapingManager {
     func getTabFromHtml(url: String, completion: @escaping (String?, String?) -> ()) {
         fetchDataFromUrl(url: url) { stringHtml in
             //Scrape all the information from the HTML
-            let tuningString = self.getStringFromHtml(stringHtml, leftSide.tabTuningBlockEnding, rightSide.tabTuningBlockEnding)
+            let tuningString = self.getStringFromHtml(stringHtml, TFEndpoints.leftSide.tabTuningBlockEnding, TFEndpoints.rightSide.tabTuningBlockEnding)
           
             //Scrape all the information from the HTML
-            if let resultBlockString = self.getStringFromHtml(stringHtml, leftSide.tabBlock, rightSide.tabBlockEnding) {
+            if let resultBlockString = self.getStringFromHtml(stringHtml, TFEndpoints.leftSide.tabBlock, TFEndpoints.rightSide.tabBlockEnding) {
                 var tabBlock = resultBlockString
                 tabBlock = tabBlock.replacingOccurrences(of: "\\n", with: "\n")
                 tabBlock = tabBlock.replacingOccurrences(of: "\\r", with: "")
@@ -34,7 +34,7 @@ struct WebScrapingManager {
 
         let fixedTitleName = titleName.replacingOccurrences(of: " ", with: "%20")
         
-        let url = HeaderURL.titleSearchUg + fixedTitleName + Endpoints.urlTabTypeUg
+        let url = TFEndpoints.HeaderURL.titleSearchUg + fixedTitleName + TFEndpoints.urlTabTypeUg
 
         fetchDataFromUrl(url: url) { stringHtml in
             let stringHtmlToScrape = stringHtml
@@ -42,27 +42,27 @@ struct WebScrapingManager {
             var idRow: String?
             
             //Scrape all the information from the HTML
-            if let resultBlockString = self.getStringFromHtml(stringHtmlToScrape, leftSide.results, rightSide.result) {
+            if let resultBlockString = self.getStringFromHtml(stringHtmlToScrape, TFEndpoints.leftSide.results, TFEndpoints.rightSide.result) {
                 
                 // Add final block part to allow getting last song from results
-                resultBlockToScrape = leftSide.results + resultBlockString + rightSide.result
+                resultBlockToScrape = TFEndpoints.leftSide.results + resultBlockString + TFEndpoints.rightSide.result
                 var songs = [SongDetails]()
                 
                 repeat {
-                    if let idBlockString = self.getStringFromHtml(resultBlockToScrape, leftSide.tabId, rightSide.tabId) {
+                    if let idBlockString = self.getStringFromHtml(resultBlockToScrape, TFEndpoints.leftSide.tabId, TFEndpoints.rightSide.tabId) {
                         idRow = idBlockString
-                        guard let blockString = self.getStringFromHtml(resultBlockToScrape, "\(leftSide.tabId)\(idBlockString)", "\(idBlockString)\(rightSide.blockEnding)") else {
+                        guard let blockString = self.getStringFromHtml(resultBlockToScrape, "\(TFEndpoints.leftSide.tabId)\(idBlockString)", "\(idBlockString)\(TFEndpoints.rightSide.blockEnding)") else {
                             print("Error getting String from Html")
                             idRow = nil
                             return
                         }
-                        if let artistName = self.getStringFromHtml(blockString, leftSide.artist, rightSide.artist),
-                           let songName = self.getStringFromHtml(blockString, leftSide.song, rightSide.song),
-                           let songPartRaw = self.getStringFromHtml(blockString, leftSide.part, rightSide.part),
-                           let songVersionRaw = self.getStringFromHtml(blockString, leftSide.version, rightSide.version),
-                           let votes = self.getStringFromHtml(blockString, leftSide.votes, rightSide.votes),
-                           let ratingRaw = self.getStringFromHtml(blockString, leftSide.rating, rightSide.rating),
-                           let tabUrl = self.getStringFromHtml(blockString+idBlockString+rightSide.blockEnding, leftSide.tabUrl, idBlockString+rightSide.blockEnding){
+                        if let artistName = self.getStringFromHtml(blockString, TFEndpoints.leftSide.artist, TFEndpoints.rightSide.artist),
+                           let songName = self.getStringFromHtml(blockString, TFEndpoints.leftSide.song, TFEndpoints.rightSide.song),
+                           let songPartRaw = self.getStringFromHtml(blockString, TFEndpoints.leftSide.part, TFEndpoints.rightSide.part),
+                           let songVersionRaw = self.getStringFromHtml(blockString, TFEndpoints.leftSide.version, TFEndpoints.rightSide.version),
+                           let votes = self.getStringFromHtml(blockString, TFEndpoints.leftSide.votes, TFEndpoints.rightSide.votes),
+                           let ratingRaw = self.getStringFromHtml(blockString, TFEndpoints.leftSide.rating, TFEndpoints.rightSide.rating),
+                           let tabUrl = self.getStringFromHtml(blockString+idBlockString+TFEndpoints.rightSide.blockEnding, TFEndpoints.leftSide.tabUrl, idBlockString+TFEndpoints.rightSide.blockEnding){
 
                             let rating = ratingRaw == "0" ? "0" : ratingRaw.dropLast(ratingRaw.count - 3)
                             var songNameComplete = songName
@@ -73,7 +73,7 @@ struct WebScrapingManager {
                         }
                         // Delete HTML scraped part
                         resultBlockToScrape = resultBlockToScrape.replacingOccurrences(
-                            of: "\(leftSide.tabId)\(idBlockString)\(blockString)\(idBlockString)\(rightSide.blockEnding)",
+                            of: "\(TFEndpoints.leftSide.tabId)\(idBlockString)\(blockString)\(idBlockString)\(TFEndpoints.rightSide.blockEnding)",
                             with: " ")
                     } else {
                         print("Error getting Id Row from HTML")

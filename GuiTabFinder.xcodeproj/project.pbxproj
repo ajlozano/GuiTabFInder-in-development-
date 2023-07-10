@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		AD19F76929E5501100AD1837 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD19F76829E5501100AD1837 /* TabViewController.swift */; };
 		AD19F76B29E564B800AD1837 /* TabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD19F76A29E564B800AD1837 /* TabViewModel.swift */; };
-		AD23A24E29DD59E4000255C9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23A24D29DD59E4000255C9 /* Constants.swift */; };
+		AD23A24E29DD59E4000255C9 /* TFEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23A24D29DD59E4000255C9 /* TFEndpoints.swift */; };
 		AD23A25029DD5B30000255C9 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23A24F29DD5B30000255C9 /* MainViewModel.swift */; };
 		AD23A25229DD603F000255C9 /* ObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23A25129DD603F000255C9 /* ObservableObject.swift */; };
 		AD23A25429DD611E000255C9 /* SongDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23A25329DD611E000255C9 /* SongDetails.swift */; };
@@ -29,7 +29,7 @@
 /* Begin PBXFileReference section */
 		AD19F76829E5501100AD1837 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		AD19F76A29E564B800AD1837 /* TabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewModel.swift; sourceTree = "<group>"; };
-		AD23A24D29DD59E4000255C9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		AD23A24D29DD59E4000255C9 /* TFEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFEndpoints.swift; sourceTree = "<group>"; };
 		AD23A24F29DD5B30000255C9 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		AD23A25129DD603F000255C9 /* ObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObject.swift; sourceTree = "<group>"; };
 		AD23A25329DD611E000255C9 /* SongDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetails.swift; sourceTree = "<group>"; };
@@ -62,7 +62,6 @@
 		AD23A24A29DD5869000255C9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				AD23A24D29DD59E4000255C9 /* Constants.swift */,
 				AD23A25329DD611E000255C9 /* SongDetails.swift */,
 				AD7AB45C29DED17F004D84AD /* WebScrapingManager.swift */,
 			);
@@ -110,13 +109,10 @@
 		AD68ABB729DC98CD002B510F /* GuiTabFinder */ = {
 			isa = PBXGroup;
 			children = (
-				AD68ABB829DC98CD002B510F /* AppDelegate.swift */,
-				AD68ABBA29DC98CD002B510F /* SceneDelegate.swift */,
-				AD23A25129DD603F000255C9 /* ObservableObject.swift */,
-				AD23A24A29DD5869000255C9 /* Model */,
-				AD23A24B29DD586E000255C9 /* View */,
-				AD23A24C29DD5873000255C9 /* ViewModel */,
-				ADD7AD8D29E6C59400E2ECC8 /* Extensions */,
+				ADEA81662A5C0516005235A9 /* Base */,
+				ADEA816F2A5C06C0005235A9 /* Data */,
+				ADEA81682A5C05BE005235A9 /* Presentation */,
+				ADEA81672A5C0592005235A9 /* Utils */,
 				AD68ABC429DC98CE002B510F /* Assets.xcassets */,
 				AD68ABC929DC98CE002B510F /* Info.plist */,
 				AD68ABC129DC98CD002B510F /* GuiTabFinder.xcdatamodeld */,
@@ -130,6 +126,98 @@
 				ADD7AD8E29E6C60100E2ECC8 /* Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		ADEA81662A5C0516005235A9 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				AD68ABB829DC98CD002B510F /* AppDelegate.swift */,
+				AD68ABBA29DC98CD002B510F /* SceneDelegate.swift */,
+				AD23A25129DD603F000255C9 /* ObservableObject.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		ADEA81672A5C0592005235A9 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				ADD7AD8D29E6C59400E2ECC8 /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		ADEA81682A5C05BE005235A9 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				ADEA816B2A5C0623005235A9 /* Coordinator */,
+				ADEA816C2A5C0629005235A9 /* Features */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		ADEA81692A5C05E3005235A9 /* TabFinder */ = {
+			isa = PBXGroup;
+			children = (
+				AD23A24A29DD5869000255C9 /* Model */,
+				AD23A24B29DD586E000255C9 /* View */,
+				AD23A24C29DD5873000255C9 /* ViewModel */,
+			);
+			path = TabFinder;
+			sourceTree = "<group>";
+		};
+		ADEA816A2A5C0615005235A9 /* TabDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TabDetail;
+			sourceTree = "<group>";
+		};
+		ADEA816B2A5C0623005235A9 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		ADEA816C2A5C0629005235A9 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				ADEA81692A5C05E3005235A9 /* TabFinder */,
+				ADEA816A2A5C0615005235A9 /* TabDetail */,
+				ADEA816D2A5C065D005235A9 /* Tuner */,
+				ADEA816E2A5C0668005235A9 /* AudioRecorder */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		ADEA816D2A5C065D005235A9 /* Tuner */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tuner;
+			sourceTree = "<group>";
+		};
+		ADEA816E2A5C0668005235A9 /* AudioRecorder */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AudioRecorder;
+			sourceTree = "<group>";
+		};
+		ADEA816F2A5C06C0005235A9 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				AD23A24D29DD59E4000255C9 /* TFEndpoints.swift */,
+				ADEA81702A5C071A005235A9 /* Repositories */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		ADEA81702A5C071A005235A9 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,7 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD23A25429DD611E000255C9 /* SongDetails.swift in Sources */,
-				AD23A24E29DD59E4000255C9 /* Constants.swift in Sources */,
+				AD23A24E29DD59E4000255C9 /* TFEndpoints.swift in Sources */,
 				AD68ABBD29DC98CD002B510F /* MainTableViewController.swift in Sources */,
 				AD68ABC329DC98CD002B510F /* GuiTabFinder.xcdatamodeld in Sources */,
 				ADD7AD8F29E6C60100E2ECC8 /* Extensions.swift in Sources */,

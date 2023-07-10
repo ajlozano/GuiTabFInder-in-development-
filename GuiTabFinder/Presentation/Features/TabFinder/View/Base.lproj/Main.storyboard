@@ -137,6 +137,7 @@
                                 </connections>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="Jsw-CK-pyp" id="kdt-ut-kwF"/>
                             <outlet property="delegate" destination="Jsw-CK-pyp" id="skY-nK-oFP"/>
