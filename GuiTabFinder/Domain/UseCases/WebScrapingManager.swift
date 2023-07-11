@@ -30,9 +30,9 @@ struct WebScrapingManager {
         }
     }
     
-    func getSearchResultsFromHtml(titleName: String, completion: @escaping ([SongDetails]) -> ()) {
+    func getSearchResultsFromHtml(text: String, completion: @escaping (TablatureListModel) -> ()) {
 
-        let fixedTitleName = titleName.replacingOccurrences(of: " ", with: "%20")
+        let fixedTitleName = text.replacingOccurrences(of: " ", with: "%20")
         
         let url = TFEndpoints.HeaderURL.titleSearchUg + fixedTitleName + TFEndpoints.urlTabTypeUg
 
@@ -43,10 +43,10 @@ struct WebScrapingManager {
             
             //Scrape all the information from the HTML
             if let resultBlockString = self.getStringFromHtml(stringHtmlToScrape, TFEndpoints.leftSide.results, TFEndpoints.rightSide.result) {
-                
+            
                 // Add final block part to allow getting last song from results
                 resultBlockToScrape = TFEndpoints.leftSide.results + resultBlockString + TFEndpoints.rightSide.result
-                var songs = [SongDetails]()
+                var tablatures = [TablatureDetails]()
                 
                 repeat {
                     if let idBlockString = self.getStringFromHtml(resultBlockToScrape, TFEndpoints.leftSide.tabId, TFEndpoints.rightSide.tabId) {
@@ -69,7 +69,7 @@ struct WebScrapingManager {
                             songNameComplete += songPartRaw == "" ? "" : " \(songPartRaw)"
                             songNameComplete += songVersionRaw == "1" ? "" : " (ver \(songVersionRaw))"
                             
-                            songs.append(SongDetails(artist: artistName, songName: songNameComplete , tabId: idBlockString, rating: String(rating), votes: votes, tabUrl: tabUrl+idBlockString, tab: ""))
+                            tablatures.append(TablatureDetails(artist: artistName, songName: songNameComplete , tabId: idBlockString, rating: String(rating), votes: votes, tabUrl: tabUrl+idBlockString, tab: ""))
                         }
                         // Delete HTML scraped part
                         resultBlockToScrape = resultBlockToScrape.replacingOccurrences(
@@ -81,7 +81,7 @@ struct WebScrapingManager {
                     }
                 } while idRow != nil
                 
-                completion(songs)
+                completion(TablatureListModel(tablatures: tablatures))
             }
         }
     }

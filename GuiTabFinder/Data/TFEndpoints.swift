@@ -8,7 +8,7 @@
 import Foundation
 
 struct TFEndpoints {
-    struct leftSide {
+    enum leftSide {
         static let results = "results&quot;:["
         static let tabId = "{&quot;id&quot;:"
         static let song = ",&quot;song_name&quot;:&quot;"
@@ -23,7 +23,7 @@ struct TFEndpoints {
         static let tabTuningBlockEnding = "&quot;,&quot;value&quot;:&quot;"
     }
     
-    struct rightSide {
+    enum rightSide {
         static let result = "&quot;}]"
         static let tabId = ",&quot;song_id&quot;:"
         static let artist = "&quot;,&quot;type&quot;"
@@ -38,7 +38,7 @@ struct TFEndpoints {
         static let tabTuningBlockEnding = "&quot;,&quot;index&quot;:"
     }
 
-    struct HeaderURL {
+    enum HeaderURL {
         static let mainUg = "https://tabs.ultimate-guitar.com/"
         static let tabUg = "https://tabs.ultimate-guitar.com/tab/"
         static let titleSearchUg = "https://www.ultimate-guitar.com/search.php?title="
@@ -46,10 +46,3 @@ struct TFEndpoints {
 
     static let urlTabTypeUg = "&page=1&type=200"
 }
-
-
-
-
-
-
-

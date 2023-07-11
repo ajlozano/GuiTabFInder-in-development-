@@ -8,9 +8,9 @@
 import Foundation
 
 final class TabViewModel {
-    var selectedSong: ObservableObject<SongDetails?> = ObservableObject(nil)
+    var selectedSong: ObservableObject<TablatureDetails?> = ObservableObject(nil)
 
-    func getTabFromUrl(song: SongDetails) {
+    func getTabFromUrl(song: TablatureDetails) {
         print(song.artist)
         WebScrapingManager.shared.getTabFromHtml(url: song.tabUrl) { [weak self] tabString, tuningString in
             var scrapingSong = song

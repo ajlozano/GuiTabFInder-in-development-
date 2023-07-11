@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SongDetails {
+struct TablatureDetails {
     let artist: String
     let songName: String
     let tabId: String

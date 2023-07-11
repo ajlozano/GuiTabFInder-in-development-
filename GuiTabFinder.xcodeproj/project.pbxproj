@@ -7,36 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AD19F76929E5501100AD1837 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD19F76829E5501100AD1837 /* TabViewController.swift */; };
+		AD19F76929E5501100AD1837 /* TabDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD19F76829E5501100AD1837 /* TabDetailViewController.swift */; };
 		AD19F76B29E564B800AD1837 /* TabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD19F76A29E564B800AD1837 /* TabViewModel.swift */; };
 		AD23A24E29DD59E4000255C9 /* TFEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23A24D29DD59E4000255C9 /* TFEndpoints.swift */; };
-		AD23A25029DD5B30000255C9 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23A24F29DD5B30000255C9 /* MainViewModel.swift */; };
 		AD23A25229DD603F000255C9 /* ObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23A25129DD603F000255C9 /* ObservableObject.swift */; };
-		AD23A25429DD611E000255C9 /* SongDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23A25329DD611E000255C9 /* SongDetails.swift */; };
+		AD23A25429DD611E000255C9 /* TablatureDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23A25329DD611E000255C9 /* TablatureDetails.swift */; };
 		AD68ABB929DC98CD002B510F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD68ABB829DC98CD002B510F /* AppDelegate.swift */; };
 		AD68ABBB29DC98CD002B510F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD68ABBA29DC98CD002B510F /* SceneDelegate.swift */; };
-		AD68ABBD29DC98CD002B510F /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD68ABBC29DC98CD002B510F /* MainTableViewController.swift */; };
+		AD68ABBD29DC98CD002B510F /* TablatureFinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD68ABBC29DC98CD002B510F /* TablatureFinderViewController.swift */; };
 		AD68ABC029DC98CD002B510F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD68ABBE29DC98CD002B510F /* Main.storyboard */; };
 		AD68ABC329DC98CD002B510F /* GuiTabFinder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AD68ABC129DC98CD002B510F /* GuiTabFinder.xcdatamodeld */; };
 		AD68ABC529DC98CE002B510F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD68ABC429DC98CE002B510F /* Assets.xcassets */; };
 		AD68ABC829DC98CE002B510F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD68ABC629DC98CE002B510F /* LaunchScreen.storyboard */; };
 		AD68ABD029DC99E0002B510F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AD68ABCF29DC99E0002B510F /* README.md */; };
 		AD7AB45D29DED17F004D84AD /* WebScrapingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7AB45C29DED17F004D84AD /* WebScrapingManager.swift */; };
-		AD97EF4529E0323100F68397 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD97EF4429E0323100F68397 /* MainTableViewCell.swift */; };
+		AD97EF4529E0323100F68397 /* TablatureFinderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD97EF4429E0323100F68397 /* TablatureFinderTableViewCell.swift */; };
 		ADD7AD8F29E6C60100E2ECC8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD7AD8E29E6C60100E2ECC8 /* Extensions.swift */; };
+		ADE359312A5D97D400BC9E61 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE359302A5D97D300BC9E61 /* MainCoordinator.swift */; };
+		ADE359342A5DA13A00BC9E61 /* HomeTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE359332A5DA13A00BC9E61 /* HomeTabBarViewController.swift */; };
+		ADE359382A5DA53100BC9E61 /* ChildCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE359372A5DA53100BC9E61 /* ChildCoordinator.swift */; };
+		ADE3593A2A5DA56000BC9E61 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE359392A5DA56000BC9E61 /* Coordinator.swift */; };
+		ADE3593D2A5DA7AB00BC9E61 /* TablatureFinderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE3593C2A5DA7AB00BC9E61 /* TablatureFinderCoordinator.swift */; };
+		ADE3593F2A5DB5CB00BC9E61 /* TablatureFinderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE3593E2A5DB5CB00BC9E61 /* TablatureFinderViewModel.swift */; };
+		ADE359452A5DC18900BC9E61 /* TablatureListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE359442A5DC18900BC9E61 /* TablatureListModel.swift */; };
+		ADE359482A5DCA0700BC9E61 /* TablatureFinderViewController+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE359472A5DCA0700BC9E61 /* TablatureFinderViewController+Constants.swift */; };
+		ADE3594A2A5DCA2F00BC9E61 /* TablatureFinderViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE359492A5DCA2F00BC9E61 /* TablatureFinderViewController+Constraints.swift */; };
+		ADE3594E2A5DCA5F00BC9E61 /* TablatureFinderViewController+TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE3594D2A5DCA5F00BC9E61 /* TablatureFinderViewController+TableViewDataSource.swift */; };
+		ADE359502A5DCA6F00BC9E61 /* TablatureFinderViewController+TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE3594F2A5DCA6F00BC9E61 /* TablatureFinderViewController+TableViewDelegate.swift */; };
+		ADE359532A5DD66400BC9E61 /* TablatureFinderViewController+SearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE359522A5DD66400BC9E61 /* TablatureFinderViewController+SearchBarDelegate.swift */; };
+		ADE359552A5DE04C00BC9E61 /* UIView+SafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE359542A5DE04C00BC9E61 /* UIView+SafeArea.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AD19F76829E5501100AD1837 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		AD19F76829E5501100AD1837 /* TabDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabDetailViewController.swift; sourceTree = "<group>"; };
 		AD19F76A29E564B800AD1837 /* TabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewModel.swift; sourceTree = "<group>"; };
 		AD23A24D29DD59E4000255C9 /* TFEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFEndpoints.swift; sourceTree = "<group>"; };
-		AD23A24F29DD5B30000255C9 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		AD23A25129DD603F000255C9 /* ObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObject.swift; sourceTree = "<group>"; };
-		AD23A25329DD611E000255C9 /* SongDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetails.swift; sourceTree = "<group>"; };
+		AD23A25329DD611E000255C9 /* TablatureDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureDetails.swift; sourceTree = "<group>"; };
 		AD68ABB529DC98CD002B510F /* GuiTabFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuiTabFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD68ABB829DC98CD002B510F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD68ABBA29DC98CD002B510F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AD68ABBC29DC98CD002B510F /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		AD68ABBC29DC98CD002B510F /* TablatureFinderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureFinderViewController.swift; sourceTree = "<group>"; };
 		AD68ABBF29DC98CD002B510F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AD68ABC229DC98CD002B510F /* GuiTabFinder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GuiTabFinder.xcdatamodel; sourceTree = "<group>"; };
 		AD68ABC429DC98CE002B510F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -44,8 +55,21 @@
 		AD68ABC929DC98CE002B510F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD68ABCF29DC99E0002B510F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		AD7AB45C29DED17F004D84AD /* WebScrapingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebScrapingManager.swift; sourceTree = "<group>"; };
-		AD97EF4429E0323100F68397 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		AD97EF4429E0323100F68397 /* TablatureFinderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureFinderTableViewCell.swift; sourceTree = "<group>"; };
 		ADD7AD8E29E6C60100E2ECC8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		ADE359302A5D97D300BC9E61 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		ADE359332A5DA13A00BC9E61 /* HomeTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewController.swift; sourceTree = "<group>"; };
+		ADE359372A5DA53100BC9E61 /* ChildCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildCoordinator.swift; sourceTree = "<group>"; };
+		ADE359392A5DA56000BC9E61 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		ADE3593C2A5DA7AB00BC9E61 /* TablatureFinderCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureFinderCoordinator.swift; sourceTree = "<group>"; };
+		ADE3593E2A5DB5CB00BC9E61 /* TablatureFinderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureFinderViewModel.swift; sourceTree = "<group>"; };
+		ADE359442A5DC18900BC9E61 /* TablatureListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureListModel.swift; sourceTree = "<group>"; };
+		ADE359472A5DCA0700BC9E61 /* TablatureFinderViewController+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureFinderViewController+Constants.swift"; sourceTree = "<group>"; };
+		ADE359492A5DCA2F00BC9E61 /* TablatureFinderViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureFinderViewController+Constraints.swift"; sourceTree = "<group>"; };
+		ADE3594D2A5DCA5F00BC9E61 /* TablatureFinderViewController+TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureFinderViewController+TableViewDataSource.swift"; sourceTree = "<group>"; };
+		ADE3594F2A5DCA6F00BC9E61 /* TablatureFinderViewController+TableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureFinderViewController+TableViewDelegate.swift"; sourceTree = "<group>"; };
+		ADE359522A5DD66400BC9E61 /* TablatureFinderViewController+SearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureFinderViewController+SearchBarDelegate.swift"; sourceTree = "<group>"; };
+		ADE359542A5DE04C00BC9E61 /* UIView+SafeArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+SafeArea.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +86,7 @@
 		AD23A24A29DD5869000255C9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				AD23A25329DD611E000255C9 /* SongDetails.swift */,
-				AD7AB45C29DED17F004D84AD /* WebScrapingManager.swift */,
+				ADE359442A5DC18900BC9E61 /* TablatureListModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -71,11 +94,14 @@
 		AD23A24B29DD586E000255C9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AD68ABBC29DC98CD002B510F /* MainTableViewController.swift */,
-				AD97EF4429E0323100F68397 /* MainTableViewCell.swift */,
-				AD19F76829E5501100AD1837 /* TabViewController.swift */,
+				ADE359462A5DC9D700BC9E61 /* TablatureFinderCollectionViewCell */,
+				AD68ABBC29DC98CD002B510F /* TablatureFinderViewController.swift */,
+				ADE359472A5DCA0700BC9E61 /* TablatureFinderViewController+Constants.swift */,
+				ADE359492A5DCA2F00BC9E61 /* TablatureFinderViewController+Constraints.swift */,
+				ADE3594D2A5DCA5F00BC9E61 /* TablatureFinderViewController+TableViewDataSource.swift */,
+				ADE3594F2A5DCA6F00BC9E61 /* TablatureFinderViewController+TableViewDelegate.swift */,
+				ADE359522A5DD66400BC9E61 /* TablatureFinderViewController+SearchBarDelegate.swift */,
 				AD68ABBE29DC98CD002B510F /* Main.storyboard */,
-				AD68ABC629DC98CE002B510F /* LaunchScreen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -83,8 +109,7 @@
 		AD23A24C29DD5873000255C9 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				AD23A24F29DD5B30000255C9 /* MainViewModel.swift */,
-				AD19F76A29E564B800AD1837 /* TabViewModel.swift */,
+				ADE3593E2A5DB5CB00BC9E61 /* TablatureFinderViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -111,9 +136,10 @@
 			children = (
 				ADEA81662A5C0516005235A9 /* Base */,
 				ADEA816F2A5C06C0005235A9 /* Data */,
+				ADE359412A5DB99200BC9E61 /* Domain */,
 				ADEA81682A5C05BE005235A9 /* Presentation */,
 				ADEA81672A5C0592005235A9 /* Utils */,
-				AD68ABC429DC98CE002B510F /* Assets.xcassets */,
+				ADE359512A5DCA9500BC9E61 /* Resources */,
 				AD68ABC929DC98CE002B510F /* Info.plist */,
 				AD68ABC129DC98CD002B510F /* GuiTabFinder.xcdatamodeld */,
 			);
@@ -124,8 +150,84 @@
 			isa = PBXGroup;
 			children = (
 				ADD7AD8E29E6C60100E2ECC8 /* Extensions.swift */,
+				ADE359542A5DE04C00BC9E61 /* UIView+SafeArea.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		ADE359322A5DA11700BC9E61 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				ADE359332A5DA13A00BC9E61 /* HomeTabBarViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		ADE359352A5DA4E300BC9E61 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				ADE359372A5DA53100BC9E61 /* ChildCoordinator.swift */,
+				ADE359392A5DA56000BC9E61 /* Coordinator.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		ADE359362A5DA4E900BC9E61 /* MainCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				ADE359302A5D97D300BC9E61 /* MainCoordinator.swift */,
+			);
+			path = MainCoordinator;
+			sourceTree = "<group>";
+		};
+		ADE3593B2A5DA79B00BC9E61 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				ADE3593C2A5DA7AB00BC9E61 /* TablatureFinderCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		ADE359412A5DB99200BC9E61 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				ADE359422A5DB99A00BC9E61 /* Entities */,
+				ADE359432A5DB9A400BC9E61 /* UseCases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		ADE359422A5DB99A00BC9E61 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				AD23A25329DD611E000255C9 /* TablatureDetails.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		ADE359432A5DB9A400BC9E61 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				AD7AB45C29DED17F004D84AD /* WebScrapingManager.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		ADE359462A5DC9D700BC9E61 /* TablatureFinderCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AD97EF4429E0323100F68397 /* TablatureFinderTableViewCell.swift */,
+			);
+			path = TablatureFinderCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		ADE359512A5DCA9500BC9E61 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AD68ABC629DC98CE002B510F /* LaunchScreen.storyboard */,
+				AD68ABC429DC98CE002B510F /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		ADEA81662A5C0516005235A9 /* Base */ = {
@@ -158,6 +260,7 @@
 		ADEA81692A5C05E3005235A9 /* TabFinder */ = {
 			isa = PBXGroup;
 			children = (
+				ADE3593B2A5DA79B00BC9E61 /* Coordinator */,
 				AD23A24A29DD5869000255C9 /* Model */,
 				AD23A24B29DD586E000255C9 /* View */,
 				AD23A24C29DD5873000255C9 /* ViewModel */,
@@ -168,6 +271,9 @@
 		ADEA816A2A5C0615005235A9 /* TabDetail */ = {
 			isa = PBXGroup;
 			children = (
+				ADEA81712A5C2362005235A9 /* Model */,
+				ADEA81722A5C2368005235A9 /* View */,
+				ADEA81732A5C236D005235A9 /* ViewModel */,
 			);
 			path = TabDetail;
 			sourceTree = "<group>";
@@ -175,6 +281,8 @@
 		ADEA816B2A5C0623005235A9 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				ADE359352A5DA4E300BC9E61 /* Protocols */,
+				ADE359362A5DA4E900BC9E61 /* MainCoordinator */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -182,6 +290,7 @@
 		ADEA816C2A5C0629005235A9 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				ADE359322A5DA11700BC9E61 /* Home */,
 				ADEA81692A5C05E3005235A9 /* TabFinder */,
 				ADEA816A2A5C0615005235A9 /* TabDetail */,
 				ADEA816D2A5C065D005235A9 /* Tuner */,
@@ -218,6 +327,29 @@
 			children = (
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		ADEA81712A5C2362005235A9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ADEA81722A5C2368005235A9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AD19F76829E5501100AD1837 /* TabDetailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ADEA81732A5C236D005235A9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AD19F76A29E564B800AD1837 /* TabViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,19 +424,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD23A25429DD611E000255C9 /* SongDetails.swift in Sources */,
+				AD23A25429DD611E000255C9 /* TablatureDetails.swift in Sources */,
+				ADE3593F2A5DB5CB00BC9E61 /* TablatureFinderViewModel.swift in Sources */,
+				ADE359312A5D97D400BC9E61 /* MainCoordinator.swift in Sources */,
 				AD23A24E29DD59E4000255C9 /* TFEndpoints.swift in Sources */,
-				AD68ABBD29DC98CD002B510F /* MainTableViewController.swift in Sources */,
+				AD68ABBD29DC98CD002B510F /* TablatureFinderViewController.swift in Sources */,
+				ADE359502A5DCA6F00BC9E61 /* TablatureFinderViewController+TableViewDelegate.swift in Sources */,
 				AD68ABC329DC98CD002B510F /* GuiTabFinder.xcdatamodeld in Sources */,
+				ADE3594A2A5DCA2F00BC9E61 /* TablatureFinderViewController+Constraints.swift in Sources */,
+				ADE359452A5DC18900BC9E61 /* TablatureListModel.swift in Sources */,
 				ADD7AD8F29E6C60100E2ECC8 /* Extensions.swift in Sources */,
 				AD19F76B29E564B800AD1837 /* TabViewModel.swift in Sources */,
-				AD97EF4529E0323100F68397 /* MainTableViewCell.swift in Sources */,
+				AD97EF4529E0323100F68397 /* TablatureFinderTableViewCell.swift in Sources */,
 				AD68ABB929DC98CD002B510F /* AppDelegate.swift in Sources */,
-				AD19F76929E5501100AD1837 /* TabViewController.swift in Sources */,
+				ADE359382A5DA53100BC9E61 /* ChildCoordinator.swift in Sources */,
+				ADE3594E2A5DCA5F00BC9E61 /* TablatureFinderViewController+TableViewDataSource.swift in Sources */,
+				ADE359552A5DE04C00BC9E61 /* UIView+SafeArea.swift in Sources */,
+				ADE3593D2A5DA7AB00BC9E61 /* TablatureFinderCoordinator.swift in Sources */,
+				ADE3593A2A5DA56000BC9E61 /* Coordinator.swift in Sources */,
+				ADE359342A5DA13A00BC9E61 /* HomeTabBarViewController.swift in Sources */,
+				AD19F76929E5501100AD1837 /* TabDetailViewController.swift in Sources */,
 				AD23A25229DD603F000255C9 /* ObservableObject.swift in Sources */,
+				ADE359532A5DD66400BC9E61 /* TablatureFinderViewController+SearchBarDelegate.swift in Sources */,
+				ADE359482A5DCA0700BC9E61 /* TablatureFinderViewController+Constants.swift in Sources */,
 				AD68ABBB29DC98CD002B510F /* SceneDelegate.swift in Sources */,
 				AD7AB45D29DED17F004D84AD /* WebScrapingManager.swift in Sources */,
-				AD23A25029DD5B30000255C9 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,7 +601,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -486,7 +630,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (

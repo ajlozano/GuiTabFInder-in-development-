@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TabViewController: UIViewController {
+class TabDetailViewController: UIViewController {
     
     @IBOutlet weak var tabScrollView: UIScrollView!
     @IBOutlet weak var tuningTitleLabel: UILabel!
@@ -18,7 +18,7 @@ class TabViewController: UIViewController {
     
     let tabViewModel = TabViewModel()
     
-    var song: SongDetails? 
+    var song: TablatureDetails? 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +63,7 @@ class TabViewController: UIViewController {
 
 // MARK: UIScrollViewDelegate methods
 
-extension TabViewController: UIScrollViewDelegate {
+extension TabDetailViewController: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return self.tabTextView
     }

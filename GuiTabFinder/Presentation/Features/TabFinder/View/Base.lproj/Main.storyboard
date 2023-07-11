@@ -3,7 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -29,7 +29,7 @@
         <!--Main Table View Controller-->
         <scene sceneID="Fjo-hN-Kb9">
             <objects>
-                <tableViewController title="Main Table View Controller" id="Jsw-CK-pyp" customClass="MainTableViewController" customModule="GuiTabFinder" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Main Table View Controller" id="Jsw-CK-pyp" customClass="TablatureFinderViewController" customModule="GuiTabFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="1pu-sz-1nf">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -43,7 +43,7 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReusableCell" id="xgD-Aa-qQk" customClass="MainTableViewCell" customModule="GuiTabFinder" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReusableCell" id="xgD-Aa-qQk" customClass="TablatureFinderTableViewCell" customModule="GuiTabFinder" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="94" width="393" height="42.333332061767578"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xgD-Aa-qQk" id="a0B-Rj-xWw">
@@ -59,7 +59,7 @@
                                                         <constraint firstAttribute="height" constant="25" id="PwO-Ag-1Dh"/>
                                                         <constraint firstAttribute="width" constant="270" id="ee6-p1-ySr"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -155,10 +155,10 @@
             </objects>
             <point key="canvasLocation" x="38.931297709923662" y="-6.3380281690140849"/>
         </scene>
-        <!--Tab View Controller-->
+        <!--Tab Detail View Controller-->
         <scene sceneID="xLJ-ac-o2h">
             <objects>
-                <viewController id="aDd-6F-Ad8" customClass="TabViewController" customModule="GuiTabFinder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="aDd-6F-Ad8" customClass="TabDetailViewController" customModule="GuiTabFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zbf-sT-8WK">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
