@@ -8,7 +8,7 @@
 import UIKit
 
 final class HomeTabBarViewController: UITabBarController {
-    var coordinator: MainCoordinator?
+    var coordinator: MainCoordinator
     
     init(coordinator: MainCoordinator) {
         self.coordinator = coordinator
@@ -26,7 +26,7 @@ final class HomeTabBarViewController: UITabBarController {
     
     private func setupViews() {
         let tabFinderNavigationController = UINavigationController()
-        coordinator?.showTablatureFinderOperativeWith(navigationController: tabFinderNavigationController)
+        coordinator.showTablatureFinderOperativeWith(navigationController: tabFinderNavigationController)
         
         setViewControllers([tabFinderNavigationController], animated: true)
     }

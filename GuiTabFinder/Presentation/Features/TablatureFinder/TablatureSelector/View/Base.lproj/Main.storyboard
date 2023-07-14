@@ -155,10 +155,10 @@
             </objects>
             <point key="canvasLocation" x="38.931297709923662" y="-6.3380281690140849"/>
         </scene>
-        <!--Tab Detail View Controller-->
+        <!--Tablature Detail View Controller-->
         <scene sceneID="xLJ-ac-o2h">
             <objects>
-                <viewController id="aDd-6F-Ad8" customClass="TabDetailViewController" customModule="GuiTabFinder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="aDd-6F-Ad8" customClass="TablatureDetailViewController" customModule="GuiTabFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zbf-sT-8WK">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -251,14 +251,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aDG-QE-1Qc"/>
-                    <connections>
-                        <outlet property="artistLabel" destination="37x-kO-CCw" id="xLt-Se-pZl"/>
-                        <outlet property="songLabel" destination="Y78-jO-1iB" id="d9C-rn-wmY"/>
-                        <outlet property="tabScrollView" destination="AjG-nY-zfz" id="Qxj-Rn-WSn"/>
-                        <outlet property="tabTextView" destination="szD-Hb-kax" id="KzG-sd-EhD"/>
-                        <outlet property="tuningLabel" destination="UgG-6e-nib" id="qBv-fu-oMO"/>
-                        <outlet property="tuningTitleLabel" destination="AIi-gC-aAU" id="uLK-Ga-TBQ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3b4-fW-Wl5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

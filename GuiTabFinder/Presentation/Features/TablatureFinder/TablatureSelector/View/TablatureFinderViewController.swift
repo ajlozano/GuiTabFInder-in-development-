@@ -67,8 +67,15 @@ class TablatureFinderViewController: UIViewController {
         viewModel.tablatureDetailModel.bind { [weak self] detailModel in
             guard let detailModel = detailModel,
                   let self = self else { return }
+
+            self.showTablatureDetailView(for: detailModel)
+        }
+        
+        viewModel.showEmptyStateError.bind { [weak self] emptyState in
+            guard let emptyState = emptyState,
+                  let self = self else { return }
             
-            //self.showEpisodeDetailView(for: detailModel)
+            self.manageEmptyStateView(for: emptyState)
         }
     }
 }
@@ -83,19 +90,19 @@ extension TablatureFinderViewController {
         setupTablaturesTableView()
     }
     
-    func setupSearchBarView() {
+    private func setupSearchBarView() {
         search.searchBar.delegate = self
         search.searchResultsUpdater = self
-        search.searchBar.placeholder = Localizables.searchBarPlaceHolder
+        search.searchBar.placeholder = "Search tablature song"
         search.obscuresBackgroundDuringPresentation = false
         search.hidesNavigationBarDuringPresentation = false
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.searchController = search
     }
     
-    func setupTablaturesTableView() {
+    private func setupTablaturesTableView() {
         view.addSubview(tablaturesTableView)
-        tablaturesTableView.separatorStyle = .none
+        tablaturesTableView.separatorStyle = .singleLine
         tablaturesTableView.dataSource = tablaturesTableViewDataSource
         tablaturesTableView.delegate = tablaturesTableViewDelegate
         tablaturesTableView.backgroundColor = .systemGroupedBackground
@@ -114,7 +121,18 @@ extension TablatureFinderViewController {
         }
     }
     
-    // TODO: Refactor activity Indicator
+    func manageEmptyStateView(for state: Bool) {
+        
+        DispatchQueue.main.async {
+            if state {
+                let background = EmptyStateView(frame: .zero)
+                background.configure()
+                self.tablaturesTableView.backgroundView = background
+            } else {
+                self.tablaturesTableView.backgroundView = nil
+            }
+        }
+    }
 }
 
 
@@ -167,7 +185,7 @@ extension TablatureFinderViewController {
 
 extension TablatureFinderViewController {
     
-    func showTablatureDetailView(for model: TablatureDetails) {
-        // TODO: Call coordinator to go to detail view
+    func showTablatureDetailView(for model: TablatureDetail) {
+        coordinator?.showTablatureDetail(for: model)
     }
 }

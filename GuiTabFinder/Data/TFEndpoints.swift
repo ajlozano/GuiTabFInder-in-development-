@@ -36,6 +36,7 @@ struct TFEndpoints {
         static let blockEnding = "&quot;}"
         static let tabBlockEnding = "&quot;,&quot;revision_id&quot;:"
         static let tabTuningBlockEnding = "&quot;,&quot;index&quot;:"
+        static let containMarketingType = "&quot;,&quot;marketing_type&quot;:&quot;official"
     }
 
     enum HeaderURL {

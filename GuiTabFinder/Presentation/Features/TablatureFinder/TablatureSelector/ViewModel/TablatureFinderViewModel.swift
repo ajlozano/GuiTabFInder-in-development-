@@ -20,15 +20,17 @@ protocol TablatureFinderViewModelInput {
 
 protocol TablatureFinderViewModelOutput {
     var model: ObservableObject<TablatureListModel?> { get }
-    var tablatureDetailModel: ObservableObject<TablatureDetails?> { get }
+    var tablatureDetailModel: ObservableObject<TablatureDetail?> { get }
+    var showEmptyStateError: ObservableObject<Bool?> { get }
 }
 
 // MARK: DefaultTablatureFinderViewModel
 
 final class DefaultTablatureFinderViewModel: TablatureFinderViewModel {
     var model: ObservableObject<TablatureListModel?> = ObservableObject(nil)
-    var tablatureDetailModel: ObservableObject<TablatureDetails?> = ObservableObject(nil)
-
+    var tablatureDetailModel: ObservableObject<TablatureDetail?> = ObservableObject(nil)
+    var showEmptyStateError: ObservableObject<Bool?> = ObservableObject(nil)
+    
     // TODO: Pending to inject use case dependency
     init() {
         
@@ -47,8 +49,9 @@ extension DefaultTablatureFinderViewModel {
     }
     
     func clearList() {
-        self.model = ObservableObject(nil)
-        self.tablatureDetailModel = ObservableObject(nil)
+        self.model.value = nil
+        self.tablatureDetailModel.value = nil
+        self.showEmptyStateError.value = false
     }
 }
 
@@ -56,8 +59,19 @@ extension DefaultTablatureFinderViewModel {
 
 extension DefaultTablatureFinderViewModel {
     func fetchData(text: String) {
-        WebScrapingManager.shared.getSearchResultsFromHtml(text: text) { tablatureList in
-            self.model.value = tablatureList
+        WebScrapingManager.shared.getSearchResultsFromHtml(text: text) { [weak self] result in
+            switch result {
+            case .success(let tablatureList):
+                // TODO: add loading status
+                self?.model.value = tablatureList
+                self?.showEmptyStateError.value = false
+            case .failure(let error):
+                // TODO: add loading status
+
+                self?.model.value = TablatureListModel(tablatures: [], isFetchDataFinished: true)
+                self?.showEmptyStateError.value = true
+            }
         }
     }
 }
+

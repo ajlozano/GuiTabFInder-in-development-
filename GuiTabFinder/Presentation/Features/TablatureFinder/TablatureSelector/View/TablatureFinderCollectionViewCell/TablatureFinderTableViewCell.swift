@@ -31,6 +31,12 @@ class TablatureFinderTableViewCell: UITableViewCell {
         return label
     }()
     
+    private (set) var ratingView: UIView = {
+        var view = UIView(frame: .zero)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     private (set) var ratingLabel: UILabel = {
         var label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -41,6 +47,12 @@ class TablatureFinderTableViewCell: UITableViewCell {
         var label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }()
+    
+    private (set) var votesView: UIView = {
+        var view = UIView(frame: .zero)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     private (set) var votesLabel: UILabel = {
@@ -119,108 +131,46 @@ extension TablatureFinderTableViewCell {
         artistLabel.text = artist
         artistLabel.accessibilityIdentifier = AccessibilityIdentifiers.artist
         
-        //setupArtistLabelConstraints()
+        setupArtistLabelConstraints()
     }
     
     private func setupRatingLabels() {
-        shadowView.addSubview(ratingLabel)
+        ratingView.addSubview(ratingLabel)
+        ratingView.addSubview(ratingValueLabel)
+        shadowView.addSubview(ratingView)
+        
+        ratingView.backgroundColor = .clear
+        
         ratingLabel.textAlignment = .center
         ratingLabel.textColor = .black
-        ratingLabel.font = Fonts.ratingAndVotes
+        ratingLabel.font = Fonts.ratingAndVotesLabels
         ratingLabel.text = Constants.ratingLabel
 
-        shadowView.addSubview(ratingValueLabel)
-        ratingLabel.textAlignment = .center
-        ratingLabel.textColor = .black
-        ratingLabel.font = Fonts.ratingAndVotes
-        ratingLabel.text = rating
+        ratingValueLabel.textAlignment = .center
+        ratingValueLabel.textColor = .black
+        ratingValueLabel.font = Fonts.ratingAndVotesValues
+        ratingValueLabel.text = rating
         
-        //setupRatingLabelsConstraints()
+        setupRatingConstraints()
     }
     
     private func setupVotesLabels() {
-        var view = UIView(frame: .zero)
-        view.backgroundColor = .clear
+        votesView.addSubview(votesLabel)
+        votesView.addSubview(votesValueLabel)
+        shadowView.addSubview(votesView)
         
-        view.addSubview(ratingLabel)
-        view.addSubview(ratingValueLabel)
+        votesView.backgroundColor = .clear
         
-        shadowView.addSubview(view)
-        ratingLabel.textAlignment = .center
-        ratingLabel.textColor = .black
-        ratingLabel.font = Fonts.ratingAndVotes
-        ratingLabel.text = Constants.votesLabel
+        votesLabel.textAlignment = .center
+        votesLabel.textColor = .black
+        votesLabel.font = Fonts.ratingAndVotesLabels
+        votesLabel.text = Constants.votesLabel
 
-        shadowView.addSubview(votesValueLabel)
-        ratingLabel.textAlignment = .center
-        ratingLabel.textColor = .black
-        ratingLabel.font = Fonts.ratingAndVotes
-        ratingLabel.text = votes
+        votesValueLabel.textAlignment = .center
+        votesValueLabel.textColor = .black
+        votesValueLabel.font = Fonts.ratingAndVotesValues
+        votesValueLabel.text = votes
         
-        setupVotesLabelsConstraints(on: view)
-    }
-}
-
-// MARK: - Setup Constraints
-
-extension TablatureFinderTableViewCell {
-    func setupShadowViewConstraints() {
-        NSLayoutConstraint.activate([
-            shadowView.topAnchor.constraint(equalTo: topAnchor, constant: 7),
-            shadowView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
-            shadowView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
-            shadowView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -7)
-        ])
-    }
-    
-    func setupSongLabelConstraints() {
-        NSLayoutConstraint.activate([
-            songLabel.topAnchor.constraint(equalTo: shadowView.topAnchor, constant: 1),
-            songLabel.leadingAnchor.constraint(equalTo: shadowView.leadingAnchor, constant: 10)
-        ])
-    }
-    
-    func setupArtistLabelConstraints(on view: UIView) {
-
-    }
-    
-    func setupRatingLabelsConstraints(on view: UIView) {
-        
-    }
-    
-    func setupVotesLabelsConstraints(on view: UIView) {
-        NSLayoutConstraint.activate([
-            view.topAnchor.constraint(equalTo: shadowView.topAnchor, constant: 1),
-            view.bottomAnchor.constraint(equalTo: shadowView.bottomAnchor, constant: 1),
-            view.trailingAnchor.constraint(equalTo: shadowView.trailingAnchor, constant: -10),
-            view.widthAnchor.constraint(equalToConstant: 30)
-        ])
-    }
-}
-
-// MARK: - Constants
- 
-extension TablatureFinderTableViewCell {
-    enum Constants {
-        static let shadowViewCornerRadius: CGFloat = 3
-        static let shadowViewOffset = CGSize(width: 0, height: 1.75)
-        static let shadowViewRadius: CGFloat = 1.7
-        static let shadowViewOpacity: Float = 0.45
-        
-        static let ratingLabel: String = "Rating"
-        static let votesLabel: String = "Votes"
-    }
-    
-    enum Fonts {
-        static let song = UIFont(name: "Helvetica-Bold", size: 12)
-        static let artist = UIFont(name: "Helvetica-LightOblique", size: 12)
-        static let ratingAndVotes = UIFont(name: "Helvetica-Light", size: 8)
-    }
-    
-    enum AccessibilityIdentifiers {
-        static let song = "TabFInderTableViewCellSongLabel"
-        static let artist = "TabFInderTableViewCellArtistLabel"
-        static let rating = "TabFInderTableViewCellRatingLabel"
-        static let votes = "TabFInderTableViewCellVotesLabel"
+        setupVotesConstraints()
     }
 }

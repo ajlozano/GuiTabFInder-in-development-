@@ -8,6 +8,6 @@
 import Foundation
 
 struct TablatureListModel {
-    var tablatures: [TablatureDetails]?
-    var isFetchDataFInished: Bool = false
+    var tablatures: [TablatureDetail]?
+    var isFetchDataFinished: Bool = false
 }

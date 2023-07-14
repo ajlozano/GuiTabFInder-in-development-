@@ -12,6 +12,7 @@ extension TablatureFinderViewController: UISearchResultsUpdating, UISearchBarDel
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if (searchBar.text?.count == 0) {
             viewModel.clearList()
+            reloadView()
         }
     }
     
@@ -20,6 +21,11 @@ extension TablatureFinderViewController: UISearchResultsUpdating, UISearchBarDel
             turnActivityIndicator(state: true)
             viewModel.fetchData(text: text)
         }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        viewModel.clearList()
+        reloadView()
     }
     
     func updateSearchResults(for searchController: UISearchController) {
