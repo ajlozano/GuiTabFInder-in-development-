@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TablatureDetailViewController: UIViewController {
+class TablatureDetailViewController: BaseViewController {
     
     var coordinator: TablatureFinderCoordinator?
     var tablatureDetailInputModel: TablatureDetail
@@ -62,6 +62,12 @@ class TablatureDetailViewController: UIViewController {
     }
     
     private func setupBinders() {
+        viewModel.loadingStatus.bind { [weak self] status in
+            guard let self = self,
+                  let status = status else { return }
+            
+            self.showLoader(status: status)
+        }
         
         viewModel.tablatureDetailModel.bind { [weak self] model in
             guard let model = model,
@@ -153,6 +159,15 @@ extension TablatureDetailViewController {
             self.artistLabel.text = model.artist
             self.tuningLabel.text = model.tabTuning ?? ""
             self.tabTextView.text = tab
+        }
+    }
+    
+    private func showLoader(status: LoadingStatus) {
+        switch status {
+        case .start:
+            self.showSpinner()
+        case .stop:
+            self.hideSpinner()
         }
     }
     

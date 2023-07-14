@@ -9,7 +9,7 @@ import UIKit
 
 // MARK: TablatureFinderViewController
 
-class TablatureFinderViewController: UIViewController {
+class TablatureFinderViewController: BaseViewController {
     
     var coordinator: TablatureFinderCoordinator?
     var viewModel: TablatureFinderViewModel
@@ -56,6 +56,13 @@ class TablatureFinderViewController: UIViewController {
     }
     
     func setupBinders() {
+        viewModel.loadingStatus.bind { [weak self] status in
+            guard let self = self,
+                  let status = status else { return }
+            
+            self.showLoader(status: status)
+        }
+        
         viewModel.model.bind { [weak self] model in
             guard let _ = model,
                   let self = self else { return }
@@ -84,7 +91,7 @@ class TablatureFinderViewController: UIViewController {
 
 extension TablatureFinderViewController {
     
-    func setupView() {
+    private func setupView() {
         view.backgroundColor = .systemBackground
         setupSearchBarView()
         setupTablaturesTableView()
@@ -121,7 +128,16 @@ extension TablatureFinderViewController {
         }
     }
     
-    func manageEmptyStateView(for state: Bool) {
+    private func showLoader(status: LoadingStatus) {
+        switch status {
+        case .start:
+            self.showSpinner()
+        case .stop:
+            self.hideSpinner()
+        }
+    }
+    
+    private func manageEmptyStateView(for state: Bool) {
         
         DispatchQueue.main.async {
             if state {

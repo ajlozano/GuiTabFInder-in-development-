@@ -17,6 +17,7 @@ protocol TablatureDetailViewModelInput {
 }
 
 protocol TablatureDetailViewModelOutput {
+    var loadingStatus: ObservableObject<LoadingStatus?> { get }
     var tablatureDetailModel: ObservableObject<TablatureDetail?> { get }
     var showEmptyStateError: ObservableObject<Bool?> { get }
 }
@@ -24,7 +25,7 @@ protocol TablatureDetailViewModelOutput {
 // MARK: DefaultTablatureDetailViewModel
 
 final class DefaultTablatureDetailViewModel: TablatureDetailViewModel {
-
+    var loadingStatus: ObservableObject<LoadingStatus?> = ObservableObject(nil)
     var inputModel: TablatureDetail?
     var tablatureDetailModel: ObservableObject<TablatureDetail?> = ObservableObject(nil)
     var showEmptyStateError: ObservableObject<Bool?> = ObservableObject(nil)
@@ -43,9 +44,10 @@ extension DefaultTablatureDetailViewModel {
 
 extension DefaultTablatureDetailViewModel {
     func fetchData(tablatureDetail: TablatureDetail) {
+        loadingStatus.value = .start
         WebScrapingManager.shared.getTabFromHtml(url: tablatureDetail.tabUrl, completion: { [weak self] tablature, tuning in
             guard let tab = tablature else {
-                // TODO: Add custom error event
+                self?.loadingStatus.value = .stop
                 self?.inputModel?.tab = nil
                 self?.inputModel?.tabTuning = nil
                 self?.tablatureDetailModel.value = nil
@@ -54,6 +56,7 @@ extension DefaultTablatureDetailViewModel {
                 return
             }
 
+            self?.loadingStatus.value = .stop
             self?.inputModel?.tab = tab
             self?.inputModel?.tabTuning = tuning
             self?.tablatureDetailModel.value = self?.inputModel
