@@ -45,5 +45,20 @@ struct TFEndpoints {
         static let titleSearchUg = "https://www.ultimate-guitar.com/search.php?title="
     }
 
-    static let urlTabTypeUg = "&page=1&type=200"
+    static let urlTabTypeUg = "&type=200"
+    static let urlTabPageUG = "&page="
+}
+
+extension TFEndpoints {
+    static func generateURLWithParams(baseUrl: String, searchText: String? = nil) -> String {
+        
+        var url = baseUrl
+        
+        if let searchText = searchText {
+            let fixedTextTitle = searchText.replacingOccurrences(of: " ", with: "%20")
+            url += fixedTextTitle + TFEndpoints.urlTabPageUG + "1" + TFEndpoints.urlTabTypeUg
+        }
+        
+        return url
+    }
 }

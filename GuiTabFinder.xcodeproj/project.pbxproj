@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		AD19F76929E5501100AD1837 /* TablatureDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD19F76829E5501100AD1837 /* TablatureDetailViewController.swift */; };
+		AD1E89E32A6320C700054FE7 /* TablatureListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1E89E22A6320C700054FE7 /* TablatureListRepository.swift */; };
+		AD1E89E52A63222700054FE7 /* TablatureListRepository+Parameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1E89E42A63222700054FE7 /* TablatureListRepository+Parameters.swift */; };
+		AD1E89E92A63380E00054FE7 /* TablatureListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1E89E82A63380E00054FE7 /* TablatureListUseCase.swift */; };
 		AD23A24E29DD59E4000255C9 /* TFEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23A24D29DD59E4000255C9 /* TFEndpoints.swift */; };
 		AD23A25229DD603F000255C9 /* ObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23A25129DD603F000255C9 /* ObservableObject.swift */; };
 		AD23A25429DD611E000255C9 /* TablatureDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23A25329DD611E000255C9 /* TablatureDetail.swift */; };
@@ -55,6 +58,9 @@
 
 /* Begin PBXFileReference section */
 		AD19F76829E5501100AD1837 /* TablatureDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureDetailViewController.swift; sourceTree = "<group>"; };
+		AD1E89E22A6320C700054FE7 /* TablatureListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureListRepository.swift; sourceTree = "<group>"; };
+		AD1E89E42A63222700054FE7 /* TablatureListRepository+Parameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureListRepository+Parameters.swift"; sourceTree = "<group>"; };
+		AD1E89E82A63380E00054FE7 /* TablatureListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureListUseCase.swift; sourceTree = "<group>"; };
 		AD23A24D29DD59E4000255C9 /* TFEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFEndpoints.swift; sourceTree = "<group>"; };
 		AD23A25129DD603F000255C9 /* ObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObject.swift; sourceTree = "<group>"; };
 		AD23A25329DD611E000255C9 /* TablatureDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureDetail.swift; sourceTree = "<group>"; };
@@ -121,10 +127,25 @@
 			path = DataBase;
 			sourceTree = "<group>";
 		};
+		AD1E89E62A6331F200054FE7 /* TablatureList */ = {
+			isa = PBXGroup;
+			children = (
+				AD1E89E22A6320C700054FE7 /* TablatureListRepository.swift */,
+				AD1E89E42A63222700054FE7 /* TablatureListRepository+Parameters.swift */,
+			);
+			path = TablatureList;
+			sourceTree = "<group>";
+		};
+		AD1E89E72A6331F800054FE7 /* TablatureDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TablatureDetail;
+			sourceTree = "<group>";
+		};
 		AD23A24A29DD5869000255C9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				ADE359442A5DC18900BC9E61 /* TablatureListModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -321,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				AD23A25329DD611E000255C9 /* TablatureDetail.swift */,
+				ADE359442A5DC18900BC9E61 /* TablatureListModel.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -328,6 +350,7 @@
 		ADE359432A5DB9A400BC9E61 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				AD1E89E82A63380E00054FE7 /* TablatureListUseCase.swift */,
 				AD7AB45C29DED17F004D84AD /* WebScrapingManager.swift */,
 			);
 			path = UseCases;
@@ -441,6 +464,8 @@
 		ADEA81702A5C071A005235A9 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				AD1E89E62A6331F200054FE7 /* TablatureList */,
+				AD1E89E72A6331F800054FE7 /* TablatureDetail */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -529,9 +554,12 @@
 				ADA39CCE2A5F665E00B08E4D /* TablatureDetailViewController+Constants.swift in Sources */,
 				ADE359502A5DCA6F00BC9E61 /* TablatureFinderViewController+TableViewDelegate.swift in Sources */,
 				AD68ABC329DC98CD002B510F /* GuiTabFinder.xcdatamodeld in Sources */,
+				AD1E89E32A6320C700054FE7 /* TablatureListRepository.swift in Sources */,
 				ADE3594A2A5DCA2F00BC9E61 /* TablatureFinderViewController+Constraints.swift in Sources */,
+				AD1E89E92A63380E00054FE7 /* TablatureListUseCase.swift in Sources */,
 				ADE359452A5DC18900BC9E61 /* TablatureListModel.swift in Sources */,
 				ADD7AD8F29E6C60100E2ECC8 /* Extensions.swift in Sources */,
+				AD1E89E52A63222700054FE7 /* TablatureListRepository+Parameters.swift in Sources */,
 				AD27A8FC2A6171AE0004F846 /* EmptyStateView+Constants.swift in Sources */,
 				AD27A90A2A61ABFD0004F846 /* LoadingStatus.swift in Sources */,
 				AD97EF4529E0323100F68397 /* TablatureFinderTableViewCell.swift in Sources */,

@@ -1,37 +1,77 @@
 //
-//  WebScrapingManager.swift
+//  TablatureRepository.swift
 //  GuiTabFinder
 //
-//  Created by Toni Lozano Fernández on 6/4/23.
+//  Created by Toni Lozano Fernández on 15/7/23.
 //
 
 import Foundation
 
-struct WebScrapingManager {
-    
-    static let shared = WebScrapingManager()
-    private init() { }
-    
-    func getSearchResultsFromHtml(text: String, completion: @escaping (Result<TablatureListModel, AppError>) -> ()) {
 
-        let fixedTitleName = text.replacingOccurrences(of: " ", with: "%20")
+// MARK: TablatureListRepository - protocol
+
+protocol TablatureListRepository {
+    func getTablatures(params: TablatureListRepositoryParameters, completion: @escaping (Result<TablatureListModel, AppError>) -> Void)
+}
+
+// MARK: DefaultTablatureListRepository - Protocol
+
+final class DefaultTablatureListRepository: TablatureListRepository {
+    private weak var task: URLSessionTask?
+    
+    func getTablatures(params: TablatureListRepositoryParameters, completion: @escaping (Result<TablatureListModel, AppError>) -> Void) {
         
-        let url = TFEndpoints.HeaderURL.titleSearchUg + fixedTitleName + TFEndpoints.urlTabTypeUg
-
-        fetchDataFromUrl(url: url) { result in
-            switch result {
-            case .success(let stringSearchResult):
-                print(stringSearchResult)
-                guard let tablaturesList = manageFetchDataResult(with: stringSearchResult) else {
-                    completion(.failure(AppError.manageFetchDataError(message: "Error formatting fetched data")))
-                    return
-                }
-                completion(.success(tablaturesList))
-                
-            case .failure(let error):
-                completion(.failure(error))
-            }
+        let endpoint = params.paginationURL ?? TFEndpoints.generateURLWithParams(baseUrl: TFEndpoints.HeaderURL.titleSearchUg, searchText: params.searchText)
+        
+        task?.cancel()
+        
+        guard let url = URL(string: endpoint) else {
+            let error: AppError = .serviceError(message: "Malformed URL for getTransactions in TablatureListRepository")
+            completion(.failure(error))
+            return
         }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
+            self.manageResponse(data: data, response: response, error: error) { result in
+                switch result {
+                case .success(let stringSearchResult):
+                    guard let tablaturesList = self.manageFetchDataResult(with: stringSearchResult) else {
+                        completion(.failure(AppError.manageFetchDataError(message: "Error formatting fetched data")))
+                        return
+                    }
+                    completion(.success(tablaturesList))
+                    
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+        })
+        
+        task?.resume()
+    }
+}
+
+// MARK: DefaultTablatureListRepository - Manage Data
+
+extension DefaultTablatureListRepository {
+    
+    func manageResponse(data: Data?, response: URLResponse?, error: Error?, completion: @escaping (Result<String, AppError>) -> Void) {
+        
+        if let responsestatus = (response as? HTTPURLResponse)?.statusCode, responsestatus != 200 {
+            let error: AppError = .serviceError(message: "Error when when fetching in TablatureListRepository")
+            completion(.failure(error))
+        }
+        
+        guard let data = data, let stringHtml = String(data: data, encoding: .utf8) else {
+            let error: AppError = .serviceError(message: "No Data Received when fetching in TablatureListRepository")
+            completion(.failure(error))
+            return
+        }
+
+        completion(.success(stringHtml))
     }
     
     private func manageFetchDataResult(with stringSearchResult: String) -> TablatureListModel?  {
@@ -91,46 +131,6 @@ struct WebScrapingManager {
         }
         
         return nil
-    }
-    
-    func getTabFromHtml(url: String, completion: @escaping (String?, String?) -> ()) {
-        fetchDataFromUrl(url: url) { result in
-            switch result {
-            case .success(let stringData):
-                //Scrape all the information from the HTML
-                let tuningString = self.getStringFromHtml(stringData, TFEndpoints.leftSide.tabTuningBlockEnding, TFEndpoints.rightSide.tabTuningBlockEnding)
-              
-                //Scrape all the information from the HTML
-                if let resultBlockString = self.getStringFromHtml(stringData, TFEndpoints.leftSide.tabBlock, TFEndpoints.rightSide.tabBlockEnding) {
-                    var tabBlock = resultBlockString
-                    tabBlock = tabBlock.replacingOccurrences(of: "\\n", with: "\n")
-                    tabBlock = tabBlock.replacingOccurrences(of: "\\r", with: "")
-                    tabBlock = tabBlock.replacingOccurrences(of: "[/tab]", with: "")
-                    tabBlock = tabBlock.replacingOccurrences(of: "[tab]", with: "")
-                    
-                    completion(tabBlock, tuningString)
-                }
-            case .failure(_):
-                completion(nil, nil)
-            }
-        }
-    }
-    
-    private func fetchDataFromUrl(url: String, completion: @escaping (Result<String, AppError>) -> ()) {
-        guard let urlString = URL(string: url) else {
-            print("Error constructing URL resource")
-            return
-        }
-        let task = URLSession.shared.dataTask(with: urlString) { (data, resp, error) in
-            guard let data = data, let stringHtml = String(data: data, encoding: .utf8) else {
-                print("data task error")
-                completion(.failure(AppError.serviceError(message: "Error getting data from URL")))
-                return
-            }
-  
-            completion(.success(stringHtml))
-        }
-        task.resume()
     }
     
     private func getStringFromHtml(_ htmlString: String, _ leftSideString: String, _ rightSideString: String) -> String? {

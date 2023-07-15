@@ -32,13 +32,20 @@ final class DefaultTablatureFinderViewModel: TablatureFinderViewModel {
     var model: ObservableObject<TablatureListModel?> = ObservableObject(nil)
     var tablatureDetailModel: ObservableObject<TablatureDetail?> = ObservableObject(nil)
     var showEmptyStateError: ObservableObject<Bool?> = ObservableObject(nil)
+    var tablatureListUseCase: TablatureListUseCase
+    var pageNumber: Int = 1
+    
+    init(tablatureListUseCase: TablatureListUseCase = DefaultTablatureListUseCase()) {
+        self.tablatureListUseCase = tablatureListUseCase
+    }
 }
 
 // MARK: Input methods
 
 extension DefaultTablatureFinderViewModel {
     func fetchNewTablatures() {
-        
+        pageNumber += 1
+        fetchData(text: nil, pageNumber)
     }
     
     func selectCell(atIndex index: Int) {
@@ -55,10 +62,14 @@ extension DefaultTablatureFinderViewModel {
 // MARK: Fetch data methods
 
 extension DefaultTablatureFinderViewModel {
-    func fetchData(text: String) {
+    func fetchData(text: String?, _ pageNumber: Int? = nil) {
         
         loadingStatus.value = .start
-        WebScrapingManager.shared.getSearchResultsFromHtml(text: text) { [weak self] result in
+//        WebScrapingManager.shared.getSearchResultsFromHtml(text: text) { [weak self] result in
+        
+        // TODO: Continuar código con el contador de páginas
+        
+        let useCaseParameters = TablatureListRepositoryParameters(
             switch result {
             case .success(let tablatureList):
                 self?.loadingStatus.value = .stop
@@ -66,8 +77,11 @@ extension DefaultTablatureFinderViewModel {
                 self?.showEmptyStateError.value = false
             case .failure(_):
                 self?.loadingStatus.value = .stop
-                self?.model.value = TablatureListModel(tablatures: [], isFetchDataFinished: true)
-                self?.showEmptyStateError.value = true
+                
+                if (pageNumber > 1) {
+                    self?.model.value = TablatureListModel(tablatures: [], isFetchDataFinished: true)
+                    self?.showEmptyStateError.value = true
+                }
             }
         }
     }
