@@ -19,6 +19,7 @@ extension TablatureFinderViewController: UISearchResultsUpdating, UISearchBarDel
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let text = searchBar.text {
             turnActivityIndicator(state: true)
+            viewModel.clearList()
             viewModel.fetchData(text: text)
         }
     }

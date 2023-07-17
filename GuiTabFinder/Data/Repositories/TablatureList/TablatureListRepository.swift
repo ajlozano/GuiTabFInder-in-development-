@@ -21,7 +21,7 @@ final class DefaultTablatureListRepository: TablatureListRepository {
     
     func getTablatures(params: TablatureListRepositoryParameters, completion: @escaping (Result<TablatureListModel, AppError>) -> Void) {
         
-        let endpoint = params.paginationURL ?? TFEndpoints.generateURLWithParams(baseUrl: TFEndpoints.HeaderURL.titleSearchUg, searchText: params.searchText)
+        let endpoint = TFEndpoints.generateURLWithParams(baseUrl: TFEndpoints.HeaderURL.titleSearchUg, searchText: params.searchText, page: params.page)
         
         task?.cancel()
         
@@ -42,7 +42,9 @@ final class DefaultTablatureListRepository: TablatureListRepository {
                         completion(.failure(AppError.manageFetchDataError(message: "Error formatting fetched data")))
                         return
                     }
-                    completion(.success(tablaturesList))
+                    var tablatureListModel = tablaturesList
+                    tablatureListModel.page = Int(params.page)
+                    completion(.success(tablatureListModel))
                     
                 case .failure(let error):
                     completion(.failure(error))
@@ -120,14 +122,14 @@ extension DefaultTablatureListRepository {
                         of: "\(TFEndpoints.leftSide.tabId)\(idBlockString)\(blockString)\(idBlockString)\(TFEndpoints.rightSide.blockEnding)",
                         with: " ")
                 } else {
-                    print("Error getting Id Row from HTML")
+                    //print("Error getting Id Row from HTML")
                     idRow = nil
                 }
             } while idRow != nil
             
             if (tablatures.count == 0) { return nil }
             
-            return TablatureListModel(tablatures: tablatures)
+            return TablatureListModel(tablatures: tablatures, didAllTablaturesFetched: false, page: 1)
         }
         
         return nil
@@ -135,11 +137,11 @@ extension DefaultTablatureListRepository {
     
     private func getStringFromHtml(_ htmlString: String, _ leftSideString: String, _ rightSideString: String) -> String? {
         guard let leftRangeIdBlock = htmlString.range(of: leftSideString) else {
-            print("cannot find left range")
+            //print("cannot find left range")
             return nil
         }
         guard let rightRangeIdBlock = htmlString.range(of: rightSideString) else {
-            print("cannot find right range")
+            //print("cannot find right range")
             return nil
         }
         let rangeOfStringBlock = leftRangeIdBlock.upperBound..<rightRangeIdBlock.lowerBound

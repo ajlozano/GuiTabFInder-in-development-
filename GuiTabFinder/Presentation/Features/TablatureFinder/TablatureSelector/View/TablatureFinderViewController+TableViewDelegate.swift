@@ -20,4 +20,12 @@ final class TablatureFinderTableViewDelegate: NSObject, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.selectCell(atIndex: indexPath.row)
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        guard let model = self.viewModel.model else { return }
+//        
+//        if (indexPath.row == (model.tablatures?.count)! - 1) {
+//            self.viewModel.fetchNewTablatures()
+//        }
+    }
 }

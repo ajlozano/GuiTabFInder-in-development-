@@ -9,6 +9,6 @@ import Foundation
 
 
 struct TablatureListRepositoryParameters {
-    var paginationURL: String?
-    var searchText: String?
+    var page: String
+    var searchText: String
 }

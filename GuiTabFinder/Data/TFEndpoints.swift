@@ -50,15 +50,11 @@ struct TFEndpoints {
 }
 
 extension TFEndpoints {
-    static func generateURLWithParams(baseUrl: String, searchText: String? = nil) -> String {
-        
-        var url = baseUrl
-        
-        if let searchText = searchText {
-            let fixedTextTitle = searchText.replacingOccurrences(of: " ", with: "%20")
-            url += fixedTextTitle + TFEndpoints.urlTabPageUG + "1" + TFEndpoints.urlTabTypeUg
-        }
-        
+    static func generateURLWithParams(baseUrl: String, searchText: String, page: String) -> String {
+
+        let fixedTextTitle = searchText.replacingOccurrences(of: " ", with: "%20")
+        let url = baseUrl + fixedTextTitle + TFEndpoints.urlTabPageUG + page + TFEndpoints.urlTabTypeUg
+
         return url
     }
 }

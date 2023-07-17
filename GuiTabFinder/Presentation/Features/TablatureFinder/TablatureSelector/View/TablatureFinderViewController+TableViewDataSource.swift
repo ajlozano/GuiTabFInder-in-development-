@@ -33,13 +33,13 @@ final class TablatureFinderTableViewDataSource: NSObject, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let tablaturesCount = self.viewModel.model.value?.tablatures?.count else { return 0 }
+        guard let tablaturesCount = self.viewModel.model?.tablatures?.count else { return 0 }
         
         return tablaturesCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let tablature = self.viewModel.model.value?.tablatures?[indexPath.row],
+        if let tablature = self.viewModel.model?.tablatures?[indexPath.row],
            let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.tablatureTableViewCell, for: indexPath) as? TablatureFinderTableViewCell {
             
             cell.selectionStyle = .none
@@ -54,3 +54,4 @@ final class TablatureFinderTableViewDataSource: NSObject, UITableViewDataSource 
         return UITableViewCell()
     }
 }
+

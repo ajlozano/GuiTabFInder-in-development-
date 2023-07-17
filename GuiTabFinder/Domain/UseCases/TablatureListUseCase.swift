@@ -11,7 +11,7 @@ import Foundation
 
 protocol TablatureListUseCase {
     
-    func execute(params: TablatureListRepository, completion: @escaping (Result<TablatureListModel, AppError>) -> Void)
+    func execute(params: TablatureListRepositoryParameters, completion: @escaping (Result<TablatureListModel, AppError>) -> Void)
 }
 
 // MARK: DefaultTablatureListUseCase - Class
@@ -19,7 +19,6 @@ protocol TablatureListUseCase {
 final class DefaultTablatureListUseCase: TablatureListUseCase {
     
     private var repository: TablatureListRepository
-    private var paginationUrl: String?
     private var hasFetchedAllTablatures: Bool = false
     
     init(repository: TablatureListRepository = DefaultTablatureListRepository()) {
@@ -44,7 +43,6 @@ extension DefaultTablatureListUseCase {
             }
         }
         
-        let repositoryParams = TablatureListRepositoryParameters(paginationURL: paginationUrl, searchText: params.searchText)
-        repository.getTablatures(params: repositoryParams, completion: completion)
+        repository.getTablatures(params: params, completion: completion)
     }
 }

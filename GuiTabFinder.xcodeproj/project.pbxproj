@@ -31,7 +31,6 @@
 		AD68ABC529DC98CE002B510F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD68ABC429DC98CE002B510F /* Assets.xcassets */; };
 		AD68ABC829DC98CE002B510F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD68ABC629DC98CE002B510F /* LaunchScreen.storyboard */; };
 		AD68ABD029DC99E0002B510F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AD68ABCF29DC99E0002B510F /* README.md */; };
-		AD7AB45D29DED17F004D84AD /* WebScrapingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7AB45C29DED17F004D84AD /* WebScrapingManager.swift */; };
 		AD97EF4529E0323100F68397 /* TablatureFinderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD97EF4429E0323100F68397 /* TablatureFinderTableViewCell.swift */; };
 		ADA39CBD2A5EA4BE00B08E4D /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA39CBC2A5EA4BE00B08E4D /* String+Localized.swift */; };
 		ADA39CBF2A5EC0C600B08E4D /* TablatureFinderTableViewCell+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA39CBE2A5EC0C600B08E4D /* TablatureFinderTableViewCell+Constraints.swift */; };
@@ -40,6 +39,9 @@
 		ADA39CCA2A5F1F3600B08E4D /* TablatureDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA39CC92A5F1F3600B08E4D /* TablatureDetailViewModel.swift */; };
 		ADA39CCC2A5F663A00B08E4D /* TablatureFinderTableViewCell+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA39CCB2A5F663A00B08E4D /* TablatureFinderTableViewCell+Constants.swift */; };
 		ADA39CCE2A5F665E00B08E4D /* TablatureDetailViewController+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA39CCD2A5F665E00B08E4D /* TablatureDetailViewController+Constants.swift */; };
+		ADB2C6D62A655AA300743C17 /* TablatureDetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB2C6D52A655AA300743C17 /* TablatureDetailRepository.swift */; };
+		ADB2C6D82A655AE700743C17 /* TablatureDetailRepository+Parameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB2C6D72A655AE700743C17 /* TablatureDetailRepository+Parameters.swift */; };
+		ADB2C6DA2A655BED00743C17 /* TablatureDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB2C6D92A655BED00743C17 /* TablatureDetailUseCase.swift */; };
 		ADD7AD8F29E6C60100E2ECC8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD7AD8E29E6C60100E2ECC8 /* Extensions.swift */; };
 		ADE359312A5D97D400BC9E61 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE359302A5D97D300BC9E61 /* MainCoordinator.swift */; };
 		ADE359342A5DA13A00BC9E61 /* HomeTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE359332A5DA13A00BC9E61 /* HomeTabBarViewController.swift */; };
@@ -83,7 +85,6 @@
 		AD68ABC729DC98CE002B510F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD68ABC929DC98CE002B510F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD68ABCF29DC99E0002B510F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		AD7AB45C29DED17F004D84AD /* WebScrapingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebScrapingManager.swift; sourceTree = "<group>"; };
 		AD97EF4429E0323100F68397 /* TablatureFinderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureFinderTableViewCell.swift; sourceTree = "<group>"; };
 		ADA39CBC2A5EA4BE00B08E4D /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 		ADA39CBE2A5EC0C600B08E4D /* TablatureFinderTableViewCell+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureFinderTableViewCell+Constraints.swift"; sourceTree = "<group>"; };
@@ -92,6 +93,9 @@
 		ADA39CC92A5F1F3600B08E4D /* TablatureDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureDetailViewModel.swift; sourceTree = "<group>"; };
 		ADA39CCB2A5F663A00B08E4D /* TablatureFinderTableViewCell+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureFinderTableViewCell+Constants.swift"; sourceTree = "<group>"; };
 		ADA39CCD2A5F665E00B08E4D /* TablatureDetailViewController+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureDetailViewController+Constants.swift"; sourceTree = "<group>"; };
+		ADB2C6D52A655AA300743C17 /* TablatureDetailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureDetailRepository.swift; sourceTree = "<group>"; };
+		ADB2C6D72A655AE700743C17 /* TablatureDetailRepository+Parameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureDetailRepository+Parameters.swift"; sourceTree = "<group>"; };
+		ADB2C6D92A655BED00743C17 /* TablatureDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureDetailUseCase.swift; sourceTree = "<group>"; };
 		ADD7AD8E29E6C60100E2ECC8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		ADE359302A5D97D300BC9E61 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		ADE359332A5DA13A00BC9E61 /* HomeTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +143,8 @@
 		AD1E89E72A6331F800054FE7 /* TablatureDetail */ = {
 			isa = PBXGroup;
 			children = (
+				ADB2C6D52A655AA300743C17 /* TablatureDetailRepository.swift */,
+				ADB2C6D72A655AE700743C17 /* TablatureDetailRepository+Parameters.swift */,
 			);
 			path = TablatureDetail;
 			sourceTree = "<group>";
@@ -351,7 +357,7 @@
 			isa = PBXGroup;
 			children = (
 				AD1E89E82A63380E00054FE7 /* TablatureListUseCase.swift */,
-				AD7AB45C29DED17F004D84AD /* WebScrapingManager.swift */,
+				ADB2C6D92A655BED00743C17 /* TablatureDetailUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -551,10 +557,12 @@
 				ADA39CBD2A5EA4BE00B08E4D /* String+Localized.swift in Sources */,
 				AD68ABBD29DC98CD002B510F /* TablatureFinderViewController.swift in Sources */,
 				AD27A9062A61AAF10004F846 /* SpinnerViewController+Constants.swift in Sources */,
+				ADB2C6DA2A655BED00743C17 /* TablatureDetailUseCase.swift in Sources */,
 				ADA39CCE2A5F665E00B08E4D /* TablatureDetailViewController+Constants.swift in Sources */,
 				ADE359502A5DCA6F00BC9E61 /* TablatureFinderViewController+TableViewDelegate.swift in Sources */,
 				AD68ABC329DC98CD002B510F /* GuiTabFinder.xcdatamodeld in Sources */,
 				AD1E89E32A6320C700054FE7 /* TablatureListRepository.swift in Sources */,
+				ADB2C6D62A655AA300743C17 /* TablatureDetailRepository.swift in Sources */,
 				ADE3594A2A5DCA2F00BC9E61 /* TablatureFinderViewController+Constraints.swift in Sources */,
 				AD1E89E92A63380E00054FE7 /* TablatureListUseCase.swift in Sources */,
 				ADE359452A5DC18900BC9E61 /* TablatureListModel.swift in Sources */,
@@ -581,8 +589,8 @@
 				AD23A25229DD603F000255C9 /* ObservableObject.swift in Sources */,
 				ADE359532A5DD66400BC9E61 /* TablatureFinderViewController+SearchBarDelegate.swift in Sources */,
 				ADE359482A5DCA0700BC9E61 /* TablatureFinderViewController+Constants.swift in Sources */,
+				ADB2C6D82A655AE700743C17 /* TablatureDetailRepository+Parameters.swift in Sources */,
 				AD68ABBB29DC98CD002B510F /* SceneDelegate.swift in Sources */,
-				AD7AB45D29DED17F004D84AD /* WebScrapingManager.swift in Sources */,
 				ADA39CCA2A5F1F3600B08E4D /* TablatureDetailViewModel.swift in Sources */,
 				ADA39CC62A5ECC4500B08E4D /* TablatureDetailViewController+Constraints.swift in Sources */,
 			);

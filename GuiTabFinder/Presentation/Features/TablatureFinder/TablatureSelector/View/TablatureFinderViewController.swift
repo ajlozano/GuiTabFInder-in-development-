@@ -49,7 +49,6 @@ class TablatureFinderViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //setupActivityIndicator()
         setupBinders()
         setupView()
@@ -63,13 +62,13 @@ class TablatureFinderViewController: BaseViewController {
             self.showLoader(status: status)
         }
         
-        viewModel.model.bind { [weak self] model in
-            guard let _ = model,
-                  let self = self else { return }
-            
-            self.turnActivityIndicator(state: false)
-            self.reloadView()
-        }
+//        viewModel.model.bind { [weak self] model in
+//            guard let _ = model,
+//                  let self = self else { return }
+//
+//            self.turnActivityIndicator(state: false)
+//            self.reloadView()
+//        }
         
         viewModel.tablatureDetailModel.bind { [weak self] detailModel in
             guard let detailModel = detailModel,
@@ -93,6 +92,8 @@ extension TablatureFinderViewController {
     
     private func setupView() {
         view.backgroundColor = .systemBackground
+        
+        viewModel.delegate = self
         setupSearchBarView()
         setupTablaturesTableView()
     }
@@ -114,6 +115,7 @@ extension TablatureFinderViewController {
         tablaturesTableView.delegate = tablaturesTableViewDelegate
         tablaturesTableView.backgroundColor = .systemGroupedBackground
         tablaturesTableView.accessibilityIdentifier = AccessibilityIdentifiers.tableView
+        tablaturesTableView.isScrollEnabled = true
         setupTablaturesTableViewConstraints()
     }
 }
@@ -150,7 +152,6 @@ extension TablatureFinderViewController {
         }
     }
 }
-
 
 // MARK: Activity indicator methods
 
@@ -203,5 +204,22 @@ extension TablatureFinderViewController {
     
     func showTablatureDetailView(for model: TablatureDetail) {
         coordinator?.showTablatureDetail(for: model)
+    }
+}
+
+// MARK: View Model delegate
+
+extension TablatureFinderViewController: TablatureFinderViewModelDelegate {
+    func didLoadInitialTablatures() {
+        self.turnActivityIndicator(state: false)
+        self.reloadView()
+    }
+    
+    func didLoadMoreTablatures(with newIndexPaths: [IndexPath]) {
+        DispatchQueue.main.async {
+            self.tablaturesTableView.performBatchUpdates {
+                self.tablaturesTableView.insertRows(at: newIndexPaths, with: .automatic)
+            }
+        }
     }
 }

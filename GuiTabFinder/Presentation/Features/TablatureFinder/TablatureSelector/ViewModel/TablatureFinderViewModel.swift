@@ -7,6 +7,13 @@
 
 import Foundation
 
+// MARK: TablatureFinderViewModelDelegate
+
+protocol TablatureFinderViewModelDelegate: AnyObject {
+    func didLoadInitialTablatures()
+    func didLoadMoreTablatures(with newIndexPaths: [IndexPath])
+}
+
 // MARK: TablatureFinderViewModel
 
 protocol TablatureFinderViewModel: TablatureFinderViewModelInput, TablatureFinderViewModelOutput {}
@@ -20,20 +27,23 @@ protocol TablatureFinderViewModelInput {
 
 protocol TablatureFinderViewModelOutput {
     var loadingStatus: ObservableObject<LoadingStatus?> { get }
-    var model: ObservableObject<TablatureListModel?> { get }
+    var model: TablatureListModel? { get }
     var tablatureDetailModel: ObservableObject<TablatureDetail?> { get }
     var showEmptyStateError: ObservableObject<Bool?> { get }
+    var delegate: TablatureFinderViewModelDelegate? { get set }
 }
 
 // MARK: DefaultTablatureFinderViewModel
 
 final class DefaultTablatureFinderViewModel: TablatureFinderViewModel {
+    var delegate: TablatureFinderViewModelDelegate?
     var loadingStatus: ObservableObject<LoadingStatus?> = ObservableObject(nil)
-    var model: ObservableObject<TablatureListModel?> = ObservableObject(nil)
+    var model: TablatureListModel?
     var tablatureDetailModel: ObservableObject<TablatureDetail?> = ObservableObject(nil)
     var showEmptyStateError: ObservableObject<Bool?> = ObservableObject(nil)
     var tablatureListUseCase: TablatureListUseCase
     var pageNumber: Int = 1
+    var searchText: String = ""
     
     init(tablatureListUseCase: TablatureListUseCase = DefaultTablatureListUseCase()) {
         self.tablatureListUseCase = tablatureListUseCase
@@ -44,16 +54,18 @@ final class DefaultTablatureFinderViewModel: TablatureFinderViewModel {
 
 extension DefaultTablatureFinderViewModel {
     func fetchNewTablatures() {
-        pageNumber += 1
-        fetchData(text: nil, pageNumber)
+        if (!self.model!.didAllTablaturesFetched) {
+            self.model!.page! += 1
+            fetchData(text: searchText)
+        }
     }
     
     func selectCell(atIndex index: Int) {
-        tablatureDetailModel.value = model.value?.tablatures?[index]
+        tablatureDetailModel.value = model?.tablatures?[index]
     }
     
     func clearList() {
-        self.model.value = nil
+        self.model = nil
         self.tablatureDetailModel.value = nil
         self.showEmptyStateError.value = false
     }
@@ -62,26 +74,47 @@ extension DefaultTablatureFinderViewModel {
 // MARK: Fetch data methods
 
 extension DefaultTablatureFinderViewModel {
-    func fetchData(text: String?, _ pageNumber: Int? = nil) {
+    func fetchData(text: String) {
         
         loadingStatus.value = .start
-//        WebScrapingManager.shared.getSearchResultsFromHtml(text: text) { [weak self] result in
+
+        searchText = text
         
-        // TODO: Continuar código con el contador de páginas
+        let page = model?.page ?? 1
         
-        let useCaseParameters = TablatureListRepositoryParameters(
+        let useCaseParameters = TablatureListRepositoryParameters(page: "\(page)", searchText: text)
+        
+        tablatureListUseCase.execute(params: useCaseParameters) { [weak self] result in
+            
             switch result {
             case .success(let tablatureList):
                 self?.loadingStatus.value = .stop
-                self?.model.value = tablatureList
+                if (self?.model == nil) {
+                    self?.model = tablatureList
+                    self?.delegate?.didLoadInitialTablatures()
+                } else {
+                    // Add additional index paths fetched to tablatures array
+                    guard let newCount = tablatureList.tablatures?.count else { return }
+                    guard let initialCount = self?.model?.tablatures?.count else { return }
+                    let totalCount = initialCount + newCount
+                    let startingUpdateIndex = totalCount - newCount
+                    let indexPathsToAdd: [IndexPath] = Array(startingUpdateIndex..<(startingUpdateIndex+newCount)).compactMap { row in
+                        return IndexPath(row: row, section: 0)
+                    }
+    
+                    self?.model?.tablatures?.append(contentsOf: tablatureList.tablatures!)
+                    self?.delegate?.didLoadMoreTablatures(with: indexPathsToAdd)
+                }
+                
                 self?.showEmptyStateError.value = false
             case .failure(_):
                 self?.loadingStatus.value = .stop
-                
-                if (pageNumber > 1) {
-                    self?.model.value = TablatureListModel(tablatures: [], isFetchDataFinished: true)
+                if (self?.model == nil) {
                     self?.showEmptyStateError.value = true
+                    return
                 }
+
+                self?.model?.didAllTablaturesFetched = true
             }
         }
     }
