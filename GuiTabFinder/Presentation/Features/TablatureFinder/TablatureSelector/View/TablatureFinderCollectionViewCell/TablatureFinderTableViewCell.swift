@@ -7,6 +7,8 @@
 
 import UIKit
 
+// MARK: TablatureFinderTableViewCell
+
 class TablatureFinderTableViewCell: UITableViewCell {
     var song: String?
     var artist: String?
@@ -77,7 +79,7 @@ class TablatureFinderTableViewCell: UITableViewCell {
 
 }
 
-// MARK: - Public methods
+// MARK: TablatureFinderTableViewCell - Public methods
 
 extension TablatureFinderTableViewCell {
     func configure(withSong: String, withArtist: String, withRating: String, withVotes: String) {

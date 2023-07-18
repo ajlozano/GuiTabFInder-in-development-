@@ -14,7 +14,7 @@ protocol TablatureListRepository {
     func getTablatures(params: TablatureListRepositoryParameters, completion: @escaping (Result<TablatureListModel, AppError>) -> Void)
 }
 
-// MARK: DefaultTablatureListRepository - Protocol
+// MARK: DefaultTablatureListRepository - class
 
 final class DefaultTablatureListRepository: TablatureListRepository {
     private weak var task: URLSessionTask?

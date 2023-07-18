@@ -7,7 +7,7 @@
 
 import UIKit
 
-// MARK: - Constants
+// MARK: TablatureDetailViewController - Constants
  
 extension TablatureDetailViewController {
     enum Fonts {

@@ -42,6 +42,14 @@
 		ADB2C6D62A655AA300743C17 /* TablatureDetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB2C6D52A655AA300743C17 /* TablatureDetailRepository.swift */; };
 		ADB2C6D82A655AE700743C17 /* TablatureDetailRepository+Parameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB2C6D72A655AE700743C17 /* TablatureDetailRepository+Parameters.swift */; };
 		ADB2C6DA2A655BED00743C17 /* TablatureDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB2C6D92A655BED00743C17 /* TablatureDetailUseCase.swift */; };
+		ADBB50672A668B4D001BE241 /* TunerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB50662A668B4D001BE241 /* TunerCoordinator.swift */; };
+		ADBB50692A66906D001BE241 /* TunerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB50682A66906D001BE241 /* TunerViewController.swift */; };
+		ADBB506B2A66937A001BE241 /* TunerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB506A2A66937A001BE241 /* TunerViewModel.swift */; };
+		ADBB506F2A66A3A6001BE241 /* TunerViewController+SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB506E2A66A3A6001BE241 /* TunerViewController+SwiftUIView.swift */; };
+		ADBB50712A66A3E7001BE241 /* TunerViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB50702A66A3E7001BE241 /* TunerViewController+Constraints.swift */; };
+		ADBB50782A66ABE2001BE241 /* AudioRecorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB50772A66ABE2001BE241 /* AudioRecorderViewController.swift */; };
+		ADBB507A2A66AD15001BE241 /* AudioRecorderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB50792A66AD15001BE241 /* AudioRecorderViewModel.swift */; };
+		ADBB507C2A66ADCD001BE241 /* AudioRecorderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB507B2A66ADCD001BE241 /* AudioRecorderCoordinator.swift */; };
 		ADD7AD8F29E6C60100E2ECC8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD7AD8E29E6C60100E2ECC8 /* Extensions.swift */; };
 		ADE359312A5D97D400BC9E61 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE359302A5D97D300BC9E61 /* MainCoordinator.swift */; };
 		ADE359342A5DA13A00BC9E61 /* HomeTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE359332A5DA13A00BC9E61 /* HomeTabBarViewController.swift */; };
@@ -96,6 +104,14 @@
 		ADB2C6D52A655AA300743C17 /* TablatureDetailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureDetailRepository.swift; sourceTree = "<group>"; };
 		ADB2C6D72A655AE700743C17 /* TablatureDetailRepository+Parameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureDetailRepository+Parameters.swift"; sourceTree = "<group>"; };
 		ADB2C6D92A655BED00743C17 /* TablatureDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureDetailUseCase.swift; sourceTree = "<group>"; };
+		ADBB50662A668B4D001BE241 /* TunerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunerCoordinator.swift; sourceTree = "<group>"; };
+		ADBB50682A66906D001BE241 /* TunerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunerViewController.swift; sourceTree = "<group>"; };
+		ADBB506A2A66937A001BE241 /* TunerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunerViewModel.swift; sourceTree = "<group>"; };
+		ADBB506E2A66A3A6001BE241 /* TunerViewController+SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TunerViewController+SwiftUIView.swift"; sourceTree = "<group>"; };
+		ADBB50702A66A3E7001BE241 /* TunerViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TunerViewController+Constraints.swift"; sourceTree = "<group>"; };
+		ADBB50772A66ABE2001BE241 /* AudioRecorderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderViewController.swift; sourceTree = "<group>"; };
+		ADBB50792A66AD15001BE241 /* AudioRecorderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderViewModel.swift; sourceTree = "<group>"; };
+		ADBB507B2A66ADCD001BE241 /* AudioRecorderCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderCoordinator.swift; sourceTree = "<group>"; };
 		ADD7AD8E29E6C60100E2ECC8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		ADE359302A5D97D300BC9E61 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		ADE359332A5DA13A00BC9E61 /* HomeTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewController.swift; sourceTree = "<group>"; };
@@ -147,13 +163,6 @@
 				ADB2C6D72A655AE700743C17 /* TablatureDetailRepository+Parameters.swift */,
 			);
 			path = TablatureDetail;
-			sourceTree = "<group>";
-		};
-		AD23A24A29DD5869000255C9 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		AD23A24B29DD586E000255C9 /* View */ = {
@@ -249,7 +258,6 @@
 		ADA39CC02A5EC81700B08E4D /* TablatureSelector */ = {
 			isa = PBXGroup;
 			children = (
-				AD23A24A29DD5869000255C9 /* Model */,
 				AD23A24B29DD586E000255C9 /* View */,
 				AD23A24C29DD5873000255C9 /* ViewModel */,
 			);
@@ -259,18 +267,10 @@
 		ADA39CC12A5EC82700B08E4D /* TablatureDetail */ = {
 			isa = PBXGroup;
 			children = (
-				ADA39CC22A5EC84200B08E4D /* Model */,
 				ADA39CC32A5EC84600B08E4D /* View */,
 				ADA39CC42A5EC84A00B08E4D /* ViewModel */,
 			);
 			path = TablatureDetail;
-			sourceTree = "<group>";
-		};
-		ADA39CC22A5EC84200B08E4D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		ADA39CC32A5EC84600B08E4D /* View */ = {
@@ -290,6 +290,70 @@
 				ADA39CC92A5F1F3600B08E4D /* TablatureDetailViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		ADBB50652A6686DE001BE241 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB50662A668B4D001BE241 /* TunerCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		ADBB506C2A669E9D001BE241 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB50682A66906D001BE241 /* TunerViewController.swift */,
+				ADBB506E2A66A3A6001BE241 /* TunerViewController+SwiftUIView.swift */,
+				ADBB50702A66A3E7001BE241 /* TunerViewController+Constraints.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ADBB506D2A669EA2001BE241 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB506A2A66937A001BE241 /* TunerViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		ADBB50722A66AB96001BE241 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB507B2A66ADCD001BE241 /* AudioRecorderCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		ADBB50732A66AB9C001BE241 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB50772A66ABE2001BE241 /* AudioRecorderViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ADBB50742A66ABA1001BE241 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB50792A66AD15001BE241 /* AudioRecorderViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		ADBB50752A66ABAB001BE241 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ADBB50762A66ABB4001BE241 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		ADD7AD8D29E6C59400E2ECC8 /* Extensions */ = {
@@ -446,6 +510,10 @@
 		ADEA816D2A5C065D005235A9 /* Tuner */ = {
 			isa = PBXGroup;
 			children = (
+				ADBB50652A6686DE001BE241 /* Coordinator */,
+				ADBB50762A66ABB4001BE241 /* Model */,
+				ADBB506C2A669E9D001BE241 /* View */,
+				ADBB506D2A669EA2001BE241 /* ViewModel */,
 			);
 			path = Tuner;
 			sourceTree = "<group>";
@@ -453,6 +521,10 @@
 		ADEA816E2A5C0668005235A9 /* AudioRecorder */ = {
 			isa = PBXGroup;
 			children = (
+				ADBB50722A66AB96001BE241 /* Coordinator */,
+				ADBB50752A66ABAB001BE241 /* Model */,
+				ADBB50732A66AB9C001BE241 /* View */,
+				ADBB50742A66ABA1001BE241 /* ViewModel */,
 			);
 			path = AudioRecorder;
 			sourceTree = "<group>";
@@ -551,20 +623,25 @@
 				AD23A25429DD611E000255C9 /* TablatureDetail.swift in Sources */,
 				ADE3593F2A5DB5CB00BC9E61 /* TablatureFinderViewModel.swift in Sources */,
 				ADE359312A5D97D400BC9E61 /* MainCoordinator.swift in Sources */,
+				ADBB507A2A66AD15001BE241 /* AudioRecorderViewModel.swift in Sources */,
 				AD23A24E29DD59E4000255C9 /* TFEndpoints.swift in Sources */,
 				AD27A8FA2A6160520004F846 /* EmptyStateView+Constraints.swift in Sources */,
 				AD27A9022A61AAC80004F846 /* BaseViewController.swift in Sources */,
 				ADA39CBD2A5EA4BE00B08E4D /* String+Localized.swift in Sources */,
 				AD68ABBD29DC98CD002B510F /* TablatureFinderViewController.swift in Sources */,
 				AD27A9062A61AAF10004F846 /* SpinnerViewController+Constants.swift in Sources */,
+				ADBB506B2A66937A001BE241 /* TunerViewModel.swift in Sources */,
+				ADBB506F2A66A3A6001BE241 /* TunerViewController+SwiftUIView.swift in Sources */,
 				ADB2C6DA2A655BED00743C17 /* TablatureDetailUseCase.swift in Sources */,
 				ADA39CCE2A5F665E00B08E4D /* TablatureDetailViewController+Constants.swift in Sources */,
+				ADBB50672A668B4D001BE241 /* TunerCoordinator.swift in Sources */,
 				ADE359502A5DCA6F00BC9E61 /* TablatureFinderViewController+TableViewDelegate.swift in Sources */,
 				AD68ABC329DC98CD002B510F /* GuiTabFinder.xcdatamodeld in Sources */,
 				AD1E89E32A6320C700054FE7 /* TablatureListRepository.swift in Sources */,
 				ADB2C6D62A655AA300743C17 /* TablatureDetailRepository.swift in Sources */,
 				ADE3594A2A5DCA2F00BC9E61 /* TablatureFinderViewController+Constraints.swift in Sources */,
 				AD1E89E92A63380E00054FE7 /* TablatureListUseCase.swift in Sources */,
+				ADBB50712A66A3E7001BE241 /* TunerViewController+Constraints.swift in Sources */,
 				ADE359452A5DC18900BC9E61 /* TablatureListModel.swift in Sources */,
 				ADD7AD8F29E6C60100E2ECC8 /* Extensions.swift in Sources */,
 				AD1E89E52A63222700054FE7 /* TablatureListRepository+Parameters.swift in Sources */,
@@ -572,7 +649,9 @@
 				AD27A90A2A61ABFD0004F846 /* LoadingStatus.swift in Sources */,
 				AD97EF4529E0323100F68397 /* TablatureFinderTableViewCell.swift in Sources */,
 				ADA39CC82A5ECC5800B08E4D /* TablatureDetailViewController+ScrollViewDelegate.swift in Sources */,
+				ADBB50782A66ABE2001BE241 /* AudioRecorderViewController.swift in Sources */,
 				ADA39CBF2A5EC0C600B08E4D /* TablatureFinderTableViewCell+Constraints.swift in Sources */,
+				ADBB507C2A66ADCD001BE241 /* AudioRecorderCoordinator.swift in Sources */,
 				AD27A9042A61AAE80004F846 /* SpinnerViewController.swift in Sources */,
 				AD68ABB929DC98CD002B510F /* AppDelegate.swift in Sources */,
 				ADE359382A5DA53100BC9E61 /* ChildCoordinator.swift in Sources */,
@@ -592,6 +671,7 @@
 				ADB2C6D82A655AE700743C17 /* TablatureDetailRepository+Parameters.swift in Sources */,
 				AD68ABBB29DC98CD002B510F /* SceneDelegate.swift in Sources */,
 				ADA39CCA2A5F1F3600B08E4D /* TablatureDetailViewModel.swift in Sources */,
+				ADBB50692A66906D001BE241 /* TunerViewController.swift in Sources */,
 				ADA39CC62A5ECC4500B08E4D /* TablatureDetailViewController+Constraints.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

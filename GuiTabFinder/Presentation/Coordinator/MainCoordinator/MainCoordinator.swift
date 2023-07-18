@@ -21,6 +21,18 @@ extension MainCoordinator {
         tabFinderCoordinator.start()
         childCoordinators.append(tabFinderCoordinator)
     }
+    
+    func showTunerOperativeWith(navigationController: UINavigationController) {
+        let tunerCoordinator = TunerCoordinator(navigationController: navigationController, parentCoordinator: self)
+        tunerCoordinator.start()
+        childCoordinators.append(tunerCoordinator)
+    }
+    
+    func showAudioRecorderOperativeWith(navigationController: UINavigationController) {
+        let audioRecorderCoordinator = AudioRecorderCoordinator(navigationController: navigationController, parentCoordinator: self)
+        audioRecorderCoordinator.start()
+        childCoordinators.append(audioRecorderCoordinator)
+    }
 }
 
 // MARK: Manage Remove Child Coordinators

@@ -1,14 +1,13 @@
 //
-//  TabFinderCoordinator.swift
+//  AudioRecorderCoordinator.swift
 //  GuiTabFinder
 //
-//  Created by Toni Lozano Fernández on 11/7/23.
+//  Created by Toni Lozano Fernández on 18/7/23.
 //
 
 import UIKit
-// MAR:
 
-class TablatureFinderCoordinator: ChildCoordinator {
+class AudioRecorderCoordinator: ChildCoordinator {
     var parentCoordinator: MainCoordinator
     var childCoordinators = [ChildCoordinator]()
     var navigationController: UINavigationController
@@ -23,26 +22,16 @@ class TablatureFinderCoordinator: ChildCoordinator {
     }
 }
 
-// MARK: Show Tablature Finder Operative Views
-
-extension TablatureFinderCoordinator {
+extension AudioRecorderCoordinator {
     func start() {
-        let vc = TablatureFinderViewController()
+        let vc = AudioRecorderViewController()
         vc.coordinator = self
-        vc.title = "Tab Finder"
-        vc.tabBarItem = UITabBarItem(title: "Find", image: UIImage(systemName: "music.note.house")?.withRenderingMode(.automatic), tag: 0)
-
+        vc.title = "Tuner"
+        vc.tabBarItem = UITabBarItem(title: "Recorder", image: UIImage(systemName: "waveform.circle"), tag: 2)
+        
         navigationController.navigationBar.prefersLargeTitles = false
         navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Helvetica-Bold", size: 20)!]
         navigationController.navigationBar.isHidden = false
-        navigationController.pushViewController(vc, animated: true)
-    }
-    
-    func showTablatureDetail(for model: TablatureDetail) {
-        navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Helvetica-Bold", size: 20)!]
-        let vc = TablatureDetailViewController(inputModel: model)
-        vc.coordinator = self
-        vc.title = model.songName
         navigationController.pushViewController(vc, animated: true)
     }
 }

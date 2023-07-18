@@ -14,7 +14,7 @@ protocol TablatureFinderViewModelDelegate: AnyObject {
     func didLoadMoreTablatures(with newIndexPaths: [IndexPath])
 }
 
-// MARK: TablatureFinderViewModel
+// MARK: TablatureFinderViewModel - protocols
 
 protocol TablatureFinderViewModel: TablatureFinderViewModelInput, TablatureFinderViewModelOutput {}
 
@@ -33,7 +33,7 @@ protocol TablatureFinderViewModelOutput {
     var delegate: TablatureFinderViewModelDelegate? { get set }
 }
 
-// MARK: DefaultTablatureFinderViewModel
+// MARK: DefaultTablatureFinderViewModel - class
 
 final class DefaultTablatureFinderViewModel: TablatureFinderViewModel {
     var delegate: TablatureFinderViewModelDelegate?

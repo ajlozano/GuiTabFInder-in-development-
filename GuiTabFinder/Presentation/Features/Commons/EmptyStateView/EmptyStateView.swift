@@ -16,25 +16,10 @@ final class EmptyStateView: UIView {
         message.translatesAutoresizingMaskIntoConstraints = false
         return message
     }()
-        
-//    private (set) var animationView: LottieAnimationView = {
-//        let animationView = LottieAnimationView.init()
-//        animationView.translatesAutoresizingMaskIntoConstraints = false
-//        return animationView
-//    }()
     
     func configure() {
-        //setupAnimationView()
         setupMessageLabel()
     }
-    
-//    func setupAnimationView() {
-//        addSubview(animationView)
-//        animationView.animation = LottieAnimation.named(LottieFiles.loading)
-//        animationView.loopMode = .loop
-//        animationView.play()
-//        setupAnimationViewConstraints()
-//    }
     
     func setupMessageLabel() {
         addSubview(message)

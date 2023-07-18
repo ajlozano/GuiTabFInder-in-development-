@@ -49,7 +49,6 @@ class TablatureFinderViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //setupActivityIndicator()
         setupBinders()
         setupView()
     }
@@ -91,7 +90,7 @@ class TablatureFinderViewController: BaseViewController {
 extension TablatureFinderViewController {
     
     private func setupView() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .white
         
         viewModel.delegate = self
         setupSearchBarView()
@@ -100,7 +99,6 @@ extension TablatureFinderViewController {
     
     private func setupSearchBarView() {
         search.searchBar.delegate = self
-        search.searchResultsUpdater = self
         search.searchBar.placeholder = "Search tablature song"
         search.obscuresBackgroundDuringPresentation = false
         search.hidesNavigationBarDuringPresentation = false
@@ -113,7 +111,7 @@ extension TablatureFinderViewController {
         tablaturesTableView.separatorStyle = .singleLine
         tablaturesTableView.dataSource = tablaturesTableViewDataSource
         tablaturesTableView.delegate = tablaturesTableViewDelegate
-        tablaturesTableView.backgroundColor = .systemGroupedBackground
+        tablaturesTableView.backgroundColor = .systemBackground
         tablaturesTableView.accessibilityIdentifier = AccessibilityIdentifiers.tableView
         tablaturesTableView.isScrollEnabled = true
         setupTablaturesTableViewConstraints()

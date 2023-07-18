@@ -7,7 +7,7 @@
 
 import UIKit
 
-// MARK: - Constants
+// MARK: TablatureFinderTableViewCell - Constants
  
 extension TablatureFinderTableViewCell {
     enum Constants {

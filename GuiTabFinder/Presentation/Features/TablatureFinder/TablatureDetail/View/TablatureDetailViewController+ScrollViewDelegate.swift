@@ -7,7 +7,7 @@
 
 import UIKit
 
-// MARK: UIScrollViewDelegate methods
+// MARK: TablatureDetailViewController - ScrollViewDelegate
 
 extension TablatureDetailViewController: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {

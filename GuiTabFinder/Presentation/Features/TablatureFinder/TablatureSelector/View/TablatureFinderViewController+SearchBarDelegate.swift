@@ -7,7 +7,9 @@
 
 import UIKit
 
-extension TablatureFinderViewController: UISearchResultsUpdating, UISearchBarDelegate {
+// MARK: TablatureFinderTableViewController - SearchBarDelegate
+
+extension TablatureFinderViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if (searchBar.text?.count == 0) {
@@ -28,8 +30,5 @@ extension TablatureFinderViewController: UISearchResultsUpdating, UISearchBarDel
         viewModel.clearList()
         reloadView()
     }
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        
-    }
+
 }

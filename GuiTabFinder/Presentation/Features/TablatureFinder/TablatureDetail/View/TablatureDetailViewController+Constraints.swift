@@ -7,6 +7,8 @@
 
 import UIKit
 
+// MARK: TablatureDetailViewController - Constraints
+
 extension TablatureDetailViewController {
     func setupTablatureDetailArtistLabelConstraints() {
         NSLayoutConstraint.activate([

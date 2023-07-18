@@ -7,6 +7,8 @@
 
 import UIKit
 
+// MARK: TablatureDetailViewController
+
 class TablatureDetailViewController: BaseViewController {
     
     var coordinator: TablatureFinderCoordinator?
