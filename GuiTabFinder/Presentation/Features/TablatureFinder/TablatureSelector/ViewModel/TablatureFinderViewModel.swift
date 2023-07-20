@@ -9,10 +9,10 @@ import Foundation
 
 // MARK: TablatureFinderViewModelDelegate
 
-protocol TablatureFinderViewModelDelegate: AnyObject {
-    func didLoadInitialTablatures()
-    func didLoadMoreTablatures(with newIndexPaths: [IndexPath])
-}
+//protocol TablatureFinderViewModelDelegate: AnyObject {
+//    func didLoadInitialTablatures()
+//    func didLoadMoreTablatures(with newIndexPaths: [IndexPath])
+//}
 
 // MARK: TablatureFinderViewModel - protocols
 
@@ -26,21 +26,21 @@ protocol TablatureFinderViewModelInput {
 }
 
 protocol TablatureFinderViewModelOutput {
-    var loadingStatus: ObservableObject<LoadingStatus?> { get }
-    var model: TablatureListModel? { get }
-    var tablatureDetailModel: ObservableObject<TablatureDetail?> { get }
-    var showEmptyStateError: ObservableObject<Bool?> { get }
-    var delegate: TablatureFinderViewModelDelegate? { get set }
+    var loadingStatus: Box<LoadingStatus?> { get }
+    var model: Box<TablatureListModel?> { get }
+    var tablatureDetailModel: Box<TablatureDetail?> { get }
+    var showEmptyStateError: Box<Bool?> { get }
+    //var delegate: TablatureFinderViewModelDelegate? { get set }
 }
 
 // MARK: DefaultTablatureFinderViewModel - class
 
 final class DefaultTablatureFinderViewModel: TablatureFinderViewModel {
-    var delegate: TablatureFinderViewModelDelegate?
-    var loadingStatus: ObservableObject<LoadingStatus?> = ObservableObject(nil)
-    var model: TablatureListModel?
-    var tablatureDetailModel: ObservableObject<TablatureDetail?> = ObservableObject(nil)
-    var showEmptyStateError: ObservableObject<Bool?> = ObservableObject(nil)
+    //var delegate: TablatureFinderViewModelDelegate?
+    var loadingStatus: Box<LoadingStatus?> = Box(nil)
+    var model: Box<TablatureListModel?> = Box(nil)
+    var tablatureDetailModel: Box<TablatureDetail?> = Box(nil)
+    var showEmptyStateError: Box<Bool?> = Box(nil)
     var tablatureListUseCase: TablatureListUseCase
     var pageNumber: Int = 1
     var searchText: String = ""
@@ -54,18 +54,18 @@ final class DefaultTablatureFinderViewModel: TablatureFinderViewModel {
 
 extension DefaultTablatureFinderViewModel {
     func fetchNewTablatures() {
-        if (!self.model!.didAllTablaturesFetched) {
-            self.model!.page! += 1
+        if ((self.model.value?.didAllTablaturesFetched) != nil) {
+            self.model.value?.page! += 1
             fetchData(text: searchText)
         }
     }
     
     func selectCell(atIndex index: Int) {
-        tablatureDetailModel.value = model?.tablatures?[index]
+        tablatureDetailModel.value = model.value?.tablatures?[index]
     }
     
     func clearList() {
-        self.model = nil
+        self.model.value = nil
         self.tablatureDetailModel.value = nil
         self.showEmptyStateError.value = false
     }
@@ -80,7 +80,7 @@ extension DefaultTablatureFinderViewModel {
 
         searchText = text
         
-        let page = model?.page ?? 1
+        let page = model.value?.page ?? 1
         
         let useCaseParameters = TablatureListRepositoryParameters(page: "\(page)", searchText: text)
         
@@ -89,24 +89,26 @@ extension DefaultTablatureFinderViewModel {
             switch result {
             case .success(let tablatureList):
                 self?.loadingStatus.value = .stop
-                if (self?.model == nil) {
-                    self?.model = tablatureList
-                    self?.delegate?.didLoadInitialTablatures()
-                } else {
-                    // Add additional index paths fetched to tablatures array
-                    guard let newCount = tablatureList.tablatures?.count else { return }
-                    guard let initialCount = self?.model?.tablatures?.count else { return }
-                    let totalCount = initialCount + newCount
-                    let startingUpdateIndex = totalCount - newCount
-                    let indexPathsToAdd: [IndexPath] = Array(startingUpdateIndex..<(startingUpdateIndex+newCount)).compactMap { row in
-                        return IndexPath(row: row, section: 0)
-                    }
-    
-                    self?.model?.tablatures?.append(contentsOf: tablatureList.tablatures!)
-                    self?.delegate?.didLoadMoreTablatures(with: indexPathsToAdd)
-                }
-                
                 self?.showEmptyStateError.value = false
+                self?.model.value = tablatureList
+                
+//                if (self?.model.value == nil) {
+//                    self?.model.value = tablatureList
+                    //self?.delegate?.didLoadInitialTablatures()
+//                } else {
+                    // Add additional index paths fetched to tablatures array
+//                    guard let newCount = tablatureList.tablatures?.count else { return }
+//                    guard let initialCount = self?.model.value?.tablatures?.count else { return }
+//                    let totalCount = initialCount + newCount
+//                    let startingUpdateIndex = totalCount - newCount
+//                    let indexPathsToAdd: [IndexPath] = Array(startingUpdateIndex..<(startingUpdateIndex+newCount)).compactMap { row in
+//                        return IndexPath(row: row, section: 0)
+//                    }
+    
+                    //self?.model.value?.tablatures?.append(contentsOf: tablatureList.tablatures!)
+                    //self?.delegate?.didLoadMoreTablatures(with: indexPathsToAdd)
+//                }
+                
             case .failure(_):
                 self?.loadingStatus.value = .stop
                 if (self?.model == nil) {
@@ -114,7 +116,7 @@ extension DefaultTablatureFinderViewModel {
                     return
                 }
 
-                self?.model?.didAllTablaturesFetched = true
+                self?.model.value?.didAllTablaturesFetched = true
             }
         }
     }

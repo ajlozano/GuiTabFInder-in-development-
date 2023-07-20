@@ -6,14 +6,20 @@
 //
 
 import UIKit
+import SwiftUI
 
 class AudioRecorderViewController: BaseViewController {
     
     var coordinator: AudioRecorderCoordinator?
-    var viewModel: AudioRecorderViewModel
     
-    init(viewModel: AudioRecorderViewModel = DefaultAudioRecorderViewModel()) {
-        self.viewModel = viewModel
+    var recorderConductorView: UIView = {
+        let swiftUIHostingController = UIHostingController(rootView: RecorderConductorView())
+        let view = swiftUIHostingController.view!
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    init() {
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -23,7 +29,6 @@ class AudioRecorderViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupView()
     }
 }
@@ -33,5 +38,9 @@ class AudioRecorderViewController: BaseViewController {
 extension AudioRecorderViewController {
     private func setupView() {
         view.backgroundColor = .white
+        
+        view.addSubview(recorderConductorView)
+        recorderConductorView.backgroundColor = .green
+        setupAudioRecorderViewConstraints()
     }
 }

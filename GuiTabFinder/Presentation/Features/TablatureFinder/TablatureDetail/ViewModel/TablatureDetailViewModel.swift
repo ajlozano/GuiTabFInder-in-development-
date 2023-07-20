@@ -17,18 +17,18 @@ protocol TablatureDetailViewModelInput {
 }
 
 protocol TablatureDetailViewModelOutput {
-    var loadingStatus: ObservableObject<LoadingStatus?> { get }
-    var tablatureDetailModel: ObservableObject<TablatureDetail?> { get }
-    var showEmptyStateError: ObservableObject<Bool?> { get }
+    var loadingStatus: Box<LoadingStatus?> { get }
+    var tablatureDetailModel: Box<TablatureDetail?> { get }
+    var showEmptyStateError: Box<Bool?> { get }
 }
 
 // MARK: DefaultTablatureDetailViewModel
 
 final class DefaultTablatureDetailViewModel: TablatureDetailViewModel {
-    var loadingStatus: ObservableObject<LoadingStatus?> = ObservableObject(nil)
+    var loadingStatus: Box<LoadingStatus?> = Box(nil)
     var inputModel: TablatureDetail?
-    var tablatureDetailModel: ObservableObject<TablatureDetail?> = ObservableObject(nil)
-    var showEmptyStateError: ObservableObject<Bool?> = ObservableObject(nil)
+    var tablatureDetailModel: Box<TablatureDetail?> = Box(nil)
+    var showEmptyStateError: Box<Bool?> = Box(nil)
     var tablatureDetailUseCase: TablatureDetailUseCase
     
     init(tablatureDetailUseCase: TablatureDetailUseCase = DefaultTablatureDetailUseCase()) {

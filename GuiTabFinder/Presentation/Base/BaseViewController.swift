@@ -7,7 +7,7 @@
 
 import UIKit
 
-// MARK: RMBaseViewController
+// MARK: BaseViewController
 
 class BaseViewController: UIViewController {
     
@@ -18,7 +18,7 @@ class BaseViewController: UIViewController {
     }
 }
 
-// MARK: RMBaseViewController - Mannage Spinner
+// MARK: Mannage Spinner
 
 extension BaseViewController {
     
@@ -37,5 +37,20 @@ extension BaseViewController {
             self.child.view.removeFromSuperview()
             self.child.removeFromParent()
         }
+    }
+}
+
+// MARK: Alert Error
+
+extension BaseViewController {
+    func showErrorAlert(with title: String, message: String) {
+        DispatchQueue.main.async {
+            let alertCtrl = UIAlertController(title: "Error during the process", message: "An unexpected error has occurred", preferredStyle: .alert)
+            alertCtrl.addAction(UIAlertAction(title: "Dismiss", style: .destructive, handler: { action in
+                self.navigationController?.popViewController(animated: true)
+            }))
+            self.present(alertCtrl, animated: true, completion: nil)
+        }
+        
     }
 }

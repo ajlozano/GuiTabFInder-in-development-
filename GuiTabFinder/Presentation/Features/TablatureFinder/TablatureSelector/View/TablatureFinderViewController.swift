@@ -61,13 +61,13 @@ class TablatureFinderViewController: BaseViewController {
             self.showLoader(status: status)
         }
         
-//        viewModel.model.bind { [weak self] model in
-//            guard let _ = model,
-//                  let self = self else { return }
-//
-//            self.turnActivityIndicator(state: false)
-//            self.reloadView()
-//        }
+        viewModel.model.bind { [weak self] model in
+            guard let _ = model,
+                  let self = self else { return }
+
+            self.turnActivityIndicator(state: false)
+            self.reloadView()
+        }
         
         viewModel.tablatureDetailModel.bind { [weak self] detailModel in
             guard let detailModel = detailModel,
@@ -92,7 +92,7 @@ extension TablatureFinderViewController {
     private func setupView() {
         view.backgroundColor = .white
         
-        viewModel.delegate = self
+        //viewModel.delegate = self
         setupSearchBarView()
         setupTablaturesTableView()
     }
@@ -207,17 +207,17 @@ extension TablatureFinderViewController {
 
 // MARK: View Model delegate
 
-extension TablatureFinderViewController: TablatureFinderViewModelDelegate {
-    func didLoadInitialTablatures() {
-        self.turnActivityIndicator(state: false)
-        self.reloadView()
-    }
-    
-    func didLoadMoreTablatures(with newIndexPaths: [IndexPath]) {
-        DispatchQueue.main.async {
-            self.tablaturesTableView.performBatchUpdates {
-                self.tablaturesTableView.insertRows(at: newIndexPaths, with: .automatic)
-            }
-        }
-    }
-}
+//extension TablatureFinderViewController: TablatureFinderViewModelDelegate {
+//    func didLoadInitialTablatures() {
+//        self.turnActivityIndicator(state: false)
+//        self.reloadView()
+//    }
+//    
+//    func didLoadMoreTablatures(with newIndexPaths: [IndexPath]) {
+//        DispatchQueue.main.async {
+//            self.tablaturesTableView.performBatchUpdates {
+//                self.tablaturesTableView.insertRows(at: newIndexPaths, with: .automatic)
+//            }
+//        }
+//    }
+//}

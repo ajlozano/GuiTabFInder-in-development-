@@ -11,17 +11,16 @@ import SwiftUI
 class TunerViewController: BaseViewController {
     
     var coordinator: TunerCoordinator?
-    var viewModel: TunerViewModel
     
-    var tunerSwiftUIView: UIView = {
-        let swiftUIHostingController = UIHostingController(rootView: TunerSwiftUIView())
+    var tunerConductorView: UIView = {
+        let swiftUIHostingController = UIHostingController(rootView: TunerConductorView(viewModel: DefaultTunerViewModel()))
         let view = swiftUIHostingController.view!
+        //let view = UIView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    init(viewModel: TunerViewModel = DefaultTunerViewModel()) {
-        self.viewModel = viewModel
+    init() {
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -42,8 +41,9 @@ extension TunerViewController {
     private func setupView() {
         view.backgroundColor = .white
         
-        view.addSubview(tunerSwiftUIView)
-        tunerSwiftUIView.backgroundColor = .brown
+        view.addSubview(tunerConductorView)
+
+        tunerConductorView.backgroundColor = .brown
         setupTunerViewConstraints()
     }
 }

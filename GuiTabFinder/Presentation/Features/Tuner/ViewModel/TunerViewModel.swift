@@ -7,28 +7,28 @@
 
 import Foundation
 
+// MARK: DefaultTunerViewModel - class
 
-// MARK: TunerViewModel - protocols
-
-protocol TunerViewModel: TunerViewModelInput, TunerViewModelOutput {}
-
-protocol TunerViewModelInput {
-
-}
-
-protocol TunerViewModelOutput {
-
-}
-
-// MARK: TunerViewModel - class
-
-final class DefaultTunerViewModel: TunerViewModel {
+final class DefaultTunerViewModel: ObservableObject {
     
+    @Published var data = TunerData()
     
-}
-
-// MARK: Input methods
-
-extension DefaultTunerViewModel {
+    var service: AudioTuningService
+    
+    init(service: AudioTuningService = DefaultAudioTuningService()) {
+        self.service = service
+        getTunerData()
+    }
+    
+    func getTunerData() {
+        service.getPitch { result in
+            switch (result) {
+            case .success(let data):
+                self.data = data
+            case .failure(_):
+                break
+            }
+        }
+    }
 }
 

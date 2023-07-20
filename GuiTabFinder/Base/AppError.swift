@@ -13,4 +13,7 @@ enum AppError: Error {
     case parseError(message: String)
     case unknownError(message: String)
     case manageFetchDataError(message: String)
+    case inputDeviceError(message: String)
+    case inputNodeError(message: String)
+    case inputNoise
 }
