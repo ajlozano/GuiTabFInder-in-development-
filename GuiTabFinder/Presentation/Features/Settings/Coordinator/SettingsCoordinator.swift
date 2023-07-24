@@ -1,13 +1,13 @@
 //
-//  AudioRecorderCoordinator.swift
+//  SettingsCoordinator.swift
 //  GuiTabFinder
 //
-//  Created by Toni Lozano Fernández on 18/7/23.
+//  Created by Toni Lozano Fernández on 21/7/23.
 //
 
 import UIKit
 
-class AudioRecorderCoordinator: ChildCoordinator {
+class SettingsCoordinator: ChildCoordinator {
     var parentCoordinator: MainCoordinator
     var childCoordinators = [ChildCoordinator]()
     var navigationController: UINavigationController
@@ -22,15 +22,15 @@ class AudioRecorderCoordinator: ChildCoordinator {
     }
 }
 
-// MARK: Show Audio Recorder Operative Views
+// MARK: Show Tablature Finder Operative Views
 
-extension AudioRecorderCoordinator {
+extension SettingsCoordinator {
     func start() {
-        let vc = AudioRecorderViewController()
+        let vc = SettingsViewController()
         vc.coordinator = self
-        vc.title = "Tuner"
-        vc.tabBarItem = UITabBarItem(title: "Recorder", image: UIImage(systemName: "waveform.circle"), tag: 2)
-        
+        vc.title = "Settings"
+        vc.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gearshape"), tag: 2)
+
         navigationController.navigationBar.prefersLargeTitles = false
         navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Helvetica-Bold", size: 20)!]
         navigationController.navigationBar.isHidden = false

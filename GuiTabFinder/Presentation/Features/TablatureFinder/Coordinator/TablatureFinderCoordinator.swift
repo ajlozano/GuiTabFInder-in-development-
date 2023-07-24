@@ -6,7 +6,8 @@
 //
 
 import UIKit
-// MAR:
+
+// MARK:
 
 class TablatureFinderCoordinator: ChildCoordinator {
     var parentCoordinator: MainCoordinator

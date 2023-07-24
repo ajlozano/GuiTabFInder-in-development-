@@ -33,6 +33,12 @@ extension MainCoordinator {
         audioRecorderCoordinator.start()
         childCoordinators.append(audioRecorderCoordinator)
     }
+    
+    func showSettingsOperativeWith(navigationController: UINavigationController) {
+        let settingsCoordinator = SettingsCoordinator(navigationController: navigationController, parentCoordinator: self)
+        settingsCoordinator.start()
+        childCoordinators.append(settingsCoordinator)
+    }
 }
 
 // MARK: Manage Remove Child Coordinators

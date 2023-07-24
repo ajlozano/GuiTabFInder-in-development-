@@ -13,9 +13,9 @@ class TunerViewController: BaseViewController {
     var coordinator: TunerCoordinator?
     
     var tunerConductorView: UIView = {
-        let swiftUIHostingController = UIHostingController(rootView: TunerConductorView(viewModel: DefaultTunerViewModel()))
-        let view = swiftUIHostingController.view!
-        //let view = UIView(frame: .zero)
+//        let swiftUIHostingController = UIHostingController(rootView: TunerConductorView(viewModel: DefaultTunerViewModel()))
+//        let view = swiftUIHostingController.view!
+        let view = UIView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -39,11 +39,11 @@ class TunerViewController: BaseViewController {
 extension TunerViewController {
 
     private func setupView() {
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         
         view.addSubview(tunerConductorView)
 
-        tunerConductorView.backgroundColor = .brown
+        tunerConductorView.backgroundColor = .black
         setupTunerViewConstraints()
     }
 }

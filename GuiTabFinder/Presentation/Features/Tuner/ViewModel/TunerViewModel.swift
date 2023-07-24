@@ -13,22 +13,26 @@ final class DefaultTunerViewModel: ObservableObject {
     
     @Published var data = TunerData()
     
-    var service: AudioTuningService
+   // var service: AudioTuningService
     
-    init(service: AudioTuningService = DefaultAudioTuningService()) {
-        self.service = service
-        getTunerData()
+//    init(service: AudioTuningService = DefaultAudioTuningService()) {
+//        self.service = service
+//        getTunerData()
+//    }
+    
+    init() {
+        
     }
     
-    func getTunerData() {
-        service.getPitch { result in
-            switch (result) {
-            case .success(let data):
-                self.data = data
-            case .failure(_):
-                break
-            }
-        }
-    }
+//    func getTunerData() {
+//        service.getPitch { result in
+//            switch (result) {
+//            case .success(let data):
+//                self.data = data
+//            case .failure(_):
+//                break
+//            }
+//        }
+//    }
 }
 

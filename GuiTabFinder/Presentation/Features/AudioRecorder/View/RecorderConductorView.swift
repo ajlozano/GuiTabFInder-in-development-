@@ -11,6 +11,8 @@ import AudioKitUI
 import AVFoundation
 import SwiftUI
 
+// MARK: Recorder Conductor View
+
 struct RecorderConductorView: View {
     @ObservedObject var viewModel = DefaultAudioRecorderViewModel()
 

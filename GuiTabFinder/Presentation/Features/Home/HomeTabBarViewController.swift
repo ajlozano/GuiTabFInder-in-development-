@@ -34,7 +34,10 @@ final class HomeTabBarViewController: UITabBarController {
         let audioRecorderNavigationController = UINavigationController()
         coordinator.showAudioRecorderOperativeWith(navigationController: audioRecorderNavigationController)
         
-        setViewControllers([tabFinderNavigationController, tunerNavigationController, audioRecorderNavigationController], animated: true)
+        let settingsNavigationController = UINavigationController()
+        coordinator.showSettingsOperativeWith(navigationController: settingsNavigationController)
+        
+        setViewControllers([tabFinderNavigationController, tunerNavigationController, audioRecorderNavigationController, settingsNavigationController], animated: true)
     }
 }
 
