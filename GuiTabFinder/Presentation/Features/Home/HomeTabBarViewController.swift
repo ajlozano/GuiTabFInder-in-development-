@@ -25,6 +25,8 @@ final class HomeTabBarViewController: UITabBarController {
     }
     
     private func setupViews() {
+        self.tabBar.backgroundColor = .black
+        
         let tabFinderNavigationController = UINavigationController()
         coordinator.showTablatureFinderOperativeWith(navigationController: tabFinderNavigationController)
         

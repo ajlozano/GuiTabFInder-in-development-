@@ -23,6 +23,7 @@
 		AD27A9062A61AAF10004F846 /* SpinnerViewController+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD27A9052A61AAF10004F846 /* SpinnerViewController+Constants.swift */; };
 		AD27A9082A61AAFA0004F846 /* SpinnerViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD27A9072A61AAFA0004F846 /* SpinnerViewController+Constraints.swift */; };
 		AD27A90A2A61ABFD0004F846 /* LoadingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD27A9092A61ABFD0004F846 /* LoadingStatus.swift */; };
+		AD2E6BA52A7018570032EB71 /* TunerConductorView+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2E6BA42A7018570032EB71 /* TunerConductorView+Constants.swift */; };
 		AD68ABB929DC98CD002B510F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD68ABB829DC98CD002B510F /* AppDelegate.swift */; };
 		AD68ABBB29DC98CD002B510F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD68ABBA29DC98CD002B510F /* SceneDelegate.swift */; };
 		AD68ABBD29DC98CD002B510F /* TablatureFinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD68ABBC29DC98CD002B510F /* TablatureFinderViewController.swift */; };
@@ -35,7 +36,6 @@
 		AD861EE72A6A9B8400166A70 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD861EE62A6A9B8400166A70 /* SettingsViewController.swift */; };
 		AD861EE92A6A9B8D00166A70 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD861EE82A6A9B8D00166A70 /* SettingsViewModel.swift */; };
 		AD97EF4529E0323100F68397 /* TablatureFinderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD97EF4429E0323100F68397 /* TablatureFinderTableViewCell.swift */; };
-		AD9F96B42A6EF08300013ED1 /* NoteDistanceMarkers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9F96B32A6EF08300013ED1 /* NoteDistanceMarkers.swift */; };
 		ADA39CBD2A5EA4BE00B08E4D /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA39CBC2A5EA4BE00B08E4D /* String+Localized.swift */; };
 		ADA39CBF2A5EC0C600B08E4D /* TablatureFinderTableViewCell+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA39CBE2A5EC0C600B08E4D /* TablatureFinderTableViewCell+Constraints.swift */; };
 		ADA39CC62A5ECC4500B08E4D /* TablatureDetailViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA39CC52A5ECC4500B08E4D /* TablatureDetailViewController+Constraints.swift */; };
@@ -95,6 +95,7 @@
 		AD27A9052A61AAF10004F846 /* SpinnerViewController+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpinnerViewController+Constants.swift"; sourceTree = "<group>"; };
 		AD27A9072A61AAFA0004F846 /* SpinnerViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpinnerViewController+Constraints.swift"; sourceTree = "<group>"; };
 		AD27A9092A61ABFD0004F846 /* LoadingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingStatus.swift; sourceTree = "<group>"; };
+		AD2E6BA42A7018570032EB71 /* TunerConductorView+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TunerConductorView+Constants.swift"; sourceTree = "<group>"; };
 		AD68ABB529DC98CD002B510F /* GuiTabFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuiTabFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD68ABB829DC98CD002B510F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD68ABBA29DC98CD002B510F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,7 +110,6 @@
 		AD861EE62A6A9B8400166A70 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		AD861EE82A6A9B8D00166A70 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		AD97EF4429E0323100F68397 /* TablatureFinderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureFinderTableViewCell.swift; sourceTree = "<group>"; };
-		AD9F96B32A6EF08300013ED1 /* NoteDistanceMarkers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDistanceMarkers.swift; sourceTree = "<group>"; };
 		ADA39CBC2A5EA4BE00B08E4D /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 		ADA39CBE2A5EC0C600B08E4D /* TablatureFinderTableViewCell+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureFinderTableViewCell+Constraints.swift"; sourceTree = "<group>"; };
 		ADA39CC52A5ECC4500B08E4D /* TablatureDetailViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureDetailViewController+Constraints.swift"; sourceTree = "<group>"; };
@@ -317,7 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				ADBB506E2A66A3A6001BE241 /* TunerConductorView.swift */,
-				AD9F96B32A6EF08300013ED1 /* NoteDistanceMarkers.swift */,
+				AD2E6BA42A7018570032EB71 /* TunerConductorView+Constants.swift */,
 			);
 			path = SwiftUIViews;
 			sourceTree = "<group>";
@@ -701,10 +701,10 @@
 				ADE3593F2A5DB5CB00BC9E61 /* TablatureFinderViewModel.swift in Sources */,
 				ADE359312A5D97D400BC9E61 /* MainCoordinator.swift in Sources */,
 				ADBB507A2A66AD15001BE241 /* AudioRecorderViewModel.swift in Sources */,
+				AD2E6BA52A7018570032EB71 /* TunerConductorView+Constants.swift in Sources */,
 				AD23A24E29DD59E4000255C9 /* TFEndpoints.swift in Sources */,
 				AD27A8FA2A6160520004F846 /* EmptyStateView+Constraints.swift in Sources */,
 				AD27A9022A61AAC80004F846 /* BaseViewController.swift in Sources */,
-				AD9F96B42A6EF08300013ED1 /* NoteDistanceMarkers.swift in Sources */,
 				ADA39CBD2A5EA4BE00B08E4D /* String+Localized.swift in Sources */,
 				AD68ABBD29DC98CD002B510F /* TablatureFinderViewController.swift in Sources */,
 				AD27A9062A61AAF10004F846 /* SpinnerViewController+Constants.swift in Sources */,

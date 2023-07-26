@@ -18,6 +18,10 @@ struct TunerData {
     var amplitude: Float = 0.0
     var noteNameWithSharps = "-"
     var noteNameWithFlats = "-"
+    
+    var octave: Int = 0
+    var fromIndex: Int = 0
+    var freqInNoteScale: Float = 0.0
 }
 
 // MARK: AudioTuningService - protocols
@@ -31,6 +35,7 @@ protocol AudioTuningServiceInput {
 
 protocol AudioTuningServiceOutput {
     var initialDevice: Device { get }
+    var noteFrequencies: [Float] { get }
 }
 
 // MARK: DefaultAudioTuningService - class
@@ -50,7 +55,7 @@ class DefaultAudioTuningService: AudioTuningService, HasAudioEngine {
     
     var tracker: PitchTap!
     
-    let noteFrequencies = [16.35, 17.32, 18.35, 19.45, 20.6, 21.83, 23.12, 24.5, 25.96, 27.5, 29.14, 30.87]
+    let noteFrequencies: [Float] = [16.35, 17.32, 18.35, 19.45, 20.6, 21.83, 23.12, 24.5, 25.96, 27.5, 29.14, 30.87]
     let noteNamesWithSharps = ["C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯", "B"]
     let noteNamesWithFlats = ["C", "D♭", "D", "E♭", "E", "F", "G♭", "G", "A♭", "A", "B♭", "B"]
     
@@ -96,22 +101,32 @@ extension DefaultAudioTuningService {
             frequency /= 2.0
         }
         while frequency < Float(noteFrequencies[0]) {
-            frequency *= 2.0
+            
+            // Added overflow frequency compensation
+            let suposedFrequency = frequency * 2.0
+            let maxNoteFreqPlusOffset = noteFrequencies[noteFrequencies.count - 1] + 0.9
+            
+            if (suposedFrequency < maxNoteFreqPlusOffset) {
+                frequency *= 2.0
+            } else {
+                break
+            }
         }
         
         var minDistance: Float = 10000.0
-        var index = 0
         
         for possibleIndex in 0 ..< noteFrequencies.count {
             let distance = fabsf(Float(noteFrequencies[possibleIndex]) - frequency)
             if distance < minDistance {
-                index = possibleIndex
+                data.fromIndex = possibleIndex
                 minDistance = distance
             }
         }
-        let octave = Int(log2f(pitch / frequency))
-        data.noteNameWithSharps = "\(noteNamesWithSharps[index])\(octave)"
-        data.noteNameWithFlats = "\(noteNamesWithFlats[index])\(octave)"
+        
+        data.octave = Int(log2f(pitch / frequency))
+        data.noteNameWithSharps = "\(noteNamesWithSharps[data.fromIndex])"
+        data.noteNameWithFlats = "\(noteNamesWithFlats[data.fromIndex])\(data.octave)"
+        data.freqInNoteScale = frequency
         
         return true
     }
