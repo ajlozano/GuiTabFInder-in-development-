@@ -42,7 +42,7 @@ struct TunerConductorView: View {
             // Markers
             ForEach(0..<25) { index in
                 Rectangle()
-                    .frame(width: 1, height: tickSize(forIndex: index).height)
+                    .frame(width: 2, height: tickSize(forIndex: index).height)
                     .cornerRadius(1)
                     .offset(x:0, y: -170)
                     .foregroundColor(TunerColors.markers)
@@ -66,8 +66,16 @@ struct TunerConductorView: View {
             Circle()
                 .trim(from: 0, to: 0.5)
                 .rotationEffect(.degrees(180))
-                .foregroundColor(getNeedleColor())
+                .foregroundColor(TunerColors.markers)
                 .frame(width: 40, height: 40)
+                .offset(x:0, y: 10)
+            
+            // Circle Object inside
+            Circle()
+                .trim(from: 0, to: 0.5)
+                .rotationEffect(.degrees(180))
+                .foregroundColor(.black)
+                .frame(width: 20, height: 20)
                 .offset(x:0, y: 10)
             
             // Rectangle base object
@@ -75,7 +83,7 @@ struct TunerConductorView: View {
                 .frame(width: 300, height: 1)
                 .cornerRadius(1)
                 .offset(x: 0, y: 10)
-                .foregroundColor(getNeedleColor())
+                .foregroundColor(TunerColors.markers)
                 .alignmentGuide(HorizontalAlignment.center) { dimensions in
                     dimensions[HorizontalAlignment.center]
                 }

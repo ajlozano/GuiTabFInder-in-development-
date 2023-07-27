@@ -11,9 +11,9 @@ import UIKit
 
 final class TablatureFinderTableViewDelegate: NSObject, UITableViewDelegate {
     
-    var viewModel: TablatureFinderViewModel
+    var viewModel: TablatureSelectorViewModel
     
-    init(viewModel: TablatureFinderViewModel) {
+    init(viewModel: TablatureSelectorViewModel) {
         self.viewModel = viewModel
     }
     

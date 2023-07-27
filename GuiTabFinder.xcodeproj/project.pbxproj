@@ -43,6 +43,16 @@
 		ADA39CCA2A5F1F3600B08E4D /* TablatureDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA39CC92A5F1F3600B08E4D /* TablatureDetailViewModel.swift */; };
 		ADA39CCC2A5F663A00B08E4D /* TablatureFinderTableViewCell+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA39CCB2A5F663A00B08E4D /* TablatureFinderTableViewCell+Constants.swift */; };
 		ADA39CCE2A5F665E00B08E4D /* TablatureDetailViewController+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA39CCD2A5F665E00B08E4D /* TablatureDetailViewController+Constants.swift */; };
+		ADAB930F2A71A56A001C8ADC /* GuiTabFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB930E2A71A56A001C8ADC /* GuiTabFinderTests.swift */; };
+		ADAB93152A71A5A7001C8ADC /* TablatureListUseCase+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB93042A71A4CA001C8ADC /* TablatureListUseCase+Test.swift */; };
+		ADAB93162A71A5AB001C8ADC /* TablatureDetailUseCase+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB93062A71A510001C8ADC /* TablatureDetailUseCase+Test.swift */; };
+		ADAB93282A724A37001C8ADC /* TablatureListRepositorySuccess+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB93272A724A37001C8ADC /* TablatureListRepositorySuccess+Mock.swift */; };
+		ADAB932B2A7252EE001C8ADC /* AudioKitEX in Frameworks */ = {isa = PBXBuildFile; productRef = ADAB932A2A7252EE001C8ADC /* AudioKitEX */; };
+		ADAB932F2A725322001C8ADC /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = ADAB932E2A725322001C8ADC /* AudioKit */; };
+		ADAB93332A72532C001C8ADC /* SoundpipeAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = ADAB93322A72532C001C8ADC /* SoundpipeAudioKit */; };
+		ADAB93352A725479001C8ADC /* TablatureList+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB93342A725479001C8ADC /* TablatureList+Mock.swift */; };
+		ADAB93372A72548C001C8ADC /* TablatureDetail+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB93362A72548C001C8ADC /* TablatureDetail+Mock.swift */; };
+		ADAB933A2A725AE0001C8ADC /* ScrappingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB93392A725AE0001C8ADC /* ScrappingManager.swift */; };
 		ADB2C6D62A655AA300743C17 /* TablatureDetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB2C6D52A655AA300743C17 /* TablatureDetailRepository.swift */; };
 		ADB2C6D82A655AE700743C17 /* TablatureDetailRepository+Parameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB2C6D72A655AE700743C17 /* TablatureDetailRepository+Parameters.swift */; };
 		ADB2C6DA2A655BED00743C17 /* TablatureDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB2C6D92A655BED00743C17 /* TablatureDetailUseCase.swift */; };
@@ -68,7 +78,7 @@
 		ADE359382A5DA53100BC9E61 /* ChildCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE359372A5DA53100BC9E61 /* ChildCoordinator.swift */; };
 		ADE3593A2A5DA56000BC9E61 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE359392A5DA56000BC9E61 /* Coordinator.swift */; };
 		ADE3593D2A5DA7AB00BC9E61 /* TablatureFinderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE3593C2A5DA7AB00BC9E61 /* TablatureFinderCoordinator.swift */; };
-		ADE3593F2A5DB5CB00BC9E61 /* TablatureFinderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE3593E2A5DB5CB00BC9E61 /* TablatureFinderViewModel.swift */; };
+		ADE3593F2A5DB5CB00BC9E61 /* TablatureSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE3593E2A5DB5CB00BC9E61 /* TablatureSelectorViewModel.swift */; };
 		ADE359452A5DC18900BC9E61 /* TablatureListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE359442A5DC18900BC9E61 /* TablatureListModel.swift */; };
 		ADE359482A5DCA0700BC9E61 /* TablatureFinderViewController+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE359472A5DCA0700BC9E61 /* TablatureFinderViewController+Constants.swift */; };
 		ADE3594A2A5DCA2F00BC9E61 /* TablatureFinderViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE359492A5DCA2F00BC9E61 /* TablatureFinderViewController+Constraints.swift */; };
@@ -77,6 +87,16 @@
 		ADE359532A5DD66400BC9E61 /* TablatureFinderViewController+SearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE359522A5DD66400BC9E61 /* TablatureFinderViewController+SearchBarDelegate.swift */; };
 		ADE359552A5DE04C00BC9E61 /* UIView+SafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE359542A5DE04C00BC9E61 /* UIView+SafeArea.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ADAB93102A71A56A001C8ADC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AD68ABAD29DC98CD002B510F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD68ABB429DC98CD002B510F;
+			remoteInfo = GuiTabFinder;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		AD19F76829E5501100AD1837 /* TablatureDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureDetailViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +137,14 @@
 		ADA39CC92A5F1F3600B08E4D /* TablatureDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureDetailViewModel.swift; sourceTree = "<group>"; };
 		ADA39CCB2A5F663A00B08E4D /* TablatureFinderTableViewCell+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureFinderTableViewCell+Constants.swift"; sourceTree = "<group>"; };
 		ADA39CCD2A5F665E00B08E4D /* TablatureDetailViewController+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureDetailViewController+Constants.swift"; sourceTree = "<group>"; };
+		ADAB93042A71A4CA001C8ADC /* TablatureListUseCase+Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureListUseCase+Test.swift"; sourceTree = "<group>"; };
+		ADAB93062A71A510001C8ADC /* TablatureDetailUseCase+Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureDetailUseCase+Test.swift"; sourceTree = "<group>"; };
+		ADAB930C2A71A56A001C8ADC /* GuiTabFinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GuiTabFinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADAB930E2A71A56A001C8ADC /* GuiTabFinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuiTabFinderTests.swift; sourceTree = "<group>"; };
+		ADAB93272A724A37001C8ADC /* TablatureListRepositorySuccess+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureListRepositorySuccess+Mock.swift"; sourceTree = "<group>"; };
+		ADAB93342A725479001C8ADC /* TablatureList+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureList+Mock.swift"; sourceTree = "<group>"; };
+		ADAB93362A72548C001C8ADC /* TablatureDetail+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureDetail+Mock.swift"; sourceTree = "<group>"; };
+		ADAB93392A725AE0001C8ADC /* ScrappingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrappingManager.swift; sourceTree = "<group>"; };
 		ADB2C6D52A655AA300743C17 /* TablatureDetailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureDetailRepository.swift; sourceTree = "<group>"; };
 		ADB2C6D72A655AE700743C17 /* TablatureDetailRepository+Parameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureDetailRepository+Parameters.swift"; sourceTree = "<group>"; };
 		ADB2C6D92A655BED00743C17 /* TablatureDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureDetailUseCase.swift; sourceTree = "<group>"; };
@@ -138,7 +166,7 @@
 		ADE359372A5DA53100BC9E61 /* ChildCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildCoordinator.swift; sourceTree = "<group>"; };
 		ADE359392A5DA56000BC9E61 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		ADE3593C2A5DA7AB00BC9E61 /* TablatureFinderCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureFinderCoordinator.swift; sourceTree = "<group>"; };
-		ADE3593E2A5DB5CB00BC9E61 /* TablatureFinderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureFinderViewModel.swift; sourceTree = "<group>"; };
+		ADE3593E2A5DB5CB00BC9E61 /* TablatureSelectorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureSelectorViewModel.swift; sourceTree = "<group>"; };
 		ADE359442A5DC18900BC9E61 /* TablatureListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureListModel.swift; sourceTree = "<group>"; };
 		ADE359472A5DCA0700BC9E61 /* TablatureFinderViewController+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureFinderViewController+Constants.swift"; sourceTree = "<group>"; };
 		ADE359492A5DCA2F00BC9E61 /* TablatureFinderViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureFinderViewController+Constraints.swift"; sourceTree = "<group>"; };
@@ -157,6 +185,16 @@
 				ADBB50C42A671383001BE241 /* AudioKitUI in Frameworks */,
 				ADBB50C72A6713B5001BE241 /* SoundpipeAudioKit in Frameworks */,
 				ADBB50C12A67130B001BE241 /* AudioKitEX in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADAB93092A71A56A001C8ADC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADAB932F2A725322001C8ADC /* AudioKit in Frameworks */,
+				ADAB932B2A7252EE001C8ADC /* AudioKitEX in Frameworks */,
+				ADAB93332A72532C001C8ADC /* SoundpipeAudioKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,7 +245,7 @@
 		AD23A24C29DD5873000255C9 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				ADE3593E2A5DB5CB00BC9E61 /* TablatureFinderViewModel.swift */,
+				ADE3593E2A5DB5CB00BC9E61 /* TablatureSelectorViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -254,7 +292,9 @@
 			children = (
 				AD68ABCF29DC99E0002B510F /* README.md */,
 				AD68ABB729DC98CD002B510F /* GuiTabFinder */,
+				ADAB930D2A71A56A001C8ADC /* GuiTabFinderTests */,
 				AD68ABB629DC98CD002B510F /* Products */,
+				ADAB93292A7252EE001C8ADC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -262,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				AD68ABB529DC98CD002B510F /* GuiTabFinder.app */,
+				ADAB930C2A71A56A001C8ADC /* GuiTabFinderTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -357,6 +398,122 @@
 				ADA39CC92A5F1F3600B08E4D /* TablatureDetailViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		ADAB93012A71A44F001C8ADC /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				ADAB93172A72477B001C8ADC /* Repositories */,
+				ADAB93182A72478F001C8ADC /* RawData */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		ADAB93022A71A453001C8ADC /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				ADAB93042A71A4CA001C8ADC /* TablatureListUseCase+Test.swift */,
+				ADAB93062A71A510001C8ADC /* TablatureDetailUseCase+Test.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		ADAB93032A71A45A001C8ADC /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				ADAB93192A724808001C8ADC /* Features */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		ADAB930D2A71A56A001C8ADC /* GuiTabFinderTests */ = {
+			isa = PBXGroup;
+			children = (
+				ADAB93012A71A44F001C8ADC /* Mock */,
+				ADAB93022A71A453001C8ADC /* Domain */,
+				ADAB93032A71A45A001C8ADC /* Presentation */,
+				ADAB930E2A71A56A001C8ADC /* GuiTabFinderTests.swift */,
+			);
+			path = GuiTabFinderTests;
+			sourceTree = "<group>";
+		};
+		ADAB93172A72477B001C8ADC /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				ADAB93272A724A37001C8ADC /* TablatureListRepositorySuccess+Mock.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		ADAB93182A72478F001C8ADC /* RawData */ = {
+			isa = PBXGroup;
+			children = (
+				ADAB93342A725479001C8ADC /* TablatureList+Mock.swift */,
+				ADAB93362A72548C001C8ADC /* TablatureDetail+Mock.swift */,
+			);
+			path = RawData;
+			sourceTree = "<group>";
+		};
+		ADAB93192A724808001C8ADC /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				ADAB931A2A724818001C8ADC /* TablatureFinder */,
+				ADAB931B2A72481F001C8ADC /* Tuner */,
+				ADAB931C2A724829001C8ADC /* AudioRecorder */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		ADAB931A2A724818001C8ADC /* TablatureFinder */ = {
+			isa = PBXGroup;
+			children = (
+				ADAB931D2A724847001C8ADC /* TablatureSelector */,
+				ADAB931E2A72484E001C8ADC /* TablatureDetail */,
+			);
+			path = TablatureFinder;
+			sourceTree = "<group>";
+		};
+		ADAB931B2A72481F001C8ADC /* Tuner */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tuner;
+			sourceTree = "<group>";
+		};
+		ADAB931C2A724829001C8ADC /* AudioRecorder */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AudioRecorder;
+			sourceTree = "<group>";
+		};
+		ADAB931D2A724847001C8ADC /* TablatureSelector */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TablatureSelector;
+			sourceTree = "<group>";
+		};
+		ADAB931E2A72484E001C8ADC /* TablatureDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TablatureDetail;
+			sourceTree = "<group>";
+		};
+		ADAB93292A7252EE001C8ADC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ADAB93382A725A36001C8ADC /* Scrapping */ = {
+			isa = PBXGroup;
+			children = (
+				ADAB93392A725AE0001C8ADC /* ScrappingManager.swift */,
+			);
+			path = Scrapping;
 			sourceTree = "<group>";
 		};
 		ADBA47C12A693AD100D7AADF /* Audio */ = {
@@ -475,8 +632,8 @@
 		ADE359422A5DB99A00BC9E61 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				AD23A25329DD611E000255C9 /* TablatureDetail.swift */,
 				ADE359442A5DC18900BC9E61 /* TablatureListModel.swift */,
+				AD23A25329DD611E000255C9 /* TablatureDetail.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -596,6 +753,7 @@
 			isa = PBXGroup;
 			children = (
 				AD23A24D29DD59E4000255C9 /* TFEndpoints.swift */,
+				ADAB93382A725A36001C8ADC /* Scrapping */,
 				ADEA81702A5C071A005235A9 /* Repositories */,
 				AD0B15D32A600FDD0056B30F /* DataBase */,
 				ADBA47C12A693AD100D7AADF /* Audio */,
@@ -638,6 +796,29 @@
 			productReference = AD68ABB529DC98CD002B510F /* GuiTabFinder.app */;
 			productType = "com.apple.product-type.application";
 		};
+		ADAB930B2A71A56A001C8ADC /* GuiTabFinderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ADAB93122A71A56A001C8ADC /* Build configuration list for PBXNativeTarget "GuiTabFinderTests" */;
+			buildPhases = (
+				ADAB93082A71A56A001C8ADC /* Sources */,
+				ADAB93092A71A56A001C8ADC /* Frameworks */,
+				ADAB930A2A71A56A001C8ADC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ADAB93112A71A56A001C8ADC /* PBXTargetDependency */,
+			);
+			name = GuiTabFinderTests;
+			packageProductDependencies = (
+				ADAB932A2A7252EE001C8ADC /* AudioKitEX */,
+				ADAB932E2A725322001C8ADC /* AudioKit */,
+				ADAB93322A72532C001C8ADC /* SoundpipeAudioKit */,
+			);
+			productName = GuiTabFinderTests;
+			productReference = ADAB930C2A71A56A001C8ADC /* GuiTabFinderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -650,6 +831,10 @@
 				TargetAttributes = {
 					AD68ABB429DC98CD002B510F = {
 						CreatedOnToolsVersion = 14.3;
+					};
+					ADAB930B2A71A56A001C8ADC = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = AD68ABB429DC98CD002B510F;
 					};
 				};
 			};
@@ -673,6 +858,7 @@
 			projectRoot = "";
 			targets = (
 				AD68ABB429DC98CD002B510F /* GuiTabFinder */,
+				ADAB930B2A71A56A001C8ADC /* GuiTabFinderTests */,
 			);
 		};
 /* End PBXProject section */
@@ -689,6 +875,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ADAB930A2A71A56A001C8ADC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -698,7 +891,7 @@
 			files = (
 				ADBB50CB2A671BED001BE241 /* AudioRecorderViewController+Constraints.swift in Sources */,
 				AD23A25429DD611E000255C9 /* TablatureDetail.swift in Sources */,
-				ADE3593F2A5DB5CB00BC9E61 /* TablatureFinderViewModel.swift in Sources */,
+				ADE3593F2A5DB5CB00BC9E61 /* TablatureSelectorViewModel.swift in Sources */,
 				ADE359312A5D97D400BC9E61 /* MainCoordinator.swift in Sources */,
 				ADBB507A2A66AD15001BE241 /* AudioRecorderViewModel.swift in Sources */,
 				AD2E6BA52A7018570032EB71 /* TunerConductorView+Constants.swift in Sources */,
@@ -737,6 +930,7 @@
 				ADBA47C02A69247900D7AADF /* AudioTuningService.swift in Sources */,
 				AD27A9042A61AAE80004F846 /* SpinnerViewController.swift in Sources */,
 				AD68ABB929DC98CD002B510F /* AppDelegate.swift in Sources */,
+				ADAB933A2A725AE0001C8ADC /* ScrappingManager.swift in Sources */,
 				ADE359382A5DA53100BC9E61 /* ChildCoordinator.swift in Sources */,
 				ADE3594E2A5DCA5F00BC9E61 /* TablatureFinderViewController+TableViewDataSource.swift in Sources */,
 				ADE359552A5DE04C00BC9E61 /* UIView+SafeArea.swift in Sources */,
@@ -760,7 +954,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ADAB93082A71A56A001C8ADC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADAB93282A724A37001C8ADC /* TablatureListRepositorySuccess+Mock.swift in Sources */,
+				ADAB93152A71A5A7001C8ADC /* TablatureListUseCase+Test.swift in Sources */,
+				ADAB93162A71A5AB001C8ADC /* TablatureDetailUseCase+Test.swift in Sources */,
+				ADAB930F2A71A56A001C8ADC /* GuiTabFinderTests.swift in Sources */,
+				ADAB93352A725479001C8ADC /* TablatureList+Mock.swift in Sources */,
+				ADAB93372A72548C001C8ADC /* TablatureDetail+Mock.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ADAB93112A71A56A001C8ADC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AD68ABB429DC98CD002B510F /* GuiTabFinder */;
+			targetProxy = ADAB93102A71A56A001C8ADC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		AD68ABBE29DC98CD002B510F /* Main.storyboard */ = {
@@ -919,9 +1134,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.anthonydev.GuiTabFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -948,9 +1166,56 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.anthonydev.GuiTabFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		ADAB93132A71A56A001C8ADC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UJ8245Z3MQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anthonydev.GuiTabFinderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GuiTabFinder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GuiTabFinder";
+			};
+			name = Debug;
+		};
+		ADAB93142A71A56A001C8ADC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UJ8245Z3MQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anthonydev.GuiTabFinderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GuiTabFinder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GuiTabFinder";
 			};
 			name = Release;
 		};
@@ -971,6 +1236,15 @@
 			buildConfigurations = (
 				AD68ABCD29DC98CE002B510F /* Debug */,
 				AD68ABCE29DC98CE002B510F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ADAB93122A71A56A001C8ADC /* Build configuration list for PBXNativeTarget "GuiTabFinderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ADAB93132A71A56A001C8ADC /* Debug */,
+				ADAB93142A71A56A001C8ADC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1013,6 +1287,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		ADAB932A2A7252EE001C8ADC /* AudioKitEX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ADBB50BF2A67130B001BE241 /* XCRemoteSwiftPackageReference "AudioKitEX" */;
+			productName = AudioKitEX;
+		};
+		ADAB932E2A725322001C8ADC /* AudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ADBB50BC2A6712F7001BE241 /* XCRemoteSwiftPackageReference "AudioKit" */;
+			productName = AudioKit;
+		};
+		ADAB93322A72532C001C8ADC /* SoundpipeAudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ADBB50C52A6713B5001BE241 /* XCRemoteSwiftPackageReference "SoundpipeAudioKit" */;
+			productName = SoundpipeAudioKit;
+		};
 		ADBB50BD2A6712F7001BE241 /* AudioKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = ADBB50BC2A6712F7001BE241 /* XCRemoteSwiftPackageReference "AudioKit" */;

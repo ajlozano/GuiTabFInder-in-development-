@@ -12,7 +12,7 @@ import UIKit
 class TablatureFinderViewController: BaseViewController {
     
     var coordinator: TablatureFinderCoordinator?
-    var viewModel: TablatureFinderViewModel
+    var viewModel: TablatureSelectorViewModel
     
     // TODO: Refactoring
     var loadingView = UIView()
@@ -36,7 +36,7 @@ class TablatureFinderViewController: BaseViewController {
         return delegate
     }()
     
-    init(viewModel: TablatureFinderViewModel = DefaultTablatureFinderViewModel()) {
+    init(viewModel: TablatureSelectorViewModel = DefaultTablatureSelectorViewModel()) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }

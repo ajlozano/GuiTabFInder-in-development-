@@ -16,16 +16,16 @@ import Foundation
 
 // MARK: TablatureFinderViewModel - protocols
 
-protocol TablatureFinderViewModel: TablatureFinderViewModelInput, TablatureFinderViewModelOutput {}
+protocol TablatureSelectorViewModel: TablatureSelectorViewModelInput, TablatureSelectorViewModelOutput {}
 
-protocol TablatureFinderViewModelInput {
+protocol TablatureSelectorViewModelInput {
     func fetchNewTablatures()
     func fetchData(text: String)
     func selectCell(atIndex index: Int)
     func clearList()
 }
 
-protocol TablatureFinderViewModelOutput {
+protocol TablatureSelectorViewModelOutput {
     var loadingStatus: Box<LoadingStatus?> { get }
     var model: Box<TablatureListModel?> { get }
     var tablatureDetailModel: Box<TablatureDetail?> { get }
@@ -35,7 +35,7 @@ protocol TablatureFinderViewModelOutput {
 
 // MARK: DefaultTablatureFinderViewModel - class
 
-final class DefaultTablatureFinderViewModel: TablatureFinderViewModel {
+final class DefaultTablatureSelectorViewModel: TablatureSelectorViewModel {
     //var delegate: TablatureFinderViewModelDelegate?
     var loadingStatus: Box<LoadingStatus?> = Box(nil)
     var model: Box<TablatureListModel?> = Box(nil)
@@ -52,7 +52,7 @@ final class DefaultTablatureFinderViewModel: TablatureFinderViewModel {
 
 // MARK: Input methods
 
-extension DefaultTablatureFinderViewModel {
+extension DefaultTablatureSelectorViewModel {
     func fetchNewTablatures() {
         if ((self.model.value?.didAllTablaturesFetched) != nil) {
             self.model.value?.page! += 1
@@ -73,7 +73,7 @@ extension DefaultTablatureFinderViewModel {
 
 // MARK: Fetch data methods
 
-extension DefaultTablatureFinderViewModel {
+extension DefaultTablatureSelectorViewModel {
     func fetchData(text: String) {
         
         loadingStatus.value = .start

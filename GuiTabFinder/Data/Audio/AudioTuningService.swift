@@ -34,7 +34,6 @@ protocol AudioTuningServiceInput {
 }
 
 protocol AudioTuningServiceOutput {
-    var initialDevice: Device { get }
     var noteFrequencies: [Float] { get }
 }
 
@@ -45,7 +44,6 @@ class DefaultAudioTuningService: AudioTuningService, HasAudioEngine {
     var data = TunerData()
     
     let engine = AudioEngine()
-    let initialDevice: Device
     
     let mic: AudioEngine.InputNode
     let tappableNodeA: Fader
@@ -61,11 +59,9 @@ class DefaultAudioTuningService: AudioTuningService, HasAudioEngine {
     
     init() {
         
+        // TODO: Fix fatal error handling
+        
         guard let input = engine.input else { fatalError() }
-        
-        guard let device = engine.inputDevice else { fatalError() }
-        
-        initialDevice = device
         
         mic = input
         tappableNodeA = Fader(mic)
