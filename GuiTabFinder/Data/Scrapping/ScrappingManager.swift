@@ -64,7 +64,7 @@ class ScrappingManager {
             
             if (tablatures.count == 0) { return nil }
             
-            return TablatureListModel(tablatures: tablatures, didAllTablaturesFetched: false, page: 1)
+            return TablatureListModel(tablatures: tablatures, page: 1)
         }
         
         return nil

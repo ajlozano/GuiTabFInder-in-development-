@@ -29,7 +29,7 @@ final class TablatureDetailUseCaseTest: XCTestCase {
         let expectation = expectation(description: "You must obtain a valid entity that contains a model info with valid values.")
         
         let parameters = TablatureDetailRepositoryParameters(tablatureURL: "")
-        successUseCase?.execute(params: parameters) { tuning, tabDetail in
+        successUseCase?.execute(params: parameters) { tabDetail, tuning in
             XCTAssertNotNil(tabDetail)
             expectation.fulfill()
         }
@@ -40,7 +40,7 @@ final class TablatureDetailUseCaseTest: XCTestCase {
         let expectation = expectation(description: "You should get a nil instead of a value")
 
         let parameters = TablatureDetailRepositoryParameters(tablatureURL: "")
-        successUseCase?.execute(params: parameters) { tuning, tabDetail in
+        failureUseCase?.execute(params: parameters) { tabDetail, tuning in
             if let _ = tabDetail {
                 XCTFail("Failure test must not succeed when the usecase is executed")
             } else {

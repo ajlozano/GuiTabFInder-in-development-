@@ -9,6 +9,6 @@ import Foundation
 
 struct TablatureListModel {
     var tablatures: [TablatureDetail]?
-    var didAllTablaturesFetched: Bool
+    //var didAllTablaturesFetched: Bool
     var page: Int?
 }

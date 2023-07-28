@@ -22,7 +22,7 @@ extension TablatureFinderViewController: UISearchBarDelegate {
         if let text = searchBar.text {
             turnActivityIndicator(state: true)
             viewModel.clearList()
-            viewModel.fetchData(text: text)
+            viewModel.fetchTablatures(text: text)
         }
     }
     

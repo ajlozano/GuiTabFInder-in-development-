@@ -16,16 +16,16 @@ import Foundation
 
 // MARK: TablatureFinderViewModel - protocols
 
-protocol TablatureSelectorViewModel: TablatureSelectorViewModelInput, TablatureSelectorViewModelOutput {}
+protocol TablatureFinderViewModel: TablatureFinderViewModelInput, TablatureFinderViewModelOutput {}
 
-protocol TablatureSelectorViewModelInput {
-    func fetchNewTablatures()
-    func fetchData(text: String)
+protocol TablatureFinderViewModelInput {
+    //func fetchNewTablatures()
+    func fetchTablatures(text: String)
     func selectCell(atIndex index: Int)
     func clearList()
 }
 
-protocol TablatureSelectorViewModelOutput {
+protocol TablatureFinderViewModelOutput {
     var loadingStatus: Box<LoadingStatus?> { get }
     var model: Box<TablatureListModel?> { get }
     var tablatureDetailModel: Box<TablatureDetail?> { get }
@@ -35,46 +35,32 @@ protocol TablatureSelectorViewModelOutput {
 
 // MARK: DefaultTablatureFinderViewModel - class
 
-final class DefaultTablatureSelectorViewModel: TablatureSelectorViewModel {
+final class DefaultTablatureFinderViewModel: TablatureFinderViewModel {
     //var delegate: TablatureFinderViewModelDelegate?
     var loadingStatus: Box<LoadingStatus?> = Box(nil)
     var model: Box<TablatureListModel?> = Box(nil)
     var tablatureDetailModel: Box<TablatureDetail?> = Box(nil)
     var showEmptyStateError: Box<Bool?> = Box(nil)
-    var tablatureListUseCase: TablatureListUseCase
+    var tablatureFinderUseCase: TablatureFinderUseCase
     var pageNumber: Int = 1
     var searchText: String = ""
     
-    init(tablatureListUseCase: TablatureListUseCase = DefaultTablatureListUseCase()) {
-        self.tablatureListUseCase = tablatureListUseCase
+    init(tablatureFinderUseCase: TablatureFinderUseCase = DefaultTablatureFinderUseCase()) {
+        self.tablatureFinderUseCase = tablatureFinderUseCase
     }
 }
 
 // MARK: Input methods
 
-extension DefaultTablatureSelectorViewModel {
-    func fetchNewTablatures() {
-        if ((self.model.value?.didAllTablaturesFetched) != nil) {
-            self.model.value?.page! += 1
-            fetchData(text: searchText)
-        }
-    }
+extension DefaultTablatureFinderViewModel {
+//    func fetchNewTablatures() {
+//        if ((self.model.value?.didAllTablaturesFetched) != nil) {
+//            self.model.value?.page! += 1
+//            fetchData(text: searchText)
+//        }
+//    }
     
-    func selectCell(atIndex index: Int) {
-        tablatureDetailModel.value = model.value?.tablatures?[index]
-    }
-    
-    func clearList() {
-        self.model.value = nil
-        self.tablatureDetailModel.value = nil
-        self.showEmptyStateError.value = false
-    }
-}
-
-// MARK: Fetch data methods
-
-extension DefaultTablatureSelectorViewModel {
-    func fetchData(text: String) {
+    func fetchTablatures(text: String) {
         
         loadingStatus.value = .start
 
@@ -82,9 +68,9 @@ extension DefaultTablatureSelectorViewModel {
         
         let page = model.value?.page ?? 1
         
-        let useCaseParameters = TablatureListRepositoryParameters(page: "\(page)", searchText: text)
+        let useCaseParameters = TablatureFinderRepositoryParameters(page: "\(page)", searchText: text)
         
-        tablatureListUseCase.execute(params: useCaseParameters) { [weak self] result in
+        tablatureFinderUseCase.execute(params: useCaseParameters) { [weak self] result in
             
             switch result {
             case .success(let tablatureList):
@@ -111,14 +97,21 @@ extension DefaultTablatureSelectorViewModel {
                 
             case .failure(_):
                 self?.loadingStatus.value = .stop
-                if (self?.model == nil) {
-                    self?.showEmptyStateError.value = true
-                    return
-                }
-
-                self?.model.value?.didAllTablaturesFetched = true
+                self?.model.value? = TablatureListModel(tablatures: [])
+                self?.showEmptyStateError.value = true
+                //self?.model.value?.didAllTablaturesFetched = true
             }
         }
+    }
+    
+    func selectCell(atIndex index: Int) {
+        tablatureDetailModel.value = model.value?.tablatures?[index]
+    }
+    
+    func clearList() {
+        self.model.value = nil
+        self.tablatureDetailModel.value = nil
+        self.showEmptyStateError.value = false
     }
 }
 

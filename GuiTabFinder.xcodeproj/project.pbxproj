@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		AD19F76929E5501100AD1837 /* TablatureDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD19F76829E5501100AD1837 /* TablatureDetailViewController.swift */; };
-		AD1E89E32A6320C700054FE7 /* TablatureListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1E89E22A6320C700054FE7 /* TablatureListRepository.swift */; };
+		AD1E89E32A6320C700054FE7 /* TablatureFinderRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1E89E22A6320C700054FE7 /* TablatureFinderRepository.swift */; };
 		AD1E89E52A63222700054FE7 /* TablatureListRepository+Parameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1E89E42A63222700054FE7 /* TablatureListRepository+Parameters.swift */; };
-		AD1E89E92A63380E00054FE7 /* TablatureListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1E89E82A63380E00054FE7 /* TablatureListUseCase.swift */; };
+		AD1E89E92A63380E00054FE7 /* TablatureFinderUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1E89E82A63380E00054FE7 /* TablatureFinderUseCase.swift */; };
 		AD23A24E29DD59E4000255C9 /* TFEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23A24D29DD59E4000255C9 /* TFEndpoints.swift */; };
 		AD23A25229DD603F000255C9 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23A25129DD603F000255C9 /* Box.swift */; };
 		AD23A25429DD611E000255C9 /* TablatureDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23A25329DD611E000255C9 /* TablatureDetail.swift */; };
@@ -24,10 +24,10 @@
 		AD27A9082A61AAFA0004F846 /* SpinnerViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD27A9072A61AAFA0004F846 /* SpinnerViewController+Constraints.swift */; };
 		AD27A90A2A61ABFD0004F846 /* LoadingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD27A9092A61ABFD0004F846 /* LoadingStatus.swift */; };
 		AD2E6BA52A7018570032EB71 /* TunerConductorView+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2E6BA42A7018570032EB71 /* TunerConductorView+Constants.swift */; };
+		AD4AAFA62A7421920008758D /* TablatureSelectorViewModel+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4AAFA52A7421920008758D /* TablatureSelectorViewModel+Test.swift */; };
 		AD68ABB929DC98CD002B510F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD68ABB829DC98CD002B510F /* AppDelegate.swift */; };
 		AD68ABBB29DC98CD002B510F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD68ABBA29DC98CD002B510F /* SceneDelegate.swift */; };
 		AD68ABBD29DC98CD002B510F /* TablatureFinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD68ABBC29DC98CD002B510F /* TablatureFinderViewController.swift */; };
-		AD68ABC029DC98CD002B510F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD68ABBE29DC98CD002B510F /* Main.storyboard */; };
 		AD68ABC329DC98CD002B510F /* GuiTabFinder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AD68ABC129DC98CD002B510F /* GuiTabFinder.xcdatamodeld */; };
 		AD68ABC529DC98CE002B510F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD68ABC429DC98CE002B510F /* Assets.xcassets */; };
 		AD68ABC829DC98CE002B510F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD68ABC629DC98CE002B510F /* LaunchScreen.storyboard */; };
@@ -46,14 +46,14 @@
 		ADAB930F2A71A56A001C8ADC /* GuiTabFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB930E2A71A56A001C8ADC /* GuiTabFinderTests.swift */; };
 		ADAB93152A71A5A7001C8ADC /* TablatureListUseCase+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB93042A71A4CA001C8ADC /* TablatureListUseCase+Test.swift */; };
 		ADAB93162A71A5AB001C8ADC /* TablatureDetailUseCase+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB93062A71A510001C8ADC /* TablatureDetailUseCase+Test.swift */; };
-		ADAB93282A724A37001C8ADC /* TablatureListRepositorySuccess+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB93272A724A37001C8ADC /* TablatureListRepositorySuccess+Mock.swift */; };
+		ADAB93282A724A37001C8ADC /* TablatureFinderRepositorySuccess+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB93272A724A37001C8ADC /* TablatureFinderRepositorySuccess+Mock.swift */; };
 		ADAB932B2A7252EE001C8ADC /* AudioKitEX in Frameworks */ = {isa = PBXBuildFile; productRef = ADAB932A2A7252EE001C8ADC /* AudioKitEX */; };
 		ADAB932F2A725322001C8ADC /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = ADAB932E2A725322001C8ADC /* AudioKit */; };
 		ADAB93332A72532C001C8ADC /* SoundpipeAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = ADAB93322A72532C001C8ADC /* SoundpipeAudioKit */; };
-		ADAB93352A725479001C8ADC /* TablatureList+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB93342A725479001C8ADC /* TablatureList+Mock.swift */; };
+		ADAB93352A725479001C8ADC /* TablatureFinder+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB93342A725479001C8ADC /* TablatureFinder+Mock.swift */; };
 		ADAB93372A72548C001C8ADC /* TablatureDetail+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB93362A72548C001C8ADC /* TablatureDetail+Mock.swift */; };
 		ADAB933A2A725AE0001C8ADC /* ScrappingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB93392A725AE0001C8ADC /* ScrappingManager.swift */; };
-		ADAB933C2A72954C001C8ADC /* TablatureListRepositoryFailure+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB933B2A72954C001C8ADC /* TablatureListRepositoryFailure+Mock.swift */; };
+		ADAB933C2A72954C001C8ADC /* TablatureFinderRepositoryFailure+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB933B2A72954C001C8ADC /* TablatureFinderRepositoryFailure+Mock.swift */; };
 		ADAB933E2A7295D1001C8ADC /* TablatureDetailRepositorySuccess+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB933D2A7295D1001C8ADC /* TablatureDetailRepositorySuccess+Mock.swift */; };
 		ADAB93402A72984A001C8ADC /* TablatureDetailRepositoryFailure+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB933F2A72984A001C8ADC /* TablatureDetailRepositoryFailure+Mock.swift */; };
 		ADB2C6D62A655AA300743C17 /* TablatureDetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB2C6D52A655AA300743C17 /* TablatureDetailRepository.swift */; };
@@ -81,7 +81,7 @@
 		ADE359382A5DA53100BC9E61 /* ChildCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE359372A5DA53100BC9E61 /* ChildCoordinator.swift */; };
 		ADE3593A2A5DA56000BC9E61 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE359392A5DA56000BC9E61 /* Coordinator.swift */; };
 		ADE3593D2A5DA7AB00BC9E61 /* TablatureFinderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE3593C2A5DA7AB00BC9E61 /* TablatureFinderCoordinator.swift */; };
-		ADE3593F2A5DB5CB00BC9E61 /* TablatureSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE3593E2A5DB5CB00BC9E61 /* TablatureSelectorViewModel.swift */; };
+		ADE3593F2A5DB5CB00BC9E61 /* TablatureFinderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE3593E2A5DB5CB00BC9E61 /* TablatureFinderViewModel.swift */; };
 		ADE359452A5DC18900BC9E61 /* TablatureListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE359442A5DC18900BC9E61 /* TablatureListModel.swift */; };
 		ADE359482A5DCA0700BC9E61 /* TablatureFinderViewController+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE359472A5DCA0700BC9E61 /* TablatureFinderViewController+Constants.swift */; };
 		ADE3594A2A5DCA2F00BC9E61 /* TablatureFinderViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE359492A5DCA2F00BC9E61 /* TablatureFinderViewController+Constraints.swift */; };
@@ -103,9 +103,9 @@
 
 /* Begin PBXFileReference section */
 		AD19F76829E5501100AD1837 /* TablatureDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureDetailViewController.swift; sourceTree = "<group>"; };
-		AD1E89E22A6320C700054FE7 /* TablatureListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureListRepository.swift; sourceTree = "<group>"; };
+		AD1E89E22A6320C700054FE7 /* TablatureFinderRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureFinderRepository.swift; sourceTree = "<group>"; };
 		AD1E89E42A63222700054FE7 /* TablatureListRepository+Parameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureListRepository+Parameters.swift"; sourceTree = "<group>"; };
-		AD1E89E82A63380E00054FE7 /* TablatureListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureListUseCase.swift; sourceTree = "<group>"; };
+		AD1E89E82A63380E00054FE7 /* TablatureFinderUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureFinderUseCase.swift; sourceTree = "<group>"; };
 		AD23A24D29DD59E4000255C9 /* TFEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFEndpoints.swift; sourceTree = "<group>"; };
 		AD23A25129DD603F000255C9 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		AD23A25329DD611E000255C9 /* TablatureDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureDetail.swift; sourceTree = "<group>"; };
@@ -119,11 +119,11 @@
 		AD27A9072A61AAFA0004F846 /* SpinnerViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpinnerViewController+Constraints.swift"; sourceTree = "<group>"; };
 		AD27A9092A61ABFD0004F846 /* LoadingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingStatus.swift; sourceTree = "<group>"; };
 		AD2E6BA42A7018570032EB71 /* TunerConductorView+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TunerConductorView+Constants.swift"; sourceTree = "<group>"; };
+		AD4AAFA52A7421920008758D /* TablatureSelectorViewModel+Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureSelectorViewModel+Test.swift"; sourceTree = "<group>"; };
 		AD68ABB529DC98CD002B510F /* GuiTabFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuiTabFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD68ABB829DC98CD002B510F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD68ABBA29DC98CD002B510F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		AD68ABBC29DC98CD002B510F /* TablatureFinderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureFinderViewController.swift; sourceTree = "<group>"; };
-		AD68ABBF29DC98CD002B510F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AD68ABC229DC98CD002B510F /* GuiTabFinder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GuiTabFinder.xcdatamodel; sourceTree = "<group>"; };
 		AD68ABC429DC98CE002B510F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD68ABC729DC98CE002B510F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -144,11 +144,11 @@
 		ADAB93062A71A510001C8ADC /* TablatureDetailUseCase+Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureDetailUseCase+Test.swift"; sourceTree = "<group>"; };
 		ADAB930C2A71A56A001C8ADC /* GuiTabFinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GuiTabFinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADAB930E2A71A56A001C8ADC /* GuiTabFinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuiTabFinderTests.swift; sourceTree = "<group>"; };
-		ADAB93272A724A37001C8ADC /* TablatureListRepositorySuccess+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureListRepositorySuccess+Mock.swift"; sourceTree = "<group>"; };
-		ADAB93342A725479001C8ADC /* TablatureList+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureList+Mock.swift"; sourceTree = "<group>"; };
+		ADAB93272A724A37001C8ADC /* TablatureFinderRepositorySuccess+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureFinderRepositorySuccess+Mock.swift"; sourceTree = "<group>"; };
+		ADAB93342A725479001C8ADC /* TablatureFinder+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureFinder+Mock.swift"; sourceTree = "<group>"; };
 		ADAB93362A72548C001C8ADC /* TablatureDetail+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureDetail+Mock.swift"; sourceTree = "<group>"; };
 		ADAB93392A725AE0001C8ADC /* ScrappingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrappingManager.swift; sourceTree = "<group>"; };
-		ADAB933B2A72954C001C8ADC /* TablatureListRepositoryFailure+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureListRepositoryFailure+Mock.swift"; sourceTree = "<group>"; };
+		ADAB933B2A72954C001C8ADC /* TablatureFinderRepositoryFailure+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureFinderRepositoryFailure+Mock.swift"; sourceTree = "<group>"; };
 		ADAB933D2A7295D1001C8ADC /* TablatureDetailRepositorySuccess+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureDetailRepositorySuccess+Mock.swift"; sourceTree = "<group>"; };
 		ADAB933F2A72984A001C8ADC /* TablatureDetailRepositoryFailure+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureDetailRepositoryFailure+Mock.swift"; sourceTree = "<group>"; };
 		ADB2C6D52A655AA300743C17 /* TablatureDetailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureDetailRepository.swift; sourceTree = "<group>"; };
@@ -172,7 +172,7 @@
 		ADE359372A5DA53100BC9E61 /* ChildCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildCoordinator.swift; sourceTree = "<group>"; };
 		ADE359392A5DA56000BC9E61 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		ADE3593C2A5DA7AB00BC9E61 /* TablatureFinderCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureFinderCoordinator.swift; sourceTree = "<group>"; };
-		ADE3593E2A5DB5CB00BC9E61 /* TablatureSelectorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureSelectorViewModel.swift; sourceTree = "<group>"; };
+		ADE3593E2A5DB5CB00BC9E61 /* TablatureFinderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureFinderViewModel.swift; sourceTree = "<group>"; };
 		ADE359442A5DC18900BC9E61 /* TablatureListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureListModel.swift; sourceTree = "<group>"; };
 		ADE359472A5DCA0700BC9E61 /* TablatureFinderViewController+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureFinderViewController+Constants.swift"; sourceTree = "<group>"; };
 		ADE359492A5DCA2F00BC9E61 /* TablatureFinderViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureFinderViewController+Constraints.swift"; sourceTree = "<group>"; };
@@ -218,7 +218,7 @@
 		AD1E89E62A6331F200054FE7 /* TablatureList */ = {
 			isa = PBXGroup;
 			children = (
-				AD1E89E22A6320C700054FE7 /* TablatureListRepository.swift */,
+				AD1E89E22A6320C700054FE7 /* TablatureFinderRepository.swift */,
 				AD1E89E42A63222700054FE7 /* TablatureListRepository+Parameters.swift */,
 			);
 			path = TablatureList;
@@ -243,7 +243,6 @@
 				ADE3594D2A5DCA5F00BC9E61 /* TablatureFinderViewController+TableViewDataSource.swift */,
 				ADE3594F2A5DCA6F00BC9E61 /* TablatureFinderViewController+TableViewDelegate.swift */,
 				ADE359522A5DD66400BC9E61 /* TablatureFinderViewController+SearchBarDelegate.swift */,
-				AD68ABBE29DC98CD002B510F /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -251,7 +250,7 @@
 		AD23A24C29DD5873000255C9 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				ADE3593E2A5DB5CB00BC9E61 /* TablatureSelectorViewModel.swift */,
+				ADE3593E2A5DB5CB00BC9E61 /* TablatureFinderViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -446,8 +445,8 @@
 		ADAB93172A72477B001C8ADC /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				ADAB93272A724A37001C8ADC /* TablatureListRepositorySuccess+Mock.swift */,
-				ADAB933B2A72954C001C8ADC /* TablatureListRepositoryFailure+Mock.swift */,
+				ADAB93272A724A37001C8ADC /* TablatureFinderRepositorySuccess+Mock.swift */,
+				ADAB933B2A72954C001C8ADC /* TablatureFinderRepositoryFailure+Mock.swift */,
 				ADAB933D2A7295D1001C8ADC /* TablatureDetailRepositorySuccess+Mock.swift */,
 				ADAB933F2A72984A001C8ADC /* TablatureDetailRepositoryFailure+Mock.swift */,
 			);
@@ -457,7 +456,7 @@
 		ADAB93182A72478F001C8ADC /* RawData */ = {
 			isa = PBXGroup;
 			children = (
-				ADAB93342A725479001C8ADC /* TablatureList+Mock.swift */,
+				ADAB93342A725479001C8ADC /* TablatureFinder+Mock.swift */,
 				ADAB93362A72548C001C8ADC /* TablatureDetail+Mock.swift */,
 			);
 			path = RawData;
@@ -499,6 +498,7 @@
 		ADAB931D2A724847001C8ADC /* TablatureSelector */ = {
 			isa = PBXGroup;
 			children = (
+				AD4AAFA52A7421920008758D /* TablatureSelectorViewModel+Test.swift */,
 			);
 			path = TablatureSelector;
 			sourceTree = "<group>";
@@ -650,7 +650,7 @@
 		ADE359432A5DB9A400BC9E61 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				AD1E89E82A63380E00054FE7 /* TablatureListUseCase.swift */,
+				AD1E89E82A63380E00054FE7 /* TablatureFinderUseCase.swift */,
 				ADB2C6D92A655BED00743C17 /* TablatureDetailUseCase.swift */,
 			);
 			path = UseCases;
@@ -880,7 +880,6 @@
 				AD68ABC829DC98CE002B510F /* LaunchScreen.storyboard in Resources */,
 				AD68ABC529DC98CE002B510F /* Assets.xcassets in Resources */,
 				AD68ABD029DC99E0002B510F /* README.md in Resources */,
-				AD68ABC029DC98CD002B510F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -900,7 +899,7 @@
 			files = (
 				ADBB50CB2A671BED001BE241 /* AudioRecorderViewController+Constraints.swift in Sources */,
 				AD23A25429DD611E000255C9 /* TablatureDetail.swift in Sources */,
-				ADE3593F2A5DB5CB00BC9E61 /* TablatureSelectorViewModel.swift in Sources */,
+				ADE3593F2A5DB5CB00BC9E61 /* TablatureFinderViewModel.swift in Sources */,
 				ADE359312A5D97D400BC9E61 /* MainCoordinator.swift in Sources */,
 				ADBB507A2A66AD15001BE241 /* AudioRecorderViewModel.swift in Sources */,
 				AD2E6BA52A7018570032EB71 /* TunerConductorView+Constants.swift in Sources */,
@@ -919,11 +918,11 @@
 				ADBB50672A668B4D001BE241 /* TunerCoordinator.swift in Sources */,
 				ADE359502A5DCA6F00BC9E61 /* TablatureFinderViewController+TableViewDelegate.swift in Sources */,
 				AD68ABC329DC98CD002B510F /* GuiTabFinder.xcdatamodeld in Sources */,
-				AD1E89E32A6320C700054FE7 /* TablatureListRepository.swift in Sources */,
+				AD1E89E32A6320C700054FE7 /* TablatureFinderRepository.swift in Sources */,
 				ADB2C6D62A655AA300743C17 /* TablatureDetailRepository.swift in Sources */,
 				ADE3594A2A5DCA2F00BC9E61 /* TablatureFinderViewController+Constraints.swift in Sources */,
 				ADBB50C92A671AFD001BE241 /* RecorderConductorView.swift in Sources */,
-				AD1E89E92A63380E00054FE7 /* TablatureListUseCase.swift in Sources */,
+				AD1E89E92A63380E00054FE7 /* TablatureFinderUseCase.swift in Sources */,
 				ADBB50712A66A3E7001BE241 /* TunerViewController+Constraints.swift in Sources */,
 				ADE359452A5DC18900BC9E61 /* TablatureListModel.swift in Sources */,
 				ADD7AD8F29E6C60100E2ECC8 /* Extensions.swift in Sources */,
@@ -967,14 +966,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADAB93282A724A37001C8ADC /* TablatureListRepositorySuccess+Mock.swift in Sources */,
+				ADAB93282A724A37001C8ADC /* TablatureFinderRepositorySuccess+Mock.swift in Sources */,
 				ADAB93402A72984A001C8ADC /* TablatureDetailRepositoryFailure+Mock.swift in Sources */,
+				AD4AAFA62A7421920008758D /* TablatureSelectorViewModel+Test.swift in Sources */,
 				ADAB93152A71A5A7001C8ADC /* TablatureListUseCase+Test.swift in Sources */,
 				ADAB93162A71A5AB001C8ADC /* TablatureDetailUseCase+Test.swift in Sources */,
 				ADAB933E2A7295D1001C8ADC /* TablatureDetailRepositorySuccess+Mock.swift in Sources */,
 				ADAB930F2A71A56A001C8ADC /* GuiTabFinderTests.swift in Sources */,
-				ADAB93352A725479001C8ADC /* TablatureList+Mock.swift in Sources */,
-				ADAB933C2A72954C001C8ADC /* TablatureListRepositoryFailure+Mock.swift in Sources */,
+				ADAB93352A725479001C8ADC /* TablatureFinder+Mock.swift in Sources */,
+				ADAB933C2A72954C001C8ADC /* TablatureFinderRepositoryFailure+Mock.swift in Sources */,
 				ADAB93372A72548C001C8ADC /* TablatureDetail+Mock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -990,14 +990,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		AD68ABBE29DC98CD002B510F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AD68ABBF29DC98CD002B510F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		AD68ABC629DC98CE002B510F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

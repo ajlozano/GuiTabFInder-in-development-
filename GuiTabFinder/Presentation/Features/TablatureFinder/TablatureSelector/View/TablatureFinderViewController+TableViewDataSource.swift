@@ -21,9 +21,9 @@ extension TablatureFinderTableViewDataSource {
 final class TablatureFinderTableViewDataSource: NSObject, UITableViewDataSource {
     
     var tableView: UITableView
-    var viewModel: TablatureSelectorViewModel
+    var viewModel: TablatureFinderViewModel
     
-    init(tableView: UITableView, viewModel: TablatureSelectorViewModel) {
+    init(tableView: UITableView, viewModel: TablatureFinderViewModel) {
         self.tableView = tableView
         self.viewModel = viewModel
     }

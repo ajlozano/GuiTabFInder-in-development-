@@ -1,5 +1,5 @@
 //
-//  TablatureListUseCase+Test.swift
+//  TablatureFinderUseCase+Test.swift
 //  GuiTabFinder
 //
 //  Created by Toni Lozano Fernández on 26/7/23.
@@ -8,15 +8,15 @@
 import XCTest
 @testable import GuiTabFinder
 
-final class TablatureListUseCaseTest: XCTestCase {
+final class TablatureFinderUseCaseTest: XCTestCase {
 
-    var successUseCase: TablatureListUseCase?
-    var failureUseCase: TablatureListUseCase?
+    var successUseCase: TablatureFinderUseCase?
+    var failureUseCase: TablatureFinderUseCase?
     
     override func setUp() {
         super.setUp()
-        successUseCase = DefaultTablatureListUseCase(repository: TablatureListRepositorySuccessMock())
-        failureUseCase = DefaultTablatureListUseCase(repository: TablatureListRepositoryFailureMock())
+        successUseCase = DefaultTablatureFinderUseCase(repository: TablatureFinderRepositorySuccessMock())
+        failureUseCase = DefaultTablatureFinderUseCase(repository: TablatureFinderRepositoryFailureMock())
     }
 
     override func tearDown() {
@@ -25,15 +25,14 @@ final class TablatureListUseCaseTest: XCTestCase {
         super.tearDown()
     }
     
-    func testTablatureListUseCase_Success() {
+    func testTablatureFinderUseCase_Success() {
         let expectation = expectation(description: "You must obtain a valid entity that contains a model info with valid values.")
         
-        let parameters = TablatureListRepositoryParameters(page: "1", searchText: "Insomnium")
+        let parameters = TablatureFinderRepositoryParameters(page: "1", searchText: "Insomnium")
         successUseCase?.execute(params: parameters) { result in
             switch result {
             case .success(let tablatureList):
                 
-                XCTAssertNotNil(tablatureList.didAllTablaturesFetched)
                 XCTAssertNotNil(tablatureList.page)
                 
                 // TablatureDetail model assertions
@@ -59,10 +58,10 @@ final class TablatureListUseCaseTest: XCTestCase {
         wait(for: [expectation], timeout: 10)
     }
     
-    func testTablatureListUseCase_Failure() {
+    func testTablatureFinderUseCase_Failure() {
         let expectation = expectation(description: "You should get an error and it should not be nil")
 
-        let parameters = TablatureListRepositoryParameters(page: "1", searchText: "djfjsdjsja")
+        let parameters = TablatureFinderRepositoryParameters(page: "1", searchText: "djfjsdjsja")
         failureUseCase?.execute(params: parameters) { result in
             switch result {
             case .success(_):

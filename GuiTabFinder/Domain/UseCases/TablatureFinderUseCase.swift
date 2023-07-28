@@ -1,5 +1,5 @@
 //
-//  TablatureListUseCase.swift
+//  TablatureFinderUseCase.swift
 //  GuiTabFinder
 //
 //  Created by Toni Lozano Fernández on 15/7/23.
@@ -7,30 +7,30 @@
 
 import Foundation
 
-// MARK: TablatureListUseCase - Protocol
+// MARK: TablatureFinderUseCase - Protocol
 
-protocol TablatureListUseCase {
+protocol TablatureFinderUseCase {
     
-    func execute(params: TablatureListRepositoryParameters, completion: @escaping (Result<TablatureListModel, AppError>) -> Void)
+    func execute(params: TablatureFinderRepositoryParameters, completion: @escaping (Result<TablatureListModel, AppError>) -> Void)
 }
 
-// MARK: DefaultTablatureListUseCase - Class
+// MARK: DefaultTablatureFinderUseCase - Class
 
-final class DefaultTablatureListUseCase: TablatureListUseCase {
+final class DefaultTablatureFinderUseCase: TablatureFinderUseCase {
     
-    private var repository: TablatureListRepository
+    private var repository: TablatureFinderRepository
     private var hasFetchedAllTablatures: Bool = false
     
-    init(repository: TablatureListRepository = DefaultTablatureListRepository()) {
+    init(repository: TablatureFinderRepository = DefaultTablatureFinderRepository()) {
         self.repository = repository
     }
 }
 
-// MARK: DefaultTablatureListUseCase - Execute
+// MARK: DefaultTablatureFinderUseCase - Execute
 
-extension DefaultTablatureListUseCase {
+extension DefaultTablatureFinderUseCase {
     
-    func execute(params: TablatureListRepositoryParameters, completion: @escaping (Result<TablatureListModel, AppError>) -> Void) {
+    func execute(params: TablatureFinderRepositoryParameters, completion: @escaping (Result<TablatureListModel, AppError>) -> Void) {
         
         let completion: (Result<TablatureListModel, AppError>) -> Void = { [weak self] result in
             switch result {

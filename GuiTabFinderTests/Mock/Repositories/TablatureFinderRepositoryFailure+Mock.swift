@@ -8,8 +8,8 @@
 import XCTest
 @testable import GuiTabFinder
 
-final class TablatureListRepositoryFailureMock: TablatureListRepository {
-    func getTablatures(params: GuiTabFinder.TablatureListRepositoryParameters, completion: @escaping (Result<GuiTabFinder.TablatureListModel, GuiTabFinder.AppError>) -> Void) {
+final class TablatureFinderRepositoryFailureMock: TablatureFinderRepository {
+    func getTablatures(params: GuiTabFinder.TablatureFinderRepositoryParameters, completion: @escaping (Result<GuiTabFinder.TablatureListModel, GuiTabFinder.AppError>) -> Void) {
         
         guard let tablatureList = ScrappingManager.shared.getTablatureListFromFetchingData(with: "") else {
             completion(.failure(AppError.manageFetchDataError(message: "Error formatting fetched data")))

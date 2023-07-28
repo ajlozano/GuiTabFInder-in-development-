@@ -14,7 +14,7 @@ protocol TablatureDetailUseCase {
     func execute(params: TablatureDetailRepositoryParameters, completion: @escaping (String?, String?) -> Void)
 }
 
-// MARK: DefaultTablatureListUseCase - Class
+// MARK: DefaultTablatureDetailUseCase - Class
 
 final class DefaultTablatureDetailUseCase: TablatureDetailUseCase {
     
@@ -26,7 +26,7 @@ final class DefaultTablatureDetailUseCase: TablatureDetailUseCase {
     }
 }
 
-// MARK: DefaultTablatureListUseCase - Execute
+// MARK: DefaultTablatureDetailUseCase - Execute
 
 extension DefaultTablatureDetailUseCase {
     

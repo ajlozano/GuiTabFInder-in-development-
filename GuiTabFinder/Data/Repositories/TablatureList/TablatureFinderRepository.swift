@@ -8,18 +8,18 @@
 import Foundation
 
 
-// MARK: TablatureListRepository - protocol
+// MARK: TablatureFinderRepository - protocol
 
-protocol TablatureListRepository {
-    func getTablatures(params: TablatureListRepositoryParameters, completion: @escaping (Result<TablatureListModel, AppError>) -> Void)
+protocol TablatureFinderRepository {
+    func getTablatures(params: TablatureFinderRepositoryParameters, completion: @escaping (Result<TablatureListModel, AppError>) -> Void)
 }
 
-// MARK: DefaultTablatureListRepository - class
+// MARK: DefaultTablatureFinderRepository - class
 
-final class DefaultTablatureListRepository: TablatureListRepository {
+final class DefaultTablatureFinderRepository: TablatureFinderRepository {
     private weak var task: URLSessionTask?
     
-    func getTablatures(params: TablatureListRepositoryParameters, completion: @escaping (Result<TablatureListModel, AppError>) -> Void) {
+    func getTablatures(params: TablatureFinderRepositoryParameters, completion: @escaping (Result<TablatureListModel, AppError>) -> Void) {
         
         let endpoint = TFEndpoints.generateURLWithParams(baseUrl: TFEndpoints.HeaderURL.titleSearchUg, searchText: params.searchText, page: params.page)
         
@@ -56,19 +56,19 @@ final class DefaultTablatureListRepository: TablatureListRepository {
     }
 }
 
-// MARK: DefaultTablatureListRepository - Manage Data
+// MARK: DefaultTablatureFinderRepository - Manage Data
 
-extension DefaultTablatureListRepository {
+extension DefaultTablatureFinderRepository {
     
     func manageResponse(data: Data?, response: URLResponse?, error: Error?, completion: @escaping (Result<String, AppError>) -> Void) {
         
         if let responsestatus = (response as? HTTPURLResponse)?.statusCode, responsestatus != 200 {
-            let error: AppError = .serviceError(message: "Error when when fetching in TablatureListRepository")
+            let error: AppError = .serviceError(message: "Error when when fetching in TablatureFinderRepository")
             completion(.failure(error))
         }
         
         guard let data = data, let stringHtml = String(data: data, encoding: .utf8) else {
-            let error: AppError = .serviceError(message: "No Data Received when fetching in TablatureListRepository")
+            let error: AppError = .serviceError(message: "No Data Received when fetching in TablatureFinderRepository")
             completion(.failure(error))
             return
         }

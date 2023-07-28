@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct TablatureListRepositoryParameters {
+struct TablatureFinderRepositoryParameters {
     var page: String
     var searchText: String
 }
