@@ -35,6 +35,8 @@ protocol AudioTuningServiceInput {
 
 protocol AudioTuningServiceOutput {
     var noteFrequencies: [Float] { get }
+    var noteNamesWithSharps: [String] { get }
+    var noteNamesWithFlats: [String] { get }
 }
 
 // MARK: DefaultAudioTuningService - class

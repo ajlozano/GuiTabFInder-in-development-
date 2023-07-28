@@ -13,12 +13,10 @@ final class DefaultTunerViewModel: ObservableObject {
     
     @Published var data = TunerData()
     @Published var needleRotation: Double = 0.0
+    @Published var nextNote: String = ""
+    @Published var previousNote: String = ""
     
     var service: AudioTuningService
-    
-    //    init() {
-    //
-    //    }
     
     init(service: AudioTuningService = DefaultAudioTuningService()) {
         self.service = service
@@ -35,6 +33,8 @@ extension DefaultTunerViewModel {
             case .success(let data):
                 self.data = data
                 self.getNeedleRotationValue()
+                self.getNextNote()
+                self.getPreviousNote()
             case .failure(_):
                 break
             }
@@ -59,6 +59,18 @@ extension DefaultTunerViewModel {
                 needleRotation = 90
             }
         }
+    }
+
+    private func getNextNote() {
+        nextNote = data.fromIndex == (service.noteNamesWithSharps.count - 1) ?
+            service.noteNamesWithSharps[0] : service.noteNamesWithSharps[data.fromIndex + 1]
+
+    }
+    
+    private func getPreviousNote() {
+        previousNote = data.fromIndex == 0 ?
+        service.noteNamesWithSharps[service.noteNamesWithSharps.count - 1] : service.noteNamesWithSharps[data.fromIndex - 1]
+
     }
 }
 

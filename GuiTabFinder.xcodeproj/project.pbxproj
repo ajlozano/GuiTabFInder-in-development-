@@ -53,6 +53,9 @@
 		ADAB93352A725479001C8ADC /* TablatureList+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB93342A725479001C8ADC /* TablatureList+Mock.swift */; };
 		ADAB93372A72548C001C8ADC /* TablatureDetail+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB93362A72548C001C8ADC /* TablatureDetail+Mock.swift */; };
 		ADAB933A2A725AE0001C8ADC /* ScrappingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB93392A725AE0001C8ADC /* ScrappingManager.swift */; };
+		ADAB933C2A72954C001C8ADC /* TablatureListRepositoryFailure+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB933B2A72954C001C8ADC /* TablatureListRepositoryFailure+Mock.swift */; };
+		ADAB933E2A7295D1001C8ADC /* TablatureDetailRepositorySuccess+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB933D2A7295D1001C8ADC /* TablatureDetailRepositorySuccess+Mock.swift */; };
+		ADAB93402A72984A001C8ADC /* TablatureDetailRepositoryFailure+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB933F2A72984A001C8ADC /* TablatureDetailRepositoryFailure+Mock.swift */; };
 		ADB2C6D62A655AA300743C17 /* TablatureDetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB2C6D52A655AA300743C17 /* TablatureDetailRepository.swift */; };
 		ADB2C6D82A655AE700743C17 /* TablatureDetailRepository+Parameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB2C6D72A655AE700743C17 /* TablatureDetailRepository+Parameters.swift */; };
 		ADB2C6DA2A655BED00743C17 /* TablatureDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB2C6D92A655BED00743C17 /* TablatureDetailUseCase.swift */; };
@@ -145,6 +148,9 @@
 		ADAB93342A725479001C8ADC /* TablatureList+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureList+Mock.swift"; sourceTree = "<group>"; };
 		ADAB93362A72548C001C8ADC /* TablatureDetail+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureDetail+Mock.swift"; sourceTree = "<group>"; };
 		ADAB93392A725AE0001C8ADC /* ScrappingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrappingManager.swift; sourceTree = "<group>"; };
+		ADAB933B2A72954C001C8ADC /* TablatureListRepositoryFailure+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureListRepositoryFailure+Mock.swift"; sourceTree = "<group>"; };
+		ADAB933D2A7295D1001C8ADC /* TablatureDetailRepositorySuccess+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureDetailRepositorySuccess+Mock.swift"; sourceTree = "<group>"; };
+		ADAB933F2A72984A001C8ADC /* TablatureDetailRepositoryFailure+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureDetailRepositoryFailure+Mock.swift"; sourceTree = "<group>"; };
 		ADB2C6D52A655AA300743C17 /* TablatureDetailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureDetailRepository.swift; sourceTree = "<group>"; };
 		ADB2C6D72A655AE700743C17 /* TablatureDetailRepository+Parameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TablatureDetailRepository+Parameters.swift"; sourceTree = "<group>"; };
 		ADB2C6D92A655BED00743C17 /* TablatureDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablatureDetailUseCase.swift; sourceTree = "<group>"; };
@@ -441,6 +447,9 @@
 			isa = PBXGroup;
 			children = (
 				ADAB93272A724A37001C8ADC /* TablatureListRepositorySuccess+Mock.swift */,
+				ADAB933B2A72954C001C8ADC /* TablatureListRepositoryFailure+Mock.swift */,
+				ADAB933D2A7295D1001C8ADC /* TablatureDetailRepositorySuccess+Mock.swift */,
+				ADAB933F2A72984A001C8ADC /* TablatureDetailRepositoryFailure+Mock.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -959,10 +968,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADAB93282A724A37001C8ADC /* TablatureListRepositorySuccess+Mock.swift in Sources */,
+				ADAB93402A72984A001C8ADC /* TablatureDetailRepositoryFailure+Mock.swift in Sources */,
 				ADAB93152A71A5A7001C8ADC /* TablatureListUseCase+Test.swift in Sources */,
 				ADAB93162A71A5AB001C8ADC /* TablatureDetailUseCase+Test.swift in Sources */,
+				ADAB933E2A7295D1001C8ADC /* TablatureDetailRepositorySuccess+Mock.swift in Sources */,
 				ADAB930F2A71A56A001C8ADC /* GuiTabFinderTests.swift in Sources */,
 				ADAB93352A725479001C8ADC /* TablatureList+Mock.swift in Sources */,
+				ADAB933C2A72954C001C8ADC /* TablatureListRepositoryFailure+Mock.swift in Sources */,
 				ADAB93372A72548C001C8ADC /* TablatureDetail+Mock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

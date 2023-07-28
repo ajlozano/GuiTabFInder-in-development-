@@ -38,7 +38,6 @@ final class DefaultTablatureListRepository: TablatureListRepository {
             self.manageResponse(data: data, response: response, error: error) { result in
                 switch result {
                 case .success(let stringSearchResult):
-                    //guard let tablaturesList = self.manageFetchDataResult(with: stringSearchResult) else {
                     guard let tablaturesList = ScrappingManager.shared.getTablatureListFromFetchingData(with: stringSearchResult) else {
                         completion(.failure(AppError.manageFetchDataError(message: "Error formatting fetched data")))
                         return

@@ -8,29 +8,72 @@
 import XCTest
 @testable import GuiTabFinder
 
-final class TablatureListUseCase_Test: XCTestCase {
+final class TablatureListUseCaseTest: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    var successUseCase: TablatureListUseCase?
+    var failureUseCase: TablatureListUseCase?
+    
+    override func setUp() {
+        super.setUp()
+        successUseCase = DefaultTablatureListUseCase(repository: TablatureListRepositorySuccessMock())
+        failureUseCase = DefaultTablatureListUseCase(repository: TablatureListRepositoryFailureMock())
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    override func tearDown() {
+        successUseCase = nil
+        failureUseCase = nil
+        super.tearDown()
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func testTablatureListUseCase_Success() {
+        let expectation = expectation(description: "You must obtain a valid entity that contains a model info with valid values.")
+        
+        let parameters = TablatureListRepositoryParameters(page: "1", searchText: "Insomnium")
+        successUseCase?.execute(params: parameters) { result in
+            switch result {
+            case .success(let tablatureList):
+                
+                XCTAssertNotNil(tablatureList.didAllTablaturesFetched)
+                XCTAssertNotNil(tablatureList.page)
+                
+                // TablatureDetail model assertions
+                XCTAssertNotNil(tablatureList.tablatures)
+                XCTAssertEqual(tablatureList.tablatures?.count, 17)
+                
+                for tabs in tablatureList.tablatures! {
+                    XCTAssertNotNil(tabs.artist)
+                    XCTAssertNotNil(tabs.rating)
+                    XCTAssertNotNil(tabs.songName)
+                    XCTAssertNotNil(tabs.tabId)
+                    XCTAssertNotNil(tabs.tabUrl)
+                    XCTAssertNotNil(tabs.votes)
+                }
+                
+                expectation.fulfill()
+                
+            case .failure(_):
+                XCTFail("Success test must not fail when the usecase is executed")
+            }
         }
+        
+        wait(for: [expectation], timeout: 10)
     }
+    
+    func testTablatureListUseCase_Failure() {
+        let expectation = expectation(description: "You should get an error and it should not be nil")
 
+        let parameters = TablatureListRepositoryParameters(page: "1", searchText: "djfjsdjsja")
+        failureUseCase?.execute(params: parameters) { result in
+            switch result {
+            case .success(_):
+                XCTFail("Failure test must not succeed when the usecase is executed")
+            case .failure(let error):
+                XCTAssertNotNil(error)
+
+                expectation.fulfill()
+            }
+        }
+
+        wait(for: [expectation], timeout: 5)
+    }
 }

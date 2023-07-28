@@ -23,13 +23,9 @@ struct TunerConductorView: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [.black, .black, .gray]), startPoint: .top, endPoint: .bottom)
-            
-            // Matched Note
+            Color(.black)
             VStack{
                 HStack{
-                    //Text("Note Name")
-                    //    .foregroundColor(.white)
                     Text("\(viewModel.data.noteNameWithSharps)")
                         .foregroundColor(getNeedleColor())
                         .font(.system(size: 100, design: .rounded))
@@ -55,13 +51,24 @@ struct TunerConductorView: View {
                 .frame(width: 6, height: 180)
                 .cornerRadius(3)
                 .offset(x: 0, y: -80)
+                .foregroundStyle(
+                    LinearGradient(colors: [getNeedleColor(), .clear], startPoint: .center, endPoint: .bottom))
                 .foregroundColor(getNeedleColor())
                 .alignmentGuide(HorizontalAlignment.center) { dimensions in
                     dimensions[HorizontalAlignment.center]
                 }
                 .rotationEffect(.degrees(viewModel.needleRotation), anchor: .center)
                 .animation(.easeInOut(duration: 0.4), value: viewModel.needleRotation)
-            
+            //Matching note color background
+            Rectangle()
+                .frame(width: 300, height: 30)
+                .cornerRadius(1)
+                .offset(x: 0, y: -5)
+                .foregroundStyle(LinearGradient(colors: [getNeedleColor().opacity(0.5), .clear, .clear], startPoint: .bottom, endPoint: .top))
+                .foregroundColor(TunerColors.markers)
+                .alignmentGuide(HorizontalAlignment.center) { dimensions in
+                    dimensions[HorizontalAlignment.center]
+                }
             // Circle Object
             Circle()
                 .trim(from: 0, to: 0.5)
@@ -88,16 +95,29 @@ struct TunerConductorView: View {
                     dimensions[HorizontalAlignment.center]
                 }
             
-            // Frequency text
-            HStack{
+            // Previous note, frequency and next note texts
+            Group {
+                Text(viewModel.previousNote)
+                    .foregroundColor(.red).opacity(0.8)
+                    .font(.system(size: 30, design: .rounded))
+                    .offset(x: -150, y: 30)
                 Text("\(viewModel.data.pitch, specifier: "%0.1f")Hz")
-                    .foregroundColor(.white)
-            }.offset(x: 0, y: 30)
-
+                    .foregroundColor(.white).opacity(0.8)
+                    .font(.system(size: 20, design: .rounded))
+                    .offset(x: 0, y: 30)
+                Text(viewModel.nextNote)
+                    .foregroundColor(.red).opacity(0.8)
+                    .font(.system(size: 30, design: .rounded))
+                    .offset(x: 150, y: 30)
+            }
+            
             Image("GuitarHeadstock")
                 .resizable()
                 .scaledToFit()
                 .frame(maxHeight: 400)
+                .mask({
+                    LinearGradient(colors: [.white,.white.opacity(0)], startPoint: .top, endPoint: .bottom)
+                })
                 .offset(x: 0, y: 260)
         }
         .onAppear {

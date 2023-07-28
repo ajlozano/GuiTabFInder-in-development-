@@ -49,10 +49,6 @@ class ScrappingManager {
                             songNameComplete += songPartRaw == "" ? "" : " \(songPartRaw)"
                             songNameComplete += songVersionRaw == "1" ? "" : " (ver \(songVersionRaw))"
                             
-                            if (songNameComplete == "Decoherence") {
-                                //print(blockString)
-                                print(tabUrl+idBlockString)
-                            }
                             tablatures.append(TablatureDetail(artist: artistName, songName: songNameComplete , tabId: idBlockString, rating: String(rating), votes: votes, tabUrl: tabUrl+idBlockString, tab: ""))
                         }
                     }
